@@ -1,0 +1,50 @@
+- name: Initial Setup
+  hosts: kube_control_plane
+  connection: local
+  tasks:
+  - name: Ping nodes
+    ansible.builtin.ping:
+
+  - ansible.builtin.debug:
+      msg: Operativo
+
+  - name: Ejecutar el playbook de Kubespray para inicializar el cluster
+    ansible.builtin.command: ansible-playbook -i inventory/mycluster/inventory.ini -b cluster.yml
+    args:
+      chdir: /home/test/cloudlab-k8s/kubespray
+    register: kubespray_result
+
+  - name: Verificar si el cluster se inicializó correctamente
+    ansible.builtin.fail:
+      msg: El playbook de Kubespray falló. No se puede continuar con la instalación de aplicaciones.
+    when: kubespray_result.rc != 0
+
+  - name: Añadir repo prometheus-community
+    community.kubernetes.helm_repository:
+      name: prometheus-community
+      repo_url: https://prometheus-community.github.io/helm-charts
+
+  - name: Instalar kube-prometheus-stack
+    community.kubernetes.helm:
+      kubeconfig: /etc/kubernetes/admin.conf
+      name: kube-prometheus-stack
+      chart_ref: prometheus-community/kube-prometheus-stack
+      release_namespace: monitoring
+      create_namespace: true
+      values:
+        grafana:
+          adminUser: admin
+          adminPassword: admin123
+
+  - name: Añadir repo nvidia
+    community.kubernetes.helm_repository:
+      name: nvidia
+      repo_url: https://helm.ngc.nvidia.com/nvidia
+
+  - name: Instalar NVIDIA GPU Operator
+    community.kubernetes.helm:
+      kubeconfig: /etc/kubernetes/admin.conf
+      name: gpu-operator
+      chart_ref: nvidia/gpu-operator
+      release_namespace: gpu-operator
+      create_namespace: true
