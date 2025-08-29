@@ -1,45 +1,118 @@
 #!/bin/bash
 
-sudo apt update
+# ==============================================================================
+# Script para automatizar la instalación de un clúster de Kubernetes
+# con Kubespray, Prometheus y el operador de GPU de NVIDIA.
+#
+# Incluye comprobación de errores y mensajes de estado para cada paso.
+# ==============================================================================
 
-sudo apt install python3-venv
+# Detiene el script inmediatamente si un comando falla
+set -e
 
-cp ~/cloudlab-k8s/SetupConfig/inventory.ini ~/cloudlab-k8s/kubespray/inventory/mycluster/inventory.ini
+# --- Funciones de Utilidad y Colores ---
+# Para hacer los mensajes más visuales, definimos colores.
+readonly GREEN='\033[0;32m'
+readonly YELLOW='\033[1;33m'
+readonly RED='\033[0;31m'
+readonly NC='\033[0m' # Sin color
 
-cd ~/gpu-scheduling
+# Función para registrar mensajes de información
+log_info() {
+    echo -e "${YELLOW}[INFO] $1${NC}"
+}
 
-python3 SetupConfig/nodeIPs.py
+# Función para registrar mensajes de éxito
+log_success() {
+    echo -e "${GREEN}[SUCCESS] $1${NC}"
+}
 
-python3 -m venv venv
+# Función para registrar errores y salir
+log_error() {
+    echo -e "${RED}[ERROR] $1. Abortando misión.${NC}" >&2
+    exit 1
+}
 
-source venv/bin/activate
+# Función para ejecutar un comando y comprobar su resultado
+run_command() {
+    local cmd="$1"
+    local msg="$2"
 
-cd kubespray
+    log_info "$msg"
+    # Ejecutamos el comando, redirigiendo la salida a /dev/null si no queremos verla
+    # o dejándola visible para depuración. Para este script, es útil ver la salida.
+    if ! eval "$cmd"; then
+        log_error "Falló la ejecución de: '$cmd'"
+    fi
+    log_success "$msg - ¡Completado!"
+    echo # Añadir una línea en blanco para mayor claridad
+}
 
-pip3 install -U -r requirements.txt
 
-pip3 install kubernetes openshift pyyaml helm
+# --- INICIO DEL SCRIPT ---
 
-ansible-galaxy collection install community.kubernetes
+log_info "Iniciando la configuración del clúster de Kubernetes..."
 
-cd ~/gpu-scheduling/kubespray
+# 1. Actualizar paquetes del sistema
+run_command "sudo apt update" "Actualizando la lista de paquetes del sistema"
 
-ansible -i inventory/mycluster/inventory.ini all -m ping
+# 2. Instalar el paquete para entornos virtuales de Python
+run_command "sudo apt install -y python3-venv" "Instalando python3-venv"
 
-ansible-playbook -i inventory/mycluster/inventory.ini -b cluster.yml
+# 3. Copiar el fichero de inventario
+# Comprobamos primero que los directorios y el fichero de origen existen
+log_info "Preparando la copia del fichero de inventario..."
+if [ ! -d "$HOME/cloudlab-k8s/kubespray/inventory/mycluster" ]; then
+    log_error "El directorio de destino para el inventario no existe: $HOME/cloudlab-k8s/kubespray/inventory/mycluster"
+fi
+if [ ! -f "$HOME/cloudlab-k8s/SetupConfig/inventory.ini" ]; then
+    log_error "El fichero de inventario de origen no existe: $HOME/cloudlab-k8s/SetupConfig/inventory.ini"
+fi
+run_command "cp ~/cloudlab-k8s/SetupConfig/inventory.ini ~/cloudlab-k8s/kubespray/inventory/mycluster/inventory.ini" "Copiando el fichero de inventario"
 
-mkdir -p $HOME/.kube
+# 4. Navegar al directorio principal y ejecutar script de configuración de IPs
+log_info "Cambiando al directorio '~/cloudlab-k8s'"
+cd ~/cloudlab-k8s || log_error "No se pudo cambiar al directorio '~/cloudlab-k8s'"
+run_command "python3 SetupConfig/nodeIPs.py" "Ejecutando el script para configurar las IPs de los nodos"
 
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+# 5. Crear y activar el entorno virtual de Python
+run_command "python3 -m venv ~/cloudlab-k8s/venv" "Creando el entorno virtual de Python"
+log_info "Activando el entorno virtual..."
+# 'source' es un comando de shell, no se puede usar directamente en 'run_command'
+if [ -f "venv/bin/activate" ]; then
+    source venv/bin/activate
+    log_success "Entorno virtual activado."
+else
+    log_error "No se encontró el script de activación del entorno virtual."
+fi
 
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# 6. Instalar dependencias de Kubespray
+log_info "Cambiando al directorio 'kubespray'"
+cd ~/cloudlab-k8s/kubespray || log_error "No se pudo cambiar al directorio 'kubespray'"
+run_command "pip3 install -U -r requirements.txt" "Instalando dependencias de Python desde requirements.txt"
+run_command "pip3 install kubernetes openshift pyyaml helm" "Instalando paquetes adicionales de Python"
+run_command "ansible-galaxy collection install community.kubernetes" "Instalando la colección de Ansible 'community.kubernetes'"
 
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+# 7. Verificar la conexión de Ansible y desplegar el clúster
+run_command "ansible -i inventory/mycluster/inventory.ini all -m ping" "Verificando la conexión con todos los nodos vía Ansible"
+run_command "ansible-playbook -i inventory/mycluster/inventory.ini -b cluster.yml" "Desplegando el clúster de Kubernetes (esto puede tardar bastante)"
 
-helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
+# 8. Configurar kubectl para el usuario actual
+log_info "Configurando kubectl..."
+mkdir -p "$HOME/.kube"
+run_command "sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config" "Copiando la configuración de admin de Kubernetes"
+run_command "sudo chown $(id -u):$(id -g) $HOME/.kube/config" "Ajustando los permisos del fichero de configuración"
 
-helm repo update
+# 9. Añadir repositorios de Helm y desplegar Prometheus y el operador de GPU
+log_info "Configurando Helm..."
+run_command "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts" "Añadiendo el repositorio de Helm de Prometheus Community"
+run_command "helm repo add nvidia https://helm.ngc.nvidia.com/nvidia" "Añadiendo el repositorio de Helm de NVIDIA"
+run_command "helm repo update" "Actualizando los repositorios de Helm"
 
-helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+log_info "Desplegando componentes con Helm..."
+run_command "helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace" "Instalando la stack de Prometheus"
+run_command "helm install gpu-operator nvidia/gpu-operator --namespace gpu-operator --create-namespace" "Instalando el operador de GPU de NVIDIA"
 
-helm install gpu-operator nvidia/gpu-operator --namespace gpu-operator --create-namespace
+log_success "¡Script finalizado! El clúster de Kubernetes y los componentes adicionales deberían estar listos."
+echo "Puedes verificar el estado de los nodos con el comando: kubectl get nodes"
+echo "Y el estado de los pods en todos los namespaces con: kubectl get pods --all-namespaces"
