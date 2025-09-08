@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: gpu-metrics-servicemonitor
+  namespace: monitoring
+  labels:
+    release: prometheus  # <-- ¡Importante! Usa el label de tu release de Prometheus
+spec:
+  namespaceSelector:
+    matchNames:
+    - gpu-operator
+  selector:
+    matchLabels:
+      app: nvidia-dcgm-exporter # <-- Esto le dice que busque el servicio del exporter
+  endpoints:
+  - port: gpu-metrics
+    interval: 25s
+    path: /metrics
