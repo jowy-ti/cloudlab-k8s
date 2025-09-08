@@ -1,0 +1,88 @@
+#!/bin/bash
+
+#Raw
+#=======================================================================================================================================
+# source $VENV_DIR/bin/activate
+
+# helm list -A --no-headers | while read -r name namespace rest; do
+#   helm uninstall "$name" -n "$namespace"
+# done
+
+# cd $KUBESPRAY_DIR
+
+# ansible-playbook -i $INVENTORY_FILE -b $RESET_PLAYBOOK
+
+# rm -rf $VENV_DIR
+#=======================================================================================================================================
+
+#!/bin/bash
+#
+# Script para resetear un clúster de Kubernetes desplegado con Kubespray
+# y limpiar el entorno de trabajo local.
+#
+# Se detiene inmediatamente si cualquier comando falla.
+set -e
+
+# --- Variables ---
+# Centraliza las rutas para facilitar futuras modificaciones.
+PROJECT_DIR="$HOME/cloudlab-k8s"
+VENV_DIR="$PROJECT_DIR/venv"
+KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
+# Rutas relativas que se usarán DESPUÉS de entrar en el directorio de Kubespray
+INVENTORY_FILE="inventory/mycluster/inventory.ini"
+RESET_PLAYBOOK="reset.yml"
+
+# --- Funciones para mejorar la legibilidad ---
+# Imprime un mensaje informativo.
+info() {
+    echo -e "\n[INFO] $1"
+}
+
+# --- Confirmación del Usuario ---
+# Añade una capa de seguridad para evitar ejecuciones accidentales.
+info "Este script reseteará el clúster de Kubernetes y eliminará el entorno virtual local."
+read -p "¿Estás seguro de que quieres continuar? (s/N): " confirmation
+if [[ "$confirmation" != "s" && "$confirmation" != "S" ]]; then
+    echo "Operación cancelada."
+    exit 0
+fi
+
+# --- Lógica Principal ---
+
+# Salimos del entorno virtual
+if [[ -n "$VIRTUAL_ENV" ]]; then
+    echo "Deactivating virtual environment..."
+    deactivate
+else
+    echo "Not in a virtual environment. Nothing to deactivate."
+fi
+
+# Desinstalar componentes de helm
+# info "Desinstalando componentes de helm..."
+# helm list -A --no-headers | while read -r name namespace rest; do
+#     helm uninstall "$name" -n "$namespace"
+# done
+
+# Activar el entorno virtual
+info "Activando el entorno virtual en $VENV_DIR..."
+if [ -f "$VENV_DIR/bin/activate" ]; then
+    source "$VENV_DIR/bin/activate"
+else
+    echo "[ERROR] No se encontró el entorno virtual. Abortando." >&2
+    exit 1
+fi
+
+# Cambiar al directorio de Kubespray (CAMBIO CLAVE)
+info "Cambiando al directorio de trabajo de Kubespray en $KUBESPRAY_DIR..."
+cd "$KUBESPRAY_DIR"
+
+# Ejecutar el playbook de reseteo de Ansible
+info "Ejecutando el playbook de reseteo de Kubespray... Esto puede tardar varios minutos."
+ansible-playbook -i "$INVENTORY_FILE" -b "$RESET_PLAYBOOK"
+
+info "¡Proceso de reseteo completado con éxito!"
+
+# Eliminar el entorno virtual
+info "Eliminando el entorno virtual..."
+# Se usa la ruta absoluta en la variable para evitar problemas
+rm -rf "$VENV_DIR"

@@ -1,0 +1,30 @@
+prometheus:
+  prometheusSpec:
+    scrapeTimeout: "5s"
+    scrapeInterval: "10s"
+
+    resources:
+      requests:
+        cpu: "500m"  #1
+        memory: "500Mi" #2Gi
+      limits:
+        cpu: "1"  #2
+        memory: "1Gi" #4Gi
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: "gluster"
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: "4Gi" #64Gi
+
+grafana:
+  operator:
+    defaultDashboardsInterval: "10s"
+    adminUser: "admin"
+    adminPassword: "admin"
+
+alertmanager:
+  enabled: false
