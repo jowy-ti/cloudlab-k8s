@@ -1,7 +1,7 @@
 prometheus:
   prometheusSpec:
     scrapeTimeout: 10s
-    scrapeInterval: 25s
+    scrapeInterval: 20s
 
     # resources:
     #   requests:

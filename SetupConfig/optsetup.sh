@@ -103,11 +103,7 @@ run_command() {
 if [ $# -eq 0 ]; then
     log_error "No se ha proporcionado ningún parámetro."
     exit 1
-
-elif [ $1 != "nodeIPs.py" -a $1 != "nodeIPs_test.py" ]; then
-    log_error "Introducir nodeIPs.py o nodeIPs_test.py"
-    exit 1
-fi
+if []
 
 log_info "Iniciando la configuración del clúster de Kubernetes..."
 

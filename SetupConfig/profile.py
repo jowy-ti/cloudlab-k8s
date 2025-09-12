@@ -70,14 +70,14 @@ pc.defineParameter("sameSwitch",  "No Interswitch Links", portal.ParameterType.B
 params = pc.bindParameters()
 
 OSimage = {
-    "CPU" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0:Image_config.node1"
-    "A30" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0:Image_config.node2"
-    "P100" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0:Image_config.node3"
+    "CPU" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0//Image_config.node1",
+    "A30" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0//Image_config.node2",
+    "P100" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0//Image_config.node3"
 }
 
 nodetype = {
-    "CPU" : "c220g5"
-    "A30" : "d7525"
+    "CPU" : "c220g5",
+    "A30" : "d7525",
     "P100" : "c240g5"
 }
 

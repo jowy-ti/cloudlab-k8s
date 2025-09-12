@@ -1,0 +1,6 @@
+- Las maquinas de test tiene que tener el usuario "test", la de cloudlab "JoelGJ"
+- Hay que pasar como parámetro la cantidad de nodos como workers
+- Los nodos en cloudlab tienen que seguir el patrón: (node1, node2, node3...), 
+en test deben seguir uno aprecido como: (192.168.122.11, 192.168.122.12, 192.168.122.13)
+- El script para añadir los nodos en el inventory.ini debe solo añadir los workers
+- IPs para testear: 192.168.122.11 - 192.168.122.256
