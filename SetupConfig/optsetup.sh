@@ -24,11 +24,11 @@
 
 # ansible-playbook -i $INVENTORY_FILE -b cluster.yml
 
-# mkdir -p $HOME/.kube
+# mkdir -p $PROJECT_DIR/.kube
 
-# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+# sudo cp -i /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config
 
-# sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# sudo chown $(id -u):$(id -g) $PROJECT_DIR/.kube/config
 
 # helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
@@ -59,11 +59,15 @@ readonly RED='\033[0;31m'
 readonly NC='\033[0m' # Sin color
 
 # Rutas
-PROJECT_DIR="$HOME/cloudlab-k8s"
+PROJECT_DIR="/opt/cloudlab-k8s"
 SETUP_DIR="$PROJECT_DIR/SetupConfig"
 VENV_DIR="$PROJECT_DIR/venv"
 KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
 INVENTORY_FILE="inventory/mycluster/inventory.ini"
+
+# User 
+MY_USER=$(id -un)
+MY_GROUP=$(id -gn)
 
 # Función para registrar mensajes de información
 log_info() {
@@ -98,14 +102,10 @@ run_command() {
 
 
 # --- INICIO DEL SCRIPT ---
-
-# Comprobación de parámetro pasado
-if [ $# -eq 0 ]; then
-    log_error "No se ha proporcionado ningún parámetro."
-    exit 1
-if []
-
 log_info "Iniciando la configuración del clúster de Kubernetes..."
+
+# 0. Ajustar permisos del repo
+run_command "sudo chown -R $(id -un):$(id -gn) $PROJECT_DIR" "Cambiando permisos del repositorio"
 
 # 1. Actualizar paquetes del sistema
 run_command "sudo apt update" "Actualizando la lista de paquetes del sistema"
@@ -116,11 +116,11 @@ run_command "sudo apt install -y python3-venv" "Instalando python3-venv"
 # 3. Copiar el fichero de inventario
 # Comprobamos primero que los directorios y el fichero de origen existen
 log_info "Preparando la copia del fichero de inventario..."
-if [ ! -d "$HOME/cloudlab-k8s/kubespray/inventory/mycluster" ]; then
-    log_error "El directorio de destino para el inventario no existe: $HOME/cloudlab-k8s/kubespray/inventory/mycluster"
+if [ ! -d "$KUBESPRAY_DIR/inventory/mycluster" ]; then
+    log_error "El directorio de destino para el inventario no existe: $KUBESPRAY_DIR/inventory/mycluster"
 fi
-if [ ! -f "$HOME/cloudlab-k8s/SetupConfig/inventory.ini" ]; then
-    log_error "El fichero de inventario de origen no existe: $HOME/cloudlab-k8s/SetupConfig/inventory.ini"
+if [ ! -f "$SETUP_DIR/inventory.ini" ]; then
+    log_error "El fichero de inventario de origen no existe: $SETUP_DIR/inventory.ini"
 fi
 run_command "cp $SETUP_DIR/inventory.ini $KUBESPRAY_DIR/$INVENTORY_FILE" "Copiando el fichero de inventario"
 
@@ -150,9 +150,11 @@ run_command "ansible-playbook -i $INVENTORY_FILE -b cluster.yml" "Desplegando el
 
 # 8. Configurar kubectl para el usuario actual
 log_info "Configurando kubectl..."
-mkdir -p "$HOME/.kube"
-run_command "sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config" "Copiando la configuración de admin de Kubernetes"
-run_command "sudo chown $(id -u):$(id -g) $HOME/.kube/config" "Ajustando los permisos del fichero de configuración"
+mkdir -p "$PROJECT_DIR/.kube"
+run_command "sudo cp /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config" "Copiando la configuración de admin de Kubernetes"
+run_command "sudo chown $($MY_USER):$($MY_GROUP) $PROJECT_DIR/.kube/config" "Ajustando los permisos del fichero de configuración"
+run_command "echo 'export KUBECONFIG=$PROJECT_DIR/.kube/config' >> ~/.bashrc" "Añadiendo la variable de entorno al perfil del shell"
+run_command "source ~/.bashrc" "Cargando la variable en la sesión actual"
 
 # 9. Añadir repositorios de Helm y desplegar Prometheus y el operador de GPU
 log_info "Configurando Helm..."

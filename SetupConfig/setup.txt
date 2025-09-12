@@ -1,0 +1,9 @@
+ssh -A JoelGJ@c220g5-120130.wisc.cloudlab.us
+
+tmux new -s kubespray
+
+sudo git clone https://repo.fib.upc.es/joel.gonzalez.jimenez/cloudlab-k8s.git
+
+
+Me  falta ajustar la ejecución de NodeIPs.py en optsetup.sh
+
