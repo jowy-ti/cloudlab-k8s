@@ -25,12 +25,11 @@ set -e
 
 # --- Variables ---
 # Centraliza las rutas para facilitar futuras modificaciones.
-PROJECT_DIR="$HOME/cloudlab-k8s"
+PROJECT_DIR="/opt/cloudlab-k8s"
 VENV_DIR="$PROJECT_DIR/venv"
 KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
 # Rutas relativas que se usarán DESPUÉS de entrar en el directorio de Kubespray
 INVENTORY_FILE="inventory/mycluster/inventory.ini"
-RESET_PLAYBOOK="reset.yml"
 
 # --- Funciones para mejorar la legibilidad ---
 # Imprime un mensaje informativo.
@@ -78,7 +77,7 @@ cd "$KUBESPRAY_DIR"
 
 # Ejecutar el playbook de reseteo de Ansible
 info "Ejecutando el playbook de reseteo de Kubespray... Esto puede tardar varios minutos."
-ansible-playbook -i "$INVENTORY_FILE" -b "$RESET_PLAYBOOK"
+ansible-playbook -i "$INVENTORY_FILE" -b "reset.yml"
 
 info "¡Proceso de reseteo completado con éxito!"
 

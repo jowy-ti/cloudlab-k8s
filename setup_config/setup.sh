@@ -2,7 +2,7 @@
 
 # Contenido del Script
 #===============================================================================================================
-# sudo chown -R $(id -un):$(id -gn) $PROJECT_DIR
+# sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR
 
 # sudo apt update
 
@@ -30,7 +30,7 @@
 
 # sudo cp -i /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config
 
-# sudo chown $($MY_USER):$($MY_GROUP) $PROJECT_DIR/.kube/config
+# sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR/.kube
 
 # echo 'export KUBECONFIG=$PROJECT_DIR/.kube/config' >> ~/.bashrc
 
@@ -111,7 +111,7 @@ run_command() {
 log_info "Iniciando la configuración del clúster de Kubernetes..."
 
 # 0. Ajustar permisos del repo
-run_command "sudo chown -R $(id -un):$(id -gn) $PROJECT_DIR" "Cambiando permisos del repositorio"
+run_command "sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR" "Cambiando permisos del repositorio"
 
 # 1. Actualizar paquetes del sistema
 run_command "sudo apt update" "Actualizando la lista de paquetes del sistema"
@@ -158,7 +158,7 @@ run_command "ansible-playbook -i $INVENTORY_FILE -b cluster.yml" "Desplegando el
 log_info "Configurando kubectl..."
 mkdir -p "$PROJECT_DIR/.kube"
 run_command "sudo cp /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config" "Copiando la configuración de admin de Kubernetes"
-run_command "sudo chown $($MY_USER):$($MY_GROUP) $PROJECT_DIR/.kube/config" "Ajustando los permisos del fichero de configuración"
+run_command "sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR/.kube" "Ajustando los permisos del fichero de configuración"
 run_command "echo 'export KUBECONFIG=$PROJECT_DIR/.kube/config' >> ~/.bashrc" "Añadiendo la variable de entorno al perfil del shell"
 run_command "source ~/.bashrc" "Cargando la variable en la sesión actual"
 

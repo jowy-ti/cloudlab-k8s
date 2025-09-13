@@ -44,7 +44,7 @@ pc.defineParameter("P100Nodes", "Number of Nodes P100", portal.ParameterType.INT
 #                    "pick your favorite one.")
 
 # Optional link speed, normally the resource mapper will choose for you based on node availability
-pc.defineParameter("linkSpeed", "Link Speed",portal.ParameterType.INTEGER, 0,
+pc.defineParameter("linkSpeed", "Link Speed",portal.ParameterType.INTEGER, 1000000,
                    [(0,"Any"),(100000,"100Mb/s"),(1000000,"1Gb/s"),(10000000,"10Gb/s"),(25000000,"25Gb/s"),(100000000,"100Gb/s")],
                    advanced=True,
                    longDescription="A specific link speed to use for your lan. Normally the resource " +
