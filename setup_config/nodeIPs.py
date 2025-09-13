@@ -1,5 +1,7 @@
 import sys
 
+# Inputs: env (test/JoelGJ) | node_type (master/worker) | amount_workers
+
 env = sys.argv[1]
 node_type = sys.argv[2]
 inventory_file = "/opt/cloudlab-k8s/kubespray/inventory/mycluster/inventory.ini"

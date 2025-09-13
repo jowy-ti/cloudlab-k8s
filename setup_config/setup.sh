@@ -60,7 +60,7 @@ readonly NC='\033[0m' # Sin color
 
 # Rutas
 PROJECT_DIR="/opt/cloudlab-k8s"
-SETUP_DIR="$PROJECT_DIR/SetupConfig"
+SETUP_DIR="$PROJECT_DIR/setup_config"
 VENV_DIR="$PROJECT_DIR/venv"
 KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
 INVENTORY_FILE="inventory/mycluster/inventory.ini"
@@ -125,7 +125,7 @@ fi
 run_command "cp $SETUP_DIR/inventory.ini $KUBESPRAY_DIR/$INVENTORY_FILE" "Copiando el fichero de inventario"
 
 # 4. Ejecutar script de configuración de IPs
-run_command "python3 $SETUP_DIR/$1" "Ejecutando el script para configurar las IPs de los nodos"
+run_command "python3 $SETUP_DIR/nodeIPs.py $MY_USER master" "Ejecutando el script para configurar las IPs de los nodos"
 
 # 5. Crear y activar el entorno virtual de Python
 run_command "python3 -m venv $VENV_DIR" "Creando el entorno virtual de Python"
