@@ -6,6 +6,17 @@ sudo git clone https://repo.fib.upc.es/joel.gonzalez.jimenez/cloudlab-k8s.git
 
 cd /opt/cloudlab-k8s/setup_config
 
-source ./setup.sh
+source ./setup.sh (en caso de no usar source, hacer al acabar el script source ~/.bashrc)
 
-./upgrade.sh -n num_workers
+./scale.sh -n num_workers
+
+=============tmux guide=============
+
+tmux new -s kubespray
+
+ctrl + b + d (deattach)
+
+ctrl + d (destroy)
+
+Ctrl+b + [ (modo vista para poder scrollear)
+para salir clicar "q"

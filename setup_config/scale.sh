@@ -9,7 +9,7 @@
 
 # ansible -i $INVENTORY_FILE all -m ping
 
-# ansible-playbook -i $INVENTORY_FILE -b upgrade-cluster.yml
+# ansible-playbook -i $INVENTORY_FILE -b scale.yml
 
 # helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml
 
@@ -18,7 +18,7 @@
 # ===============================================================================================================
 
 # ==============================================================================
-# Script para hacer el upgrade del cluster de Kubernetes
+# Script para escalar el cluster de Kubernetes
 # con Kubespray, Prometheus y el operador de GPU de NVIDIA.
 #
 # Incluye comprobación de errores y mensajes de estado para cada paso.
@@ -78,7 +78,7 @@ run_command() {
 
 # Comprobación de parámetros pasados
 if [ "$#" -ne 2 ] || [ "$1" != "-n" ]; then
-    log_error "Debes pasar la cantidad de workers que va a tener el cluster de la siguiente forma:\n./upgrade.sh -n num_workers"
+    log_error "Debes pasar la cantidad de workers que va a tener el cluster de la siguiente forma:\n./scale.sh -n num_workers"
     exit 1
 
 elif [[ ! $2 =~ ^[0-9]+$ ]]; then
@@ -100,15 +100,15 @@ else
     log_error "No se encontró el script de activación del entorno virtual."
 fi
 
-# Verificar la conexión de Ansible y upgrade del cluster
+# Verificar la conexión de Ansible y añadimos nodos al cluster
 log_info "Cambiando al directorio 'kubespray'"
 cd $KUBESPRAY_DIR || log_error "No se pudo cambiar al directorio 'kubespray'"
 run_command "ansible -i $INVENTORY_FILE all -m ping" "Verificando la conexión con todos los nodos vía Ansible"
-run_command "ansible-playbook -i $INVENTORY_FILE -b upgrade-cluster.yml" "Upgradeando el clúster de Kubernetes (esto puede tardar bastante)"
+run_command "ansible-playbook -i $INVENTORY_FILE -b scale.yml" "Escalando el clúster de Kubernetes (esto puede tardar bastante)"
 
 # Instalando y aplicando los charts de GPU operator y prometheus-stack
 log_info "Desplegando componentes con Helm..."
 run_command "helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml" "Instalando la stack de Prometheus"
 run_command "helm install gpu-operator nvidia/gpu-operator" "Instalando el operador de GPU de NVIDIA"
 
-log_success "El upgrade del cluster ha sido un éxito"
+log_success "Se jan añadido los nodos worker al cluster correctamente"
