@@ -2,6 +2,8 @@
 
 # Contenido del Script
 #===============================================================================================================
+# sudo chown -R $(id -un):$(id -gn) $PROJECT_DIR
+
 # sudo apt update
 
 # sudo apt install python3-venv
@@ -28,7 +30,11 @@
 
 # sudo cp -i /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config
 
-# sudo chown $(id -u):$(id -g) $PROJECT_DIR/.kube/config
+# sudo chown $($MY_USER):$($MY_GROUP) $PROJECT_DIR/.kube/config
+
+# echo 'export KUBECONFIG=$PROJECT_DIR/.kube/config' >> ~/.bashrc
+
+# source ~/.bashrc
 
 # helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
