@@ -85,3 +85,6 @@ info "¡Proceso de reseteo completado con éxito!"
 info "Eliminando el entorno virtual..."
 # Se usa la ruta absoluta en la variable para evitar problemas
 rm -rf "$VENV_DIR"
+
+# Borrar KUBECONFIG de ~/.bashrc
+sed -i '/KUBECONFIG/d' ~/.bashrc
