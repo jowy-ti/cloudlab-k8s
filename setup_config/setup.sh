@@ -168,10 +168,6 @@ run_command "helm repo add prometheus-community https://prometheus-community.git
 run_command "helm repo add nvidia https://helm.ngc.nvidia.com/nvidia" "Añadiendo el repositorio de Helm de NVIDIA"
 run_command "helm repo update" "Actualizando los repositorios de Helm"
 
-log_info "Desplegando componentes con Helm..."
-run_command "helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml" "Instalando la stack de Prometheus"
-run_command "helm install gpu-operator nvidia/gpu-operator" "Instalando el operador de GPU de NVIDIA"
-
 log_success "¡Script finalizado! El clúster de Kubernetes y los componentes adicionales deberían estar listos."
 echo "Puedes verificar el estado de los nodos con el comando: kubectl get nodes"
 echo "Y el estado de los pods en todos los namespaces con: kubectl get pods --all-namespaces"

@@ -86,5 +86,8 @@ info "Eliminando el entorno virtual..."
 # Se usa la ruta absoluta en la variable para evitar problemas
 rm -rf "$VENV_DIR"
 
+# Desisntalar python3-venv
+sudo apt purge -y python3-venv
+
 # Borrar KUBECONFIG de ~/.bashrc
 sed -i '/KUBECONFIG/d' ~/.bashrc
