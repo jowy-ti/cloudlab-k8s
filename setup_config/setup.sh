@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Contenido del Script
-#===============================================================================================================
+# ===============================================================================================================
 # sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR
 
 # sudo apt update
@@ -45,7 +45,7 @@
 # helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml
 
 # helm install gpu-operator nvidia/gpu-operator
-#===============================================================================================================
+# ===============================================================================================================
 
 # ==============================================================================
 # Script para automatizar la instalación de un clúster de Kubernetes
@@ -59,9 +59,9 @@ set -e
 
 # --- Funciones de Utilidad y Colores ---
 # Para hacer los mensajes más visuales, definimos colores.
-readonly GREEN='\033[0;32m'
+readonly GREEN='\033[1;32m'
 readonly YELLOW='\033[1;33m'
-readonly RED='\033[0;31m'
+readonly RED='\033[1;31m'
 readonly NC='\033[0m' # Sin color
 
 # Rutas
@@ -160,9 +160,9 @@ mkdir -p "$PROJECT_DIR/.kube"
 run_command "sudo cp /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config" "Copiando la configuración de admin de Kubernetes"
 run_command "sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR/.kube" "Ajustando los permisos del fichero de configuración"
 run_command "echo 'export KUBECONFIG=$PROJECT_DIR/.kube/config' >> ~/.bashrc" "Añadiendo la variable de entorno al perfil del shell"
-run_command "source ~/.bashrc" "Cargando la variable en la sesión actual"
+source ~/.bashrc
 
-# 9. Añadir repositorios de Helm y desplegar Prometheus y el operador de GPU
+# 9. Añadir repositorios de Helm
 log_info "Configurando Helm..."
 run_command "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts" "Añadiendo el repositorio de Helm de Prometheus Community"
 run_command "helm repo add nvidia https://helm.ngc.nvidia.com/nvidia" "Añadiendo el repositorio de Helm de NVIDIA"

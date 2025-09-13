@@ -7,3 +7,5 @@ sudo git clone https://repo.fib.upc.es/joel.gonzalez.jimenez/cloudlab-k8s.git
 cd /opt/cloudlab-k8s/setup_config
 
 source ./setup.sh
+
+./upgrade.sh -n num_workers
