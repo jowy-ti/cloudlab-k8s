@@ -22,6 +22,4 @@ Ctrl+b + [ (modo vista para poder scrollear)
 para salir clicar "q"
 
 
-
-
-sudo ip link set dev enp1s0 mtu 1450
+ansible-playbook -i inventory/mycluster/inventory.ini reset.yml -b -v --limit node2,node3

@@ -166,7 +166,6 @@ source ~/.bashrc
 log_info "Configurando Helm..."
 run_command "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts" "Añadiendo el repositorio de Helm de Prometheus Community"
 run_command "helm repo add nvidia https://helm.ngc.nvidia.com/nvidia" "Añadiendo el repositorio de Helm de NVIDIA"
-run_command "helm repo update" "Actualizando los repositorios de Helm"
 
 log_success "¡Script finalizado! El clúster de Kubernetes y los componentes adicionales deberían estar listos."
 echo "Puedes verificar el estado de los nodos con el comando: kubectl get nodes"
