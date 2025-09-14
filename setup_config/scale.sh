@@ -96,8 +96,6 @@ log_info "Activando entorno virtual"
 if [ -f "$VENV_DIR/bin/activate" ] && [[ -z "$VIRTUAL_ENV" ]]; then
     source $VENV_DIR/bin/activate
     log_success "Entorno virtual activado."
-else
-    log_error "No se encontró el script de activación del entorno virtual."
 fi
 
 # Verificar la conexión de Ansible y añadimos nodos al cluster
@@ -111,4 +109,4 @@ log_info "Desplegando componentes con Helm..."
 run_command "helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml" "Instalando la stack de Prometheus"
 run_command "helm install gpu-operator nvidia/gpu-operator" "Instalando el operador de GPU de NVIDIA"
 
-log_success "Se jan añadido los nodos worker al cluster correctamente"
+log_success "Se han añadido los nodos worker al cluster correctamente"

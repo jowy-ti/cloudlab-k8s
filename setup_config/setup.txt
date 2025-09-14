@@ -20,3 +20,8 @@ ctrl + d (destroy)
 
 Ctrl+b + [ (modo vista para poder scrollear)
 para salir clicar "q"
+
+
+
+
+sudo ip link set dev enp1s0 mtu 1450
