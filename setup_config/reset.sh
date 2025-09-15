@@ -57,10 +57,13 @@ else
 fi
 
 # Desinstalar componentes de helm
-# info "Desinstalando componentes de helm..."
-# helm list -A --no-headers | while read -r name namespace rest; do
-#     helm uninstall "$name" -n "$namespace"
-# done
+info "Desinstalando componentes de helm..."
+
+helm list --no-headers | while read -r name rest; do
+    if [ $name != " " ]; then
+        helm uninstall $name
+    fi
+done
 
 # Activar el entorno virtual
 info "Activando el entorno virtual en $VENV_DIR..."
