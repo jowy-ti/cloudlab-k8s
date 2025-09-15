@@ -27,19 +27,9 @@
 # Detiene el script inmediatamente si un comando falla
 set -e
 
-# Comprobación de parámetros pasados
-if [ "$#" -ne 2 ] || [ "$1" != "-n" ]; then
-    log_error "Debes pasar la cantidad de workers que va a tener el cluster de la siguiente forma:\n./scale.sh -n num_workers"
-    exit 1
-
-elif [[ ! $2 =~ ^[0-9]+$ ]]; then
-    log_error "La variable \$2 NO es un número."
-    exit 1
-fi
-
 # Ejecutar script de configuración de IPs
 run_command "sed -i '/\[kube_node\]/q' $KUBESPRAY_DIR/$INVENTORY_FILE" "Eliminando workers actuales en inventory.ini"
-run_command "python3 $SETUP_DIR/nodeIPs.py $MY_USER worker $2" "Ejecutando el script para configurar las IPs de los nodos"
+run_command "python3 $SETUP_DIR/nodeIPs.py $MY_USER worker $NUM_WORKERS" "Ejecutando el script para configurar las IPs de los nodos"
 log_success "Nodos añadidos en el inventory.ini de kubespray"
 
 # Activar entorno virtual

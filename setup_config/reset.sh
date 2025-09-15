@@ -4,7 +4,7 @@
 #=======================================================================================================================================
 # source $VENV_DIR/bin/activate
 
-# helm list -A --no-headers | while read -r name namespace rest; do
+# helm list --no-headers | while read -r name namespace rest; do
 #   helm uninstall "$name" -n "$namespace"
 # done
 
@@ -13,6 +13,8 @@
 # ansible-playbook -i $INVENTORY_FILE -b $RESET_PLAYBOOK
 
 # rm -rf $VENV_DIR
+
+# sudo apt purge -y python3-venv
 #=======================================================================================================================================
 
 # Script para resetear un clúster de Kubernetes desplegado con Kubespray
@@ -83,4 +85,4 @@ rm -rf "$VENV_DIR"
 sudo apt purge -y python3-venv
 
 # Borrar KUBECONFIG de ~/.bashrc
-sed -i '/KUBECONFIG/d' ~/.bashrc
+#sed -i '/KUBECONFIG/d' ~/.bashrc

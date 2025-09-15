@@ -106,11 +106,8 @@ run_command "ansible-playbook -i $INVENTORY_FILE -b cluster.yml" "Desplegando el
 
 # 8. Configurar kubectl para el usuario actual
 log_info "Configurando kubectl..."
-mkdir -p "$PROJECT_DIR/.kube"
-run_command "sudo cp /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config" "Copiando la configuración de admin de Kubernetes"
-run_command "sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR/.kube" "Ajustando los permisos del fichero de configuración"
-run_command "echo 'export KUBECONFIG=$PROJECT_DIR/.kube/config' >> ~/.bashrc" "Añadiendo la variable de entorno al perfil del shell"
-source ~/.bashrc
+run_command "sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config" "Copiando la configuración de admin de Kubernetes"
+run_command "sudo chown -R $MY_USER:$MY_GROUP $HOME/.kube" "Ajustando los permisos del fichero de configuración"
 
 # 9. Añadir repositorios de Helm
 log_info "Configurando Helm..."

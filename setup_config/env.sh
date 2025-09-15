@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # --- Funciones de Utilidad y Colores ---
 # Para hacer los mensajes más visuales, definimos colores.
 readonly GREEN='\033[1;32m'
@@ -6,15 +8,15 @@ readonly RED='\033[1;31m'
 readonly NC='\033[0m' # Sin color
 
 # Rutas
-PROJECT_DIR="/local/cloudlab-k8s"
-SETUP_DIR="$PROJECT_DIR/setup_config"
-VENV_DIR="$PROJECT_DIR/venv"
-KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
-INVENTORY_FILE="inventory/mycluster/inventory.ini"
+export readonly PROJECT_DIR="/local/cloudlab-k8s"
+export readonly SETUP_DIR="$PROJECT_DIR/setup_config"
+export readonly VENV_DIR="$PROJECT_DIR/venv"
+export readonly KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
+export readonly INVENTORY_FILE="inventory/mycluster/inventory.ini"
 
-# User 
-MY_USER=$(id -un)
-MY_GROUP=$(id -gn)
+# Usuario y Grupo
+export readonly MY_USER=$(id -un)
+export readonly MY_GROUP=$(id -gn)
 
 # Función para registrar mensajes de información
 log_info() {
@@ -38,11 +40,15 @@ run_command() {
     local msg="$2"
 
     log_info "$msg"
-    # Ejecutamos el comando, redirigiendo la salida a /dev/null si no queremos verla
-    # o dejándola visible para depuración. Para este script, es útil ver la salida.
+   
     if ! eval "$cmd"; then
         log_error "Falló la ejecución de: '$cmd'"
     fi
     log_success "$msg - ¡Completado!"
-    echo # Añadir una línea en blanco para mayor claridad
+    echo
 }
+
+export -f log_info
+export -f log_success
+export -f log_error
+export -f run_command
