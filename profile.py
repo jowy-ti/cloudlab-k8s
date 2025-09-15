@@ -23,13 +23,22 @@ pc = portal.Context()
 request = pc.makeRequestRSpec()
 
 #Variable number of nodes.
-pc.defineParameter("A30Nodes", "Number of Nodes A30", portal.ParameterType.INTEGER, 1,
-                   longDescription="If you specify more then one node, " +
-                   "we will create a lan for you.")
 
-pc.defineParameter("P100Nodes", "Number of Nodes P100", portal.ParameterType.INTEGER, 0,
-                   longDescription="If you specify more then one node, " +
-                   "we will create a lan for you.")
+pc.defineParameter(
+    "nodeType1","Hardware Type 1",
+    portal.ParameterType.NODETYPE,"",
+    longDescription="A specific hardware type to use for each type 1 node.")
+
+pc.defineParameter("numNode1", "Number of type 1 Nodes", portal.ParameterType.INTEGER, 0,
+                   longDescription="set of nodes of the same type 1.")
+
+pc.defineParameter(
+    "nodeType2","Hardware Type 2",
+    portal.ParameterType.NODETYPE,"",
+    longDescription="A specific hardware type to use for each type 2 node.")
+
+pc.defineParameter("numNode2", "Number of type 2 Nodes", portal.ParameterType.INTEGER, 0,
+                   longDescription="set of nodes of the same type 2.")
 
 # Pick your OS.
 #  imageList = [
@@ -69,20 +78,24 @@ pc.defineParameter("sameSwitch",  "No Interswitch Links", portal.ParameterType.B
 # Retrieve the values the user specifies during instantiation.
 params = pc.bindParameters()
 
-OSimage = {
-    "CPU" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0//Image_config.node1",
-    "A30" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0//Image_config.node2",
-    "P100" : "urn:publicid:IDN+wisc.cloudlab.us+image+gpu4k8s-PG0//Image_config.node3"
-}
+# Parameter comprobation
+if params.numNode1 > 0 and len(params.nodeType1) == 0:
+    err = portal.ParameterError(
+        "If you want to request nodes of type 1, you have to specify the hardware type of this set of nodes",
+        ["numNode1", "nodeType1"])
 
-nodetype = {
-    "CPU" : "c220g5",
-    "A30" : "d7525",
-    "P100" : "c240g5"
-}
+elif params.numNode2 > 0 and len(params.nodeType2) == 0:
+    err = portal.ParameterError(
+        "If you want to request nodes of type 2, you have to specify the hardware type of this set of nodes",
+        ["numNode2", "nodeType2"])
 
-Master = 1
-TotalN = params.A30Nodes + params.P100Nodes + Master 
+pc.reportError(err)
+
+typeMaster = "c220g5"
+numMaster = 1
+TotalN = params.numNode1 + params.numNode2 + Master 
+
+# Script begins here
 
 # Create link/lan.
 if TotalN == 2:
@@ -106,9 +119,7 @@ for i in range(TotalN):
     node = request.RawPC(name)
 
     #OS Image
-    # if params.osImage and params.osImage != "default":
-    #     node.disk_image = params.osImage
-    #     pass
+    node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD"
 
     # Add to lan
     iface = node.addInterface("eth1")
@@ -116,17 +127,14 @@ for i in range(TotalN):
     lan.addInterface(iface)
 
     # Hardware type.
-    if Master - i > 0:
-        node.hardware_type = nodetype["CPU"]
-        node.disk_image = OSimage["CPU"]
+    if numMaster - i > 0:
+        node.hardware_type = typeMaster
         pass
-    elif (params.A30Nodes + Master) - i > 0:
-        node.hardware_type = nodetype["A30"]
-        node.disk_image = OSimage["A30"]
+    elif (params.numNode1 + numMaster) - i > 0:
+        node.hardware_type = params.nodeType1
         pass
     else:
-        node.hardware_type = nodetype["P100"]
-        node.disk_image = OSimage["P100"]
+        node.hardware_type = params.nodeType2
         pass
 
 # Print the RSpec to the enclosing page.

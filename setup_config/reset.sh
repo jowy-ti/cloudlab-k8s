@@ -25,7 +25,7 @@ set -e
 
 # --- Variables ---
 # Centraliza las rutas para facilitar futuras modificaciones.
-PROJECT_DIR="/opt/cloudlab-k8s"
+PROJECT_DIR="/local/cloudlab-k8s"
 VENV_DIR="$PROJECT_DIR/venv"
 KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
 # Rutas relativas que se usarán DESPUÉS de entrar en el directorio de Kubespray

@@ -65,7 +65,7 @@ readonly RED='\033[1;31m'
 readonly NC='\033[0m' # Sin color
 
 # Rutas
-PROJECT_DIR="/opt/cloudlab-k8s"
+PROJECT_DIR="/local/cloudlab-k8s"
 SETUP_DIR="$PROJECT_DIR/setup_config"
 VENV_DIR="$PROJECT_DIR/venv"
 KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
