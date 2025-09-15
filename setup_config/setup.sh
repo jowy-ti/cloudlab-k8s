@@ -5,7 +5,9 @@
 # Se detiene inmediatamente si cualquier comando falla.
 set -e
 
-source /local/cloudlab-k8s/setup_config/env.sh
+NODES=""
+
+source /local/repository/setup_config/env.sh
 
 # Comprobación de parámetros pasados
 if [ "$#" -ne 2 ] || [ "$1" != "-n" ]; then
@@ -23,8 +25,16 @@ log_info "Validaciones correctas. Iniciando despliegue del cluster..."
 echo
 
 # Se configura e inicialliza el nodo master
-$SETUP_DIR/iniCluster.sh
+if command -v kubectl &> /dev/null; then
+    NODES=$(kubectl get nodes -o custom-columns=NAME:.metadata.name --no-headers)
+fi
 
+if [[ -z $NODES ]] || [$NODES != "node1"]; then
+    $SETUP_DIR/iniCluster.sh
+
+else; then
+    log_info "Ya existía el cluster con el nodo master, se procede a añadir workers"
+fi
 # Se añaden los nodos worker
 $SETUP_DIR/scale.sh
 

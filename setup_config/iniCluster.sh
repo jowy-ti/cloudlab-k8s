@@ -106,6 +106,7 @@ run_command "ansible-playbook -i $INVENTORY_FILE -b cluster.yml" "Desplegando el
 
 # 8. Configurar kubectl para el usuario actual
 log_info "Configurando kubectl..."
+run_command "mkdir $HOME/.kube" "Creando direcotrio .kube en $HOME"
 run_command "sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config" "Copiando la configuración de admin de Kubernetes"
 run_command "sudo chown -R $MY_USER:$MY_GROUP $HOME/.kube" "Ajustando los permisos del fichero de configuración"
 

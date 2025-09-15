@@ -8,7 +8,7 @@ readonly RED='\033[1;31m'
 readonly NC='\033[0m' # Sin color
 
 # Rutas
-export readonly PROJECT_DIR="/local/cloudlab-k8s"
+export readonly PROJECT_DIR="/local/repository"
 export readonly SETUP_DIR="$PROJECT_DIR/setup_config"
 export readonly VENV_DIR="$PROJECT_DIR/venv"
 export readonly KUBESPRAY_DIR="$PROJECT_DIR/kubespray"

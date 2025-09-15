@@ -4,7 +4,7 @@ import sys
 
 env = sys.argv[1]
 node_type = sys.argv[2]
-inventory_file = "/local/cloudlab-k8s/kubespray/inventory/mycluster/inventory.ini"
+inventory_file = "/local/repository/kubespray/inventory/mycluster/inventory.ini"
 
 def insert_line(role, entity):
 
