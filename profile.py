@@ -83,17 +83,17 @@ if params.numNode1 > 0 and len(params.nodeType1) == 0:
     err = portal.ParameterError(
         "If you want to request nodes of type 1, you have to specify the hardware type of this set of nodes",
         ["numNode1", "nodeType1"])
+    pc.reportError(err)
 
 elif params.numNode2 > 0 and len(params.nodeType2) == 0:
     err = portal.ParameterError(
         "If you want to request nodes of type 2, you have to specify the hardware type of this set of nodes",
         ["numNode2", "nodeType2"])
-
-pc.reportError(err)
+    pc.reportError(err)
 
 typeMaster = "c220g5"
 numMaster = 1
-TotalN = params.numNode1 + params.numNode2 + Master 
+TotalN = params.numNode1 + params.numNode2 + numMaster
 
 # Script begins here
 

@@ -15,21 +15,11 @@
 # rm -rf $VENV_DIR
 #=======================================================================================================================================
 
-#!/bin/bash
-#
 # Script para resetear un clúster de Kubernetes desplegado con Kubespray
 # y limpiar el entorno de trabajo local.
 #
 # Se detiene inmediatamente si cualquier comando falla.
 set -e
-
-# --- Variables ---
-# Centraliza las rutas para facilitar futuras modificaciones.
-PROJECT_DIR="/local/cloudlab-k8s"
-VENV_DIR="$PROJECT_DIR/venv"
-KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
-# Rutas relativas que se usarán DESPUÉS de entrar en el directorio de Kubespray
-INVENTORY_FILE="inventory/mycluster/inventory.ini"
 
 # --- Funciones para mejorar la legibilidad ---
 # Imprime un mensaje informativo.
