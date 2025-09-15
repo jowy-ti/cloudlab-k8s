@@ -130,7 +130,7 @@ for i in range(TotalN):
     # Hardware type.
     if numMaster - i > 0:
         node.hardware_type = typeMaster
-        node.addService(RSpec.Execute(shell="bash", command=CMD))
+        node.addService(pg.Execute(shell="bash", command=CMD))
         pass
     elif (params.numNode1 + numMaster) - i > 0:
         node.hardware_type = params.nodeType1
