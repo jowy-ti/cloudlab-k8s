@@ -17,6 +17,12 @@
 # sudo apt purge -y python3-venv
 #=======================================================================================================================================
 
+readonly PROJECT_DIR="/local/cloudlab-k8s"
+readonly SETUP_DIR="$PROJECT_DIR/setup_config"
+readonly VENV_DIR="$PROJECT_DIR/venv"
+readonly KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
+readonly INVENTORY_FILE="inventory/mycluster/inventory.ini"
+
 # Script para resetear un clúster de Kubernetes desplegado con Kubespray
 # y limpiar el entorno de trabajo local.
 #
