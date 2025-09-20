@@ -6,6 +6,18 @@
 set -e
 
 NODES=""
+PWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+if [[ $PWD != "/local"* ]]; then
+    echo "El projecto no está dentro de /local"
+    exit 1
+
+elif [[ $PWD != "/local/repository"* ]]; then
+    echo "Cambiando nombre del directorio del repo a 'repository'"
+    cd /local
+    sudo mv "cloudlab-k8s" "repository"
+    exit 1
+fi
 
 source /local/repository/setup_config/env.sh
 
@@ -35,6 +47,7 @@ if [[ -z $NODES ]] || [$NODES != "node1"]; then
 else; then
     log_info "Ya existía el cluster con el nodo master, se procede a añadir workers"
 fi
+
 # Se añaden los nodos worker
 $SETUP_DIR/scale.sh
 

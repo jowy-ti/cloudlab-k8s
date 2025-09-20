@@ -4,12 +4,6 @@ tmux new -s kubespray
 
 sudo git clone https://repo.fib.upc.es/joel.gonzalez.jimenez/cloudlab-k8s.git
 
-cd /opt/cloudlab-k8s/setup_config
-
-source ./setup.sh (en caso de no usar source, hacer al acabar el script source ~/.bashrc)
-
-./scale.sh -n num_workers
-
 =============tmux guide=============
 
 tmux new -s kubespray
@@ -21,5 +15,8 @@ ctrl + d (destroy)
 Ctrl+b + [ (modo vista para poder scrollear)
 para salir clicar "q"
 
+=============fin guide=============
 
 ansible-playbook -i inventory/mycluster/inventory.ini reset.yml -b -v --limit node2,node3
+
+eval "$(ssh-agent -s)"
