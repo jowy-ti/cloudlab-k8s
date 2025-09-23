@@ -58,14 +58,14 @@ fi
 info "Desinstalando componentes de helm..."
 
 helm list --no-headers | while read -r name rest; do
-    if [ $name != " " ]; then
+    if [[ $name != " " ]]; then
         helm uninstall $name
     fi
 done
 
 # Activar el entorno virtual
 info "Activando el entorno virtual en $VENV_DIR..."
-if [ -f "$VENV_DIR/bin/activate" ]; then
+if [[ -f "$VENV_DIR/bin/activate" ]]; then
     source "$VENV_DIR/bin/activate"
 else
     echo "[ERROR] No se encontró el entorno virtual. Abortando." >&2

@@ -34,7 +34,7 @@ log_success "Nodos añadidos en el inventory.ini de kubespray"
 
 # Activar entorno virtual
 log_info "Activando entorno virtual"
-if [ -f "$VENV_DIR/bin/activate" ] && [[ -z "$VIRTUAL_ENV" ]]; then
+if [[ -f "$VENV_DIR/bin/activate" ]] && [[ -z "$VIRTUAL_ENV" ]]; then
     source $VENV_DIR/bin/activate
     log_success "Entorno virtual activado."
 fi

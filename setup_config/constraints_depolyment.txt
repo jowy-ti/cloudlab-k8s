@@ -4,3 +4,4 @@
 en test deben seguir uno aprecido como: (192.168.122.11, 192.168.122.12, 192.168.122.13)
 - El script para añadir los nodos en el inventory.ini debe solo añadir los workers
 - IPs para testear: 192.168.122.11 - 192.168.122.256
+- Solo puedo tener un experimento a la vez

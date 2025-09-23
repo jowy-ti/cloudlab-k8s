@@ -72,10 +72,10 @@ run_command "sudo apt install -y python3-venv" "Instalando python3-venv"
 # 3. Copiar el fichero de inventario
 # Comprobamos primero que los directorios y el fichero de origen existen
 log_info "Preparando la copia del fichero de inventario..."
-if [ ! -d "$KUBESPRAY_DIR/inventory/mycluster" ]; then
+if [[ ! -d "$KUBESPRAY_DIR/inventory/mycluster" ]]; then
     log_error "El directorio de destino para el inventario no existe: $KUBESPRAY_DIR/inventory/mycluster"
 fi
-if [ ! -f "$SETUP_DIR/inventory.ini" ]; then
+if [[ ! -f "$SETUP_DIR/inventory.ini" ]]; then
     log_error "El fichero de inventario de origen no existe: $SETUP_DIR/inventory.ini"
 fi
 run_command "cp $SETUP_DIR/inventory.ini $KUBESPRAY_DIR/$INVENTORY_FILE" "Copiando el fichero de inventario"
@@ -87,7 +87,7 @@ run_command "python3 $SETUP_DIR/nodeIPs.py $MY_USER master" "Ejecutando el scrip
 run_command "python3 -m venv $VENV_DIR" "Creando el entorno virtual de Python"
 log_info "Activando el entorno virtual..."
 # 'source' es un comando de shell, no se puede usar directamente en 'run_command'
-if [ -f "$VENV_DIR/bin/activate" ]; then
+if [[ -f "$VENV_DIR/bin/activate" ]]; then
     source $VENV_DIR/bin/activate
     log_success "Entorno virtual activado."
 else

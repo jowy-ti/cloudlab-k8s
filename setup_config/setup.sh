@@ -6,8 +6,10 @@
 set -e
 
 NODES=""
+export readonly NODENUM=$(echo $HOSTNAME | cut -d . -f 1)
 PWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# Comprobación de que el repositorio está en el directrio correcto
 if [[ $PWD != "/local"* ]]; then
     echo "El projecto no está dentro de /local"
     exit 1
@@ -16,9 +18,9 @@ elif [[ $PWD != "/local/repository"* ]]; then
     echo "Cambiando nombre del directorio del repo a 'repository'"
     cd /local
     sudo mv "cloudlab-k8s" "repository"
-    exit 1
 fi
 
+# Funciones y variables auxiliares
 source /local/repository/setup_config/env.sh
 
 # Comprobación de parámetros pasados
@@ -33,6 +35,14 @@ fi
 
 export readonly NUM_WORKERS=$2
 
+# Pasos para establecer las claves en los nodos
+$SETUP_DIR/setup-ssh.sh
+
+# Si el nodo no es el master se detiene la configuración
+if [[ $NODENUM != "node1" ]]; then
+    exit 0
+fi
+
 log_info "Validaciones correctas. Iniciando despliegue del cluster..."
 echo
 
@@ -44,7 +54,7 @@ fi
 if [[ -z $NODES ]] || [$NODES != "node1"]; then
     $SETUP_DIR/iniCluster.sh
 
-else; then
+else
     log_info "Ya existía el cluster con el nodo master, se procede a añadir workers"
 fi
 
