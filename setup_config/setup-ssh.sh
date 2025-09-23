@@ -4,6 +4,7 @@ SSH_DIR="~/.ssh"
 KEY="nodekey"
 SHARED_DIR="/proj/gpu4k8s-PG0/exp/*/tmp"
 WAIT_TIME=10
+FIRST_WORKER="node2"
 
 if [[ $NODENUM == "node1" ]]; then
     run_command  "ssh-keygen -t ed25519 -f $SSH_DIR/$KEY -q -N """ "Creando par de claves para ssh"
@@ -34,8 +35,12 @@ if [[ $NODENUM == "node1" ]]; then
 
 else
 
-    while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
-        sleep $WAIT_TIME
-    done
+    if [[ $NODENUM != $FIRST_WORKER ]]; then
 
-fi
+        NUM= $((${NODENUM:4} - 1))  
+        NODE_WAIT="node${NUM}"
+
+        while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
+            sleep $WAIT_TIME
+        done
+    fi
