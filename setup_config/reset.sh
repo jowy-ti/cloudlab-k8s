@@ -1,22 +1,5 @@
 #!/bin/bash
 
-#Raw
-#=======================================================================================================================================
-# source $VENV_DIR/bin/activate
-
-# helm list --no-headers | while read -r name namespace rest; do
-#   helm uninstall "$name" -n "$namespace"
-# done
-
-# cd $KUBESPRAY_DIR
-
-# ansible-playbook -i $INVENTORY_FILE -b $RESET_PLAYBOOK
-
-# rm -rf $VENV_DIR
-
-# sudo apt purge -y python3-venv
-#=======================================================================================================================================
-
 readonly PROJECT_DIR="/local/repository"
 readonly SETUP_DIR="$PROJECT_DIR/setup_config"
 readonly VENV_DIR="$PROJECT_DIR/venv"

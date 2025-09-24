@@ -1,52 +1,5 @@
 #!/bin/bash
 
-# Contenido del Script
-# ===============================================================================================================
-# sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR
-
-# sudo apt update
-
-# sudo apt install python3-venv
-
-# cp $SETUP_DIR/inventory.ini $KUBESPRAY_DIR/$INVENTORY_FILE
-
-# python3 $SETUP_DIR/$1
-
-# python3 -m venv $VENV_DIR
-
-# source $VENV_DIR/bin/activate
-
-# cd $KUBESPRAY_DIR
-
-# pip3 install -U -r requirements.txt
-
-# ansible-galaxy collection install community.kubernetes
-
-# ansible -i $INVENTORY_FILE all -m ping
-
-# ansible-playbook -i $INVENTORY_FILE -b cluster.yml
-
-# mkdir -p $PROJECT_DIR/.kube
-
-# sudo cp -i /etc/kubernetes/admin.conf $PROJECT_DIR/.kube/config
-
-# sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR/.kube
-
-# echo 'export KUBECONFIG=$PROJECT_DIR/.kube/config' >> ~/.bashrc
-
-# source ~/.bashrc
-
-# helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-
-# helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
-
-# helm repo update
-
-# helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml
-
-# helm install gpu-operator nvidia/gpu-operator
-# ===============================================================================================================
-
 # ==============================================================================
 # Script para automatizar la instalación de un clúster de Kubernetes
 # con Kubespray, Prometheus y el operador de GPU de NVIDIA.
@@ -59,9 +12,6 @@ set -e
 
 # --- INICIO DEL SCRIPT ---
 log_info "Iniciando la configuración del clúster de Kubernetes..."
-
-# 0. Ajustar permisos del repo
-run_command "sudo chown -R $MY_USER:$MY_GROUP $PROJECT_DIR" "Cambiando permisos del repositorio"
 
 # 1. Actualizar paquetes del sistema
 run_command "sudo apt update" "Actualizando la lista de paquetes del sistema"
@@ -116,5 +66,5 @@ run_command "helm repo add prometheus-community https://prometheus-community.git
 run_command "helm repo add nvidia https://helm.ngc.nvidia.com/nvidia" "Añadiendo el repositorio de Helm de NVIDIA"
 
 log_success "¡Script finalizado! El clúster de Kubernetes y los componentes adicionales deberían estar listos."
-echo "Puedes verificar el estado de los nodos con el comando: kubectl get nodes"
-echo "Y el estado de los pods en todos los namespaces con: kubectl get pods --all-namespaces"
+log_info "Puedes verificar el estado de los nodos con el comando: kubectl get nodes"
+log_info "Y el estado de los pods en todos los namespaces con: kubectl get pods --all-namespaces"

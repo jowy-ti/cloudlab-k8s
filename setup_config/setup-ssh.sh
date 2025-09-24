@@ -3,7 +3,7 @@
 SSH_DIR="~/.ssh"
 KEY="nodekey"
 SHARED_DIR="/proj/gpu4k8s-PG0/exp/*/tmp"
-WAIT_TIME=10
+WAIT_TIME=5
 FIRST_WORKER="node2"
 
 if [[ $NODENUM == "node1" ]]; then
@@ -30,6 +30,7 @@ if [[ $NODENUM == "node1" ]]; then
 
     while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
         sleep $WAIT_TIME
+        log_info "Esperando al nodo $NODE_WAIT"
     done
 
     log_success "Todos los workers ya tienen la clave pública"
@@ -43,8 +44,13 @@ else
 
         while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
             sleep $WAIT_TIME
+            log_info "Esperando al nodo $NODE_WAIT"
         done
     fi
+
+    while [[ ! -f "$SHARED_DIR/$KEY.pub" ]]; do
+        sleep $WAIT_TIME
+    done
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR/$KEY.pub" "Copiando la clave pública al directorio personal ~/.ssh"
     run_command "cat $SSH_DIR/$KEY.pub >> $SSH_DIR/authorized_keys" "Añadiendo la clave pública en authorized keys"

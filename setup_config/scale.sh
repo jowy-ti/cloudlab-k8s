@@ -1,22 +1,5 @@
 #!/bin/bash
 
-# Contenido del Script
-# ===============================================================================================================
-
-# python3 $SETUP_DIR/nodeIPs.py $MY_USER worker $2
-
-# cd $KUBESPRAY_DIR
-
-# ansible -i $INVENTORY_FILE all -m ping
-
-# ansible-playbook -i $INVENTORY_FILE -b scale.yml
-
-# helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml
-
-# helm install gpu-operator nvidia/gpu-operator
-
-# ===============================================================================================================
-
 # ==============================================================================
 # Script para escalar el cluster de Kubernetes
 # con Kubespray, Prometheus y el operador de GPU de NVIDIA.
