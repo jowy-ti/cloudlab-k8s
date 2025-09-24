@@ -94,7 +94,7 @@ elif params.numNode2 > 0 and len(params.nodeType2) == 0:
 typeMaster = "c220g5"
 numMaster = 1
 TotalN = params.numNode1 + params.numNode2 + numMaster
-CMD = "source /local/repository/setup_config/setup.sh -n {}".format(TotalN - 1)
+CMD = "/local/repository/setup_config/setup.sh -n {}".format(TotalN - 1)
 
 # Script begins here
 
