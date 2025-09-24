@@ -7,8 +7,8 @@ WAIT_TIME=5
 FIRST_WORKER="node2"
 
 if [[ $NODENUM == "node1" ]]; then
-    run_command  "ssh-keygen -t ed25519 -f $SSH_DIR/$KEY -q -N """ "Creando par de claves para ssh"
-    run_command "cp $SSH_DIR/$KEY.pub $SHARED_DIR/$KEY.pub" "Copiando la clave pública al directorio compartido"
+    run_command  "ssh-keygen -t ed25519 -f $SSH_DIR/$KEY -q -N ''" "Creando par de claves para ssh"
+    run_command "cp $SSH_DIR/$KEY.pub $SHARED_DIR" "Copiando la clave pública al directorio compartido"
     run_command "cat $SSH_DIR/$KEY.pub >> $SSH_DIR/authorized_keys" "Añadiendo la clave pública en authorized keys"
 
     # Comprobación del agente ssh
@@ -22,7 +22,7 @@ if [[ $NODENUM == "node1" ]]; then
 
     run_command "ssh-add $SSH_DIR/$KEY" "Añadiendo clave al agente ssh"
 
-    NODE_WAIT="node${NUM_WORKERS}"
+    NODE_WAIT="node${$((NUM_WORKERS+1))}"
 
     echo $NODE_WAIT
 
@@ -53,7 +53,7 @@ else
         log_info "Esperando a la clave pública $KEY.pub"
     done
 
-    run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR/$KEY.pub" "Copiando la clave pública al directorio personal ~/.ssh"
+    run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal ~/.ssh"
     run_command "cat $SSH_DIR/$KEY.pub >> $SSH_DIR/authorized_keys" "Añadiendo la clave pública en authorized keys"
     run_command "touch $SHARED_DIR/$NODENUM" "Creando el fichero para avisar configuración ssh finalizada"
 
