@@ -22,7 +22,7 @@ if [[ $NODENUM == "node1" ]]; then
 
     run_command "ssh-add $SSH_DIR/$KEY" "Añadiendo clave al agente ssh"
 
-    NODE_WAIT="node${$((NUM_WORKERS+1))}"
+    NODE_WAIT="node$((NUM_WORKERS+1))"
 
     echo $NODE_WAIT
 
@@ -50,7 +50,7 @@ else
 
     while [[ ! -f "$SHARED_DIR/$KEY.pub" ]]; do
         sleep $WAIT_TIME
-        log_info "Esperando a la clave pública $KEY.pub"
+        log_info "Esperando a la clave pública $SHARED_DIR/$KEY.pub"
     done
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal ~/.ssh"
