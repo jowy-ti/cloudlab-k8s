@@ -94,7 +94,7 @@ elif params.numNode2 > 0 and len(params.nodeType2) == 0:
 typeMaster = "c220g5"
 numMaster = 1
 TotalN = params.numNode1 + params.numNode2 + numMaster
-CMD = "/local/repository/setup_config/setup.sh -n {}".format(TotalN - 1)
+CMD = "source /local/repository/setup_config/setup.sh -n {}".format(TotalN - 1)
 
 # Script begins here
 
@@ -127,9 +127,6 @@ for i in range(TotalN):
     iface.addAddress(pg.IPv4Address("192.168.1.{}".format(i + 1), "255.255.255.0"))
     lan.addInterface(iface)
 
-    # Ejecución de comando setup.sh
-    node.addService(pg.Execute(shell="bash", command=CMD))
-
     # Hardware type.
     if numMaster - i > 0:
         node.hardware_type = typeMaster
@@ -140,6 +137,9 @@ for i in range(TotalN):
     else:
         node.hardware_type = params.nodeType2
         pass
+
+    # Ejecución de comando setup.sh
+    node.addService(pg.Execute(shell="bash", command=CMD))
 
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
