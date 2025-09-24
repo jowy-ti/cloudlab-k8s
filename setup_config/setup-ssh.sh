@@ -2,6 +2,7 @@
 
 EXP=$(ls /proj/gpu4k8s-PG0/exp/)
 
+AUTHORIZED_KEYS="~/.ssh/authorized_keys"
 SSH_DIR="~/.ssh"
 KEY="nodekey"
 SHARED_DIR="/proj/gpu4k8s-PG0/exp/$EXP/tmp"
@@ -9,9 +10,16 @@ WAIT_TIME=5
 FIRST_WORKER="node2"
 
 if [[ $NODENUM == "node1" ]]; then
-    run_command  "ssh-keygen -t ed25519 -f $SSH_DIR/$KEY -q -N ''" "Creando par de claves para ssh"
+
+    if [[ ! -f "$SSH_DIR/$KEY" ]]; then
+        run_command  "ssh-keygen -t ed25519 -f $SSH_DIR/$KEY -q -N ''" "Creando par de claves para ssh"
+    fi
+
     run_command "cp $SSH_DIR/$KEY.pub $SHARED_DIR" "Copiando la clave pública al directorio compartido"
-    run_command "cat $SSH_DIR/$KEY.pub >> $SSH_DIR/authorized_keys" "Añadiendo la clave pública en authorized keys"
+
+    if ! grep -q $HOSTNAME $AUTHORIZED_KEYS; then
+        run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
+    fi
 
     # Comprobación del agente ssh
     if ssh-add -l > /dev/null 2>&1; then
@@ -56,7 +64,11 @@ else
     done
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal ~/.ssh"
-    run_command "cat $SSH_DIR/$KEY.pub >> $SSH_DIR/authorized_keys" "Añadiendo la clave pública en authorized keys"
+
+    if ! grep -q $HOSTNAME $AUTHORIZED_KEYS; then
+        run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
+    fi
+    
     run_command "touch $SHARED_DIR/$NODENUM" "Creando el fichero para avisar configuración ssh finalizada"
 
 fi
