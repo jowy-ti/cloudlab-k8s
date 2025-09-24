@@ -138,7 +138,7 @@ for i in range(TotalN):
         node.hardware_type = params.nodeType2
         pass
 
-    # Ejecución de comando setup.sh
+    # Ejecucion de comando setup.sh
     node.addService(pg.Execute(shell="bash", command=CMD))
 
 # Print the RSpec to the enclosing page.
