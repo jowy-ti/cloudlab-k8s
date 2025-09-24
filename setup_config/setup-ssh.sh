@@ -29,8 +29,9 @@ if [[ $NODENUM == "node1" ]]; then
     log_info "Esperando a que hayan copiado todo los nodos workers la clave pública"
 
     while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
-        sleep $WAIT_TIME
+        run_command "ls -l $SHARED_DIR" "Mirando si existe el archivo $NODE_WAIT"
         log_info "Esperando al nodo $NODE_WAIT"
+        sleep $WAIT_TIME
     done
 
     log_success "Todos los workers ya tienen la clave pública"
@@ -43,14 +44,16 @@ else
         NODE_WAIT="node${NUM}"
 
         while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
-            sleep $WAIT_TIME
+            run_command "ls -l $SHARED_DIR" "Mirando si existe el archivo $NODE_WAIT"
             log_info "Esperando al nodo $NODE_WAIT"
+            sleep $WAIT_TIME
         done
     fi
 
     while [[ ! -f "$SHARED_DIR/$KEY.pub" ]]; do
-        sleep $WAIT_TIME
+        run_command "ls -l $SHARED_DIR" "Mirando si existe el archivo $KEY.pub"
         log_info "Esperando a la clave pública $SHARED_DIR/$KEY.pub"
+        sleep $WAIT_TIME
     done
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal ~/.ssh"
