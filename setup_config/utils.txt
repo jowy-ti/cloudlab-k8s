@@ -1,10 +1,10 @@
-ssh -A JoelGJ@c220g5-120130.wisc.cloudlab.us
-
-tmux new -s kubespray
-
-sudo git clone https://repo.fib.upc.es/joel.gonzalez.jimenez/cloudlab-k8s.git
-
 =============tmux guide=============
+
+tmux a  || attach
+
+tmux attach -t "name"
+
+tmux ls
 
 tmux new -s kubespray
 
@@ -17,6 +17,7 @@ para salir clicar "q"
 
 =============fin guide=============
 
-ansible-playbook -i inventory/mycluster/inventory.ini reset.yml -b -v --limit node2,node3
+ansible-playbook -i inventory/mycluster/inventory.ini -b reset.yml -v --limit node2,node3
 
-eval "$(ssh-agent -s)"
+eval "$(ssh-agent -s)" activar
+eval "$(ssh-agent -k)" desactivar

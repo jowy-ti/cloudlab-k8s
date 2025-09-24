@@ -31,8 +31,8 @@ fi
 
 # Salimos del entorno virtual
 if [[ -n "$VIRTUAL_ENV" ]]; then
-    echo "Deactivating virtual environment..."
-    deactivate
+    echo "Tienes que salir del entorno virtual con el comando deactive"
+    exit 1
 else
     echo "Not in a virtual environment. Nothing to deactivate."
 fi

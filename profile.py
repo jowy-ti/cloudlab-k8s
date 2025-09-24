@@ -94,7 +94,7 @@ elif params.numNode2 > 0 and len(params.nodeType2) == 0:
 typeMaster = "c220g5"
 numMaster = 1
 TotalN = params.numNode1 + params.numNode2 + numMaster
-CMD = "/local/cloudlab-k8s/setup_config/setup.sh -n {}".format(TotalN - 1)
+CMD = "source /local/repository/setup_config/setup.sh -n {}".format(TotalN - 1)
 
 # Script begins here
 
@@ -130,7 +130,6 @@ for i in range(TotalN):
     # Hardware type.
     if numMaster - i > 0:
         node.hardware_type = typeMaster
-        node.addService(pg.Execute(shell="bash", command=CMD))
         pass
     elif (params.numNode1 + numMaster) - i > 0:
         node.hardware_type = params.nodeType1
@@ -138,6 +137,9 @@ for i in range(TotalN):
     else:
         node.hardware_type = params.nodeType2
         pass
+
+    # Ejecución de comando setup.sh
+    node.addService(pg.Execute(shell="bash", command=CMD))
 
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
