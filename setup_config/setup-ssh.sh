@@ -50,6 +50,7 @@ else
 
     while [[ ! -f "$SHARED_DIR/$KEY.pub" ]]; do
         sleep $WAIT_TIME
+        log_info "Esperando a la clave pública $KEY.pub"
     done
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR/$KEY.pub" "Copiando la clave pública al directorio personal ~/.ssh"
