@@ -8,6 +8,7 @@ SHARED_DIR="/proj/gpu4k8s-PG0/exp/$EXP/tmp"
 WAIT_TIME=5
 FIRST_WORKER="node2"
 
+# Ejecución nodo master
 if [[ $NODENUM == "node1" ]]; then
 
     if [[ ! -f "$SSH_DIR/$KEY" ]]; then
@@ -31,32 +32,23 @@ if [[ $NODENUM == "node1" ]]; then
 
     run_command "ssh-add $SSH_DIR/$KEY" "Añadiendo clave al agente ssh"
 
-    NODE_WAIT="node$((NUM_WORKERS+1))"
-
-    echo $NODE_WAIT
-
     log_info "Esperando a que hayan copiado todo los nodos workers la clave pública"
 
-    while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
-        log_info "Esperando al nodo $SHARED_DIR/$NODE_WAIT"
-        sleep $WAIT_TIME
-    done
-
-    log_success "Todos los workers ya tienen la clave pública"
-
-else
-
-    if [[ $NODENUM != $FIRST_WORKER ]]; then
-
-        NUM=$((${NODENUM:4} - 1))  
-        NODE_WAIT="node${NUM}"
-
+    # Esperamos a los nodos workers
+    for ((num=2; num <= NUM_WORKERS+1; num++)) do
+        NODE_WAIT="node$num"
         while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
             log_info "Esperando al nodo $SHARED_DIR/$NODE_WAIT"
             sleep $WAIT_TIME
         done
-    fi
+    done
 
+    log_success "Todos los workers ya tienen la clave pública"
+
+# Ejecución nodos workers
+else
+
+    # Se espera a la clave pública
     while [[ ! -f "$SHARED_DIR/$KEY.pub" ]]; do
         log_info "Esperando a la clave pública $SHARED_DIR/$KEY.pub"
         sleep $WAIT_TIME

@@ -1,10 +1,7 @@
 #!/bin/bash
 
-SSH_DIR="$HOME/.ssh"
-KEY="nodekey"
+NUM=10
 
-if [[ ! -f "$SSH_DIR/$KEY" ]]; then
-    echo "no está $SSH_DIR/$KEY.pub"
-else
-    echo "si está"
-fi
+for ((n=2; n <= $NUM; n++)) do
+    echo "node$n"
+done
