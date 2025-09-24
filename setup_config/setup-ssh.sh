@@ -38,7 +38,7 @@ if [[ $NODENUM == "node1" ]]; then
     for ((num=2; num <= NUM_WORKERS+1; num++)) do
         NODE_WAIT="node$num"
         while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
-            log_info "Esperando al nodo $SHARED_DIR/$NODE_WAIT"
+            log_info "Esperando al nodo $NODE_WAIT"
             sleep $WAIT_TIME
         done
     done
@@ -50,7 +50,7 @@ else
 
     # Se espera a la clave pública
     while [[ ! -f "$SHARED_DIR/$KEY.pub" ]]; do
-        log_info "Esperando a la clave pública $SHARED_DIR/$KEY.pub"
+        log_info "Esperando a la clave pública $KEY.pub"
         sleep $WAIT_TIME
     done
 
