@@ -64,7 +64,7 @@ else
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal $HOME/.ssh"
 
-    if ! grep -q $HOSTNAME $AUTHORIZED_KEYS; then
+    if ! grep -q $MY_USER $AUTHORIZED_KEYS; then
         run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
     fi
 
