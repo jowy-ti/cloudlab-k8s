@@ -1,11 +1,10 @@
 #!/bin/bash
 
-SHARED_DIR="/proj/gpu4k8s-PG0/exp/*/tmp"
+SSH_DIR="$HOME/.ssh"
 KEY="nodekey"
 
-if [[ ! -f "/proj/gpu4k8s-PG0/exp/*/tmp/nodekey.pub" ]]; then
-    echo "no está $SHARED_DIR/$KEY.pub"
-
+if [[ ! -f "$SSH_DIR/$KEY" ]]; then
+    echo "no está $SSH_DIR/$KEY.pub"
 else
     echo "si está"
 fi

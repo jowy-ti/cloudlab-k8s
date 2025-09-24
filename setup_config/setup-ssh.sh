@@ -1,9 +1,8 @@
 #!/bin/bash
 
 EXP=$(ls /proj/gpu4k8s-PG0/exp/)
-
-AUTHORIZED_KEYS="~/.ssh/authorized_keys"
-SSH_DIR="~/.ssh"
+AUTHORIZED_KEYS="$HOME/.ssh/authorized_keys"
+SSH_DIR="$HOME/.ssh"
 KEY="nodekey"
 SHARED_DIR="/proj/gpu4k8s-PG0/exp/$EXP/tmp"
 WAIT_TIME=5
@@ -63,12 +62,12 @@ else
         sleep $WAIT_TIME
     done
 
-    run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal ~/.ssh"
+    run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal $HOME/.ssh"
 
     if ! grep -q $HOSTNAME $AUTHORIZED_KEYS; then
         run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
     fi
-    
+
     run_command "touch $SHARED_DIR/$NODENUM" "Creando el fichero para avisar configuración ssh finalizada"
 
 fi
