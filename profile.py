@@ -22,22 +22,25 @@ pc = portal.Context()
 # Create a Request object to start building the RSpec.
 request = pc.makeRequestRSpec()
 
-#Variable number of nodes.
+pc.defineParameter(
+    "MasternodeType","Master Hardware",
+    portal.ParameterType.NODETYPE,"",
+    longDescription="A specific hardware type to use for Master node.")
 
 pc.defineParameter(
-    "nodeType1","Hardware Type 1",
+    "nodeType1","Worker Hardware Type 1",
     portal.ParameterType.NODETYPE,"",
-    longDescription="A specific hardware type to use for each type 1 node.")
+    longDescription="A specific hardware type to use for each worker type 1 node.")
 
-pc.defineParameter("numNode1", "Number of type 1 Nodes", portal.ParameterType.INTEGER, 0,
+pc.defineParameter("numNode1", "Number of workers type 1 Nodes", portal.ParameterType.INTEGER, 0,
                    longDescription="set of nodes of the same type 1.")
 
 pc.defineParameter(
-    "nodeType2","Hardware Type 2",
+    "nodeType2","Worker Hardware Type 2",
     portal.ParameterType.NODETYPE,"",
-    longDescription="A specific hardware type to use for each type 2 node.")
+    longDescription="A specific hardware type to use for eachw orker type 2 node.")
 
-pc.defineParameter("numNode2", "Number of type 2 Nodes", portal.ParameterType.INTEGER, 0,
+pc.defineParameter("numNode2", "Number of workers type 2 Nodes", portal.ParameterType.INTEGER, 0,
                    longDescription="set of nodes of the same type 2.")
 
 # Pick your OS.
@@ -91,7 +94,6 @@ elif params.numNode2 > 0 and len(params.nodeType2) == 0:
         ["numNode2", "nodeType2"])
     pc.reportError(err)
 
-typeMaster = "c220g5"
 numMaster = 1
 TotalN = params.numNode1 + params.numNode2 + numMaster
 CMD = "source /local/repository/setup_config/setup.sh -n {}".format(TotalN - 1)
@@ -129,7 +131,7 @@ for i in range(TotalN):
 
     # Hardware type.
     if numMaster - i > 0:
-        node.hardware_type = typeMaster
+        node.hardware_type = params.MasternodeType
         pass
     elif (params.numNode1 + numMaster) - i > 0:
         node.hardware_type = params.nodeType1
