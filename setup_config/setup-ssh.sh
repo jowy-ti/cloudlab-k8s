@@ -7,6 +7,7 @@ KEY="nodekey"
 SHARED_DIR="/proj/gpu4k8s-PG0/exp/$EXP/tmp"
 WAIT_TIME=5
 FIRST_WORKER="node2"
+KEY_ID=ssh-ed25519
 
 # Ejecución nodo master
 if [[ $NODENUM == "node1" ]]; then
@@ -17,7 +18,7 @@ if [[ $NODENUM == "node1" ]]; then
 
     run_command "cp $SSH_DIR/$KEY.pub $SHARED_DIR" "Copiando la clave pública al directorio compartido"
 
-    if ! grep -q $HOSTNAME $AUTHORIZED_KEYS; then
+    if ! grep -q $KEY_ID $AUTHORIZED_KEYS; then
         run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
     fi
 
@@ -56,7 +57,7 @@ else
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal $HOME/.ssh"
 
-    if ! grep -q $MY_USER $AUTHORIZED_KEYS; then
+    if ! grep -q $KEY_ID $AUTHORIZED_KEYS; then
         run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
     fi
 
