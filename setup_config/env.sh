@@ -20,19 +20,19 @@ export readonly MY_GROUP=$(id -gn)
 
 # Función para registrar mensajes de información
 log_info() {
-    echo -e "${YELLOW}[INFO] $1${NC}" >> $SETUP_DIR/logs.log
+    echo -e "${YELLOW}[INFO] $1${NC}" >> $PROJECT_DIR/logs.log
 }
 
 # Función para registrar mensajes de éxito
 log_success() {
-    echo -e "${GREEN}[SUCCESS] $1${NC}" >> $SETUP_DIR/logs.log
+    echo -e "${GREEN}[SUCCESS] $1${NC}" >> $PROJECT_DIR/logs.log
 }
 
 # Función para registrar errores y salir
 log_error() {
     local message="${RED}[ERROR] $1. Abortando misión.${NC}"
     echo -e "$message" >&2
-    echo -e "$message" >> $SETUP_DIR/logs.log
+    echo -e "$message" >> $PROJECT_DIR/logs.log
     exit 1
 }
 
