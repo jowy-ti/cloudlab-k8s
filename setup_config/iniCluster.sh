@@ -10,6 +10,8 @@
 # Detiene el script inmediatamente si un comando falla
 set -e
 
+export ANSIBLE_LOG_PATH="$SETUP_DIR/kubespray_logs.log"
+
 # --- INICIO DEL SCRIPT ---
 log_info "Iniciando la configuración del clúster de Kubernetes..."
 
@@ -51,6 +53,7 @@ run_command "pip3 install -U -r requirements.txt" "Instalando dependencias de Py
 run_command "ansible-galaxy collection install community.kubernetes" "Instalando la colección de Ansible 'community.kubernetes'"
 
 # 7. Verificar la conexión de Ansible y desplegar el clúster
+sleep 180
 run_command "ansible -i $INVENTORY_FILE all -m ping" "Verificando la conexión con todos los nodos vía Ansible"
 run_command "ansible-playbook -i $INVENTORY_FILE -b cluster.yml" "Desplegando el clúster de Kubernetes (esto puede tardar bastante)"
 
