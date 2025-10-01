@@ -36,7 +36,9 @@ fi
 export readonly NUM_WORKERS=$2
 
 # Pasos para establecer las claves en los nodos
-source $SETUP_DIR/setup-ssh.sh
+if  [[ $MY_USER == "JoelGJ" ]]; then
+    source $SETUP_DIR/setup-ssh.sh
+fi
 
 # Si el nodo no es el master se detiene la configuración
 if [[ $NODENUM != "node1" ]]; then

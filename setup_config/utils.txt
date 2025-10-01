@@ -1,3 +1,10 @@
+ansible-playbook -i inventory/mycluster/inventory.ini -b reset.yml -v --limit node2,node3
+
+ssh -A # Es necesario en test
+
+eval "$(ssh-agent -s)" activar
+eval "$(ssh-agent -k)" desactivar
+
 =============tmux guide=============
 
 tmux a  || attach
@@ -17,7 +24,19 @@ para salir clicar "q"
 
 =============fin guide=============
 
-ansible-playbook -i inventory/mycluster/inventory.ini -b reset.yml -v --limit node2,node3
+=============Grafana guide=============
 
-eval "$(ssh-agent -s)" activar
-eval "$(ssh-agent -k)" desactivar
+Grafana
+User : password
+admin : prom-operator
+
+Get Grafana 'admin' user password by running:
+
+  kubectl --namespace monitoring get secrets prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+
+Access Grafana local instance:
+
+  kubectl get service prometheus-grafana -n monitoring# coger IP
+  ssh -L 8080:10.233.13.127:80 test@192.168.122.11
+
+=============fin guide=============

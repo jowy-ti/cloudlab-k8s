@@ -8,9 +8,6 @@ readonly INVENTORY_FILE="inventory/mycluster/inventory.ini"
 
 # Script para resetear un clúster de Kubernetes desplegado con Kubespray
 # y limpiar el entorno de trabajo local.
-#
-# Se detiene inmediatamente si cualquier comando falla.
-set -e
 
 # --- Funciones para mejorar la legibilidad ---
 # Imprime un mensaje informativo.

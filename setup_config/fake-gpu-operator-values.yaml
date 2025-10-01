@@ -1,0 +1,6 @@
+topology:
+  nodePools:
+    default:
+      gpuProduct: "NVIDIA-A30-24GB"
+      gpuCount: 2
+      gpuMemory: 24000

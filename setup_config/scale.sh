@@ -31,7 +31,7 @@ run_command "ansible-playbook -i $INVENTORY_FILE -b scale.yml" "Escalando el cl√
 # Instalando y aplicando los charts de GPU operator y prometheus-stack
 log_info "Desplegando componentes con Helm..."
 run_command "helm repo update" "Actualizando los repositorios de Helm"
-run_command "helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml" "Instalando la stack de Prometheus"
-run_command "helm install gpu-operator nvidia/gpu-operator" "Instalando el operador de GPU de NVIDIA"
+run_command "helm install prometheus prometheus-community/kube-prometheus-stack -f $SETUP_DIR/prometheus_stack_values.yaml --namespace monitoring --create-namespace" "Instalando la stack de Prometheus"
+run_command "helm install gpu-operator nvidia/gpu-operator --namespace gpu-operator --create-namespace" "Instalando el operador de GPU de NVIDIA"
 
 log_success "Se han a√±adido los nodos worker al cluster correctamente"

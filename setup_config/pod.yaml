@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-test-pod 
+spec:
+  containers:
+  - name: gpu-container
+    # CAMBIAR ESTO: Usaremos una imagen base de CUDA más reciente
+    image: nvidia/cuda:12.4.1-base-ubuntu22.04 
+    command: ["/bin/bash", "-c", "nvidia-smi; echo 'GPU Check Finished.'"] # Comando simple para verificar la simulación
+    resources:
+      requests:
+        nvidia.com/gpu: 4
+      limits:
+        nvidia.com/gpu: 4
+    env:
+      - name: NODE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
+  restartPolicy: OnFailure
