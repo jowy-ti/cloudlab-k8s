@@ -1,0 +1,7 @@
+Qué añadir en la configuración automática:
+
+Instalación de Goolang más reciente, de la forma que lo dice en el manual
+
+Establecer la configuración con fake-gpu-operator con un values.yaml hacia el chart
+
+establecer el repo de scheduler-plugins en el path: $GOPATH/src/sigs.k8s.io
