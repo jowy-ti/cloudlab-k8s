@@ -1,6 +1,10 @@
 # virtual environment
 venv
+
 .kube
+
 scheduler-plugins
+
 kubespray
+
 *.log
