@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+      name: job-stress
+spec:
+  template:
+    metadata:
+      labels:
+        kubernetes.io/hostname: node1
+    spec:
+      schedulerName: scheduler-plugin
+      restartPolicy: OnFailure 
+      containers:
+      - name: stress-ng-container
+        image: polinux/stress-ng
+        args:
+        - "--cpu"
+        - "1"         
+        - "--cpu-load"
+        - "10"        # Limita la carga de ese worker al 50%.
+        - "--vm"
+        - "1"
+        - "--vm-bytes"
+        - "64M"     
+        - "--timeout"
+        - "60s"
+        - "--metrics-brief"
+        
+        # LA OTRA CLAVE: Solicitamos y limitamos a 500 millicores (medio core).
+        resources:
+          requests:
+            cpu: "100m" # "m" significa "millicores". 1000m = 1 CPU core.
+            memory: "64Mi"
+          limits:
+            cpu: "100m"
+            memory: "64Mi"

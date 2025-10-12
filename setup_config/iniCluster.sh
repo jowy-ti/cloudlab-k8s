@@ -15,6 +15,10 @@ export ANSIBLE_LOG_PATH="$PROJECT_DIR/kubespray_logs.log"
 # --- INICIO DEL SCRIPT ---
 log_info "Iniciando la configuración del clúster de Kubernetes..."
 
+if [[ ! -d "$KUBESPRAY_DIR" ]]; then
+    run_command "git clone https://github.com/jowy-ti/kubespray.git $KUBESPRAY_DIR" "clonando repo kubespray"
+fi
+
 # 1. Actualizar paquetes del sistema
 run_command "sudo apt update" "Actualizando la lista de paquetes del sistema"
 
