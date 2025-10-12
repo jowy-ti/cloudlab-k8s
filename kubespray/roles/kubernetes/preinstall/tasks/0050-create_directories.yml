@@ -14,6 +14,7 @@
     - bootstrap_os
     - apps
     - network
+    - master    # master tag is deprecated and replaced by control-plane
     - control-plane
     - node
   with_items:
@@ -37,6 +38,7 @@
     - bootstrap_os
     - apps
     - network
+    - master    # master tag is deprecated and replaced by control-plane
     - control-plane
     - node
   with_items:
@@ -75,12 +77,13 @@
     - "/etc/cni/net.d"
     - "/opt/cni/bin"
   when:
-    - kube_network_plugin in ["calico", "flannel", "cilium", "kube-ovn", "kube-router", "macvlan"]
+    - kube_network_plugin in ["calico", "weave", "flannel", "cilium", "kube-ovn", "kube-router", "macvlan"]
     - ('k8s_cluster' in group_names)
   tags:
     - network
     - cilium
     - calico
+    - weave
     - kube-ovn
     - kube-router
     - bootstrap_os

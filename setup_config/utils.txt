@@ -37,6 +37,6 @@ Get Grafana 'admin' user password by running:
 Access Grafana local instance:
 
   kubectl get service prometheus-grafana -n monitoring# coger IP
-  ssh -L 8080:10.233.13.127:80 test@192.168.122.11
+  ssh -L 8081:10.233.35.22:9090 test@192.168.122.11
 
 =============fin guide=============

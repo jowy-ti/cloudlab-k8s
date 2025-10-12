@@ -88,7 +88,6 @@ docker_containerd_version: 1.6.32
 # gcr and kubernetes image repo define
 gcr_image_repo: "gcr.io"
 kube_image_repo: "registry.k8s.io"
-kubeadm_image_repo: "{{ kube_image_repo }}"
 
 # docker image repo define
 docker_image_repo: "docker.io"
@@ -110,8 +109,9 @@ calico_apiserver_version: "{{ calico_version }}"
 typha_enabled: false
 calico_apiserver_enabled: false
 
-flannel_version: 0.26.7
-flannel_cni_version: 1.7.1-flannel1
+flannel_version: 0.22.0
+flannel_cni_version: 1.1.2
+weave_version: 2.8.7
 cni_version: "{{ (cni_binary_checksums['amd64'] | dict2items)[0].key }}"
 
 cilium_version: "1.17.7"
@@ -126,10 +126,32 @@ helm_version: "{{ (helm_archive_checksums['amd64'] | dict2items)[0].key }}"
 nerdctl_version: "{{ (nerdctl_archive_checksums['amd64'] | dict2items)[0].key }}"
 skopeo_version: "{{ (skopeo_binary_checksums['amd64'] | dict2items)[0].key }}"
 
+# Get kubernetes major version (i.e. 1.17.4 => 1.17)
+kube_major_version: "{{ (kube_version | split('.'))[:-1] | join('.') }}"
+
+pod_infra_supported_versions:
+  '1.32': '3.10'
+  '1.31': '3.10'
+  '1.30': '3.9'
 pod_infra_version: "{{ pod_infra_supported_versions[kube_major_version] }}"
+
+etcd_supported_versions:
+  '1.32': "{{ (etcd_binary_checksums['amd64'].keys() | select('version', '3.6', '<'))[0] }}"
+  '1.31': "{{ (etcd_binary_checksums['amd64'].keys() | select('version', '3.6', '<'))[0] }}"
+  '1.30': "{{ (etcd_binary_checksums['amd64'].keys() | select('version', '3.6', '<'))[0] }}"
 etcd_version: "{{ etcd_supported_versions[kube_major_version] }}"
-crictl_version: "{{ (crictl_checksums['amd64'].keys() | select('version', kube_major_next_version, '<'))[0] }}"
-crio_version: "{{ (crio_archive_checksums['amd64'].keys() | select('version', kube_major_next_version, '<'))[0] }}"
+
+crictl_supported_versions:
+  '1.32': 1.32.0
+  '1.31': 1.31.1
+  '1.30': 1.30.1
+crictl_version: "{{ crictl_supported_versions[kube_major_version] }}"
+
+crio_supported_versions:
+  '1.32': 1.32.0
+  '1.31': 1.31.3
+  '1.30': 1.30.3
+crio_version: "{{ crio_supported_versions[kube_major_version] }}"
 
 # Scheduler plugins doesn't build for K8s 1.29 yet
 scheduler_plugins_supported_versions:
@@ -168,7 +190,7 @@ kata_containers_download_url: "{{ github_url }}/kata-containers/kata-containers/
 gvisor_runsc_download_url: "{{ storage_googleapis_url }}/gvisor/releases/release/{{ gvisor_version }}/{{ ansible_architecture }}/runsc"
 gvisor_containerd_shim_runsc_download_url: "{{ storage_googleapis_url }}/gvisor/releases/release/{{ gvisor_version }}/{{ ansible_architecture }}/containerd-shim-runsc-v1"
 nerdctl_download_url: "{{ github_url }}/containerd/nerdctl/releases/download/v{{ nerdctl_version }}/nerdctl-{{ nerdctl_version }}-{{ ansible_system | lower }}-{{ image_arch }}.tar.gz"
-containerd_download_url: "{{ github_url }}/containerd/containerd/releases/download/v{{ containerd_version }}/containerd-{{ 'static-' if containerd_static_binary }}{{ containerd_version }}-linux-{{ image_arch }}.tar.gz"
+containerd_download_url: "{{ github_url }}/containerd/containerd/releases/download/v{{ containerd_version }}/containerd-{{ containerd_version }}-linux-{{ image_arch }}.tar.gz"
 cri_dockerd_download_url: "{{ github_url }}/Mirantis/cri-dockerd/releases/download/v{{ cri_dockerd_version }}/cri-dockerd-{{ cri_dockerd_version }}.{{ image_arch }}.tgz"
 skopeo_download_url: "{{ github_url }}/lework/skopeo-binary/releases/download/v{{ skopeo_version }}/skopeo-linux-{{ image_arch }}"
 yq_download_url: "{{ github_url }}/mikefarah/yq/releases/download/v{{ yq_version }}/yq_linux_{{ image_arch }}"
@@ -196,8 +218,6 @@ gvisor_runsc_binary_checksum: "{{ gvisor_runsc_binary_checksums[image_arch][gvis
 gvisor_containerd_shim_binary_checksum: "{{ gvisor_containerd_shim_binary_checksums[image_arch][gvisor_version] }}"
 nerdctl_archive_checksum: "{{ nerdctl_archive_checksums[image_arch][nerdctl_version] }}"
 containerd_archive_checksum: "{{ containerd_archive_checksums[image_arch][containerd_version] }}"
-containerd_static_archive_checksum: "{{ containerd_static_archive_checksums[image_arch][containerd_version] }}"
-containerd_checksum: "{{ containerd_static_archive_checksum if containerd_static_binary else containerd_archive_checksum }}"
 skopeo_binary_checksum: "{{ skopeo_binary_checksums[image_arch][skopeo_version] }}"
 
 # Containers
@@ -233,6 +253,10 @@ netcheck_agent_image_tag: "v{{ netcheck_version }}"
 netcheck_server_image_repo: "{{ docker_image_repo }}/mirantis/k8s-netchecker-server"
 netcheck_server_image_tag: "v{{ netcheck_version }}"
 netcheck_etcd_image_tag: "v3.4.17"
+weave_kube_image_repo: "{{ docker_image_repo }}/rajchaudhuri/weave-kube"
+weave_kube_image_tag: "{{ weave_version }}"
+weave_npc_image_repo: "{{ docker_image_repo }}/rajchaudhuri/weave-npc"
+weave_npc_image_tag: "{{ weave_version }}"
 cilium_image_repo: "{{ quay_image_repo }}/cilium/cilium"
 cilium_image_tag: "v{{ cilium_version }}"
 cilium_operator_image_repo: "{{ quay_image_repo }}/cilium/operator"
@@ -263,18 +287,14 @@ external_openstack_cloud_controller_image_tag: "v1.32.0"
 kube_vip_image_repo: "{{ github_image_repo }}/kube-vip/kube-vip{{ '-iptables' if kube_vip_lb_fwdmethod == 'masquerade' else '' }}"
 kube_vip_image_tag: v0.8.9
 nginx_image_repo: "{{ docker_image_repo }}/library/nginx"
-nginx_image_tag: 1.28.0-alpine
+nginx_image_tag: 1.27.4-alpine
 haproxy_image_repo: "{{ docker_image_repo }}/library/haproxy"
-haproxy_image_tag: 3.1.7-alpine
+haproxy_image_tag: 3.1.3-alpine
 
 # Coredns version should be supported by corefile-migration (or at least work with)
 # bundle with kubeadm; if not 'basic' upgrade can sometimes fail
 
-coredns_supported_versions:
-  '1.33': 1.12.0
-  '1.32': 1.11.3
-  '1.31': 1.11.3
-coredns_version: "{{ coredns_supported_versions[kube_major_version] }}"
+coredns_version: "{{ '1.11.3' if (kube_version is version('1.30.5', '>=')) else '1.11.1' }}"
 coredns_image_repo: "{{ kube_image_repo }}{{ '/coredns' if coredns_version is version('1.7.1', '>=') else '' }}/coredns"
 coredns_image_tag: "{{ 'v' if coredns_version is version('1.7.1', '>=') else '' }}{{ coredns_version }}"
 
@@ -334,9 +354,9 @@ csi_livenessprobe_image_repo: "{{ kube_image_repo }}/sig-storage/livenessprobe"
 csi_livenessprobe_image_tag: "v2.5.0"
 
 snapshot_controller_supported_versions:
-  '1.33': "v7.0.2"
   '1.32': "v7.0.2"
   '1.31': "v7.0.2"
+  '1.30': "v7.0.2"
 snapshot_controller_image_repo: "{{ kube_image_repo }}/sig-storage/snapshot-controller"
 snapshot_controller_image_tag: "{{ snapshot_controller_supported_versions[kube_major_version] }}"
 
@@ -557,8 +577,8 @@ downloads:
   containerd:
     enabled: "{{ container_manager == 'containerd' }}"
     file: true
-    dest: "{{ local_release_dir }}/containerd-{{ 'static-' if containerd_static_binary }}{{ containerd_version }}-linux-{{ image_arch }}.tar.gz"
-    checksum: "{{ containerd_checksum }}"
+    dest: "{{ local_release_dir }}/containerd-{{ containerd_version }}-linux-{{ image_arch }}.tar.gz"
+    checksum: "{{ containerd_archive_checksum }}"
     url: "{{ containerd_download_url }}"
     unarchive: false
     owner: "root"
@@ -788,6 +808,24 @@ downloads:
     mode: "0755"
     groups:
       - kube_control_plane
+
+  weave_kube:
+    enabled: "{{ kube_network_plugin == 'weave' }}"
+    container: true
+    repo: "{{ weave_kube_image_repo }}"
+    tag: "{{ weave_kube_image_tag }}"
+    checksum: "{{ weave_kube_digest_checksum | default(None) }}"
+    groups:
+      - k8s_cluster
+
+  weave_npc:
+    enabled: "{{ kube_network_plugin == 'weave' }}"
+    container: true
+    repo: "{{ weave_npc_image_repo }}"
+    tag: "{{ weave_npc_image_tag }}"
+    checksum: "{{ weave_npc_digest_checksum | default(None) }}"
+    groups:
+      - k8s_cluster
 
   kube_ovn:
     enabled: "{{ kube_network_plugin == 'kube-ovn' }}"

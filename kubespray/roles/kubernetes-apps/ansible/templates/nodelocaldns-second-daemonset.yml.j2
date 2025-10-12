@@ -44,9 +44,7 @@ spec:
           name: metrics
           protocol: TCP
         securityContext:
-          capabilities:
-            add:
-            - NET_ADMIN
+          privileged: true
 {% if nodelocaldns_bind_metrics_host_ip %}
         env:
           - name: MY_HOST_IP

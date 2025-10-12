@@ -18,6 +18,11 @@ dependencies:
     tags:
       - flannel
 
+  - role: network_plugin/weave
+    when: kube_network_plugin == 'weave'
+    tags:
+      - weave
+
   - role: network_plugin/macvlan
     when: kube_network_plugin == 'macvlan'
     tags:

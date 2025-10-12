@@ -11,7 +11,6 @@ ping_access_ip: true
 
 # Setting this value to false will fail
 # For details, read this comment https://github.com/kubernetes-sigs/kubespray/pull/11016#issuecomment-2004985001
-# if kube_api_anonymous_auth: "{{ undef() }}", remove --anonymous-auth argument
 kube_api_anonymous_auth: true
 
 # Default value, but will be set to true automatically if detected
@@ -209,7 +208,7 @@ kube_external_ca_mode: false
 # Cluster Loglevel configuration
 kube_log_level: 2
 
-# Choose network plugin (cilium, calico, kube-ovn or flannel. Use cni for generic cni plugin)
+# Choose network plugin (cilium, calico, kube-ovn, weave or flannel. Use cni for generic cni plugin)
 # Can also be set to 'cloud', which lets the cloud provider setup appropriate routing
 kube_network_plugin: calico
 kube_network_plugin_multus: false
@@ -409,9 +408,6 @@ docker_plugins: []
 
 # Containerd options - thse are relevant when container_manager == 'containerd'
 containerd_use_systemd_cgroup: true
-
-# Use static containerd binary for compatibility with older distributions (e.g., Debian 11).
-containerd_static_binary: false
 
 # Containerd conf default dir
 containerd_storage_dir: "/var/lib/containerd"
@@ -618,6 +614,11 @@ local_volume_provisioner_storage_classes: |
 
     }
   }
+
+# weave's network password for encryption
+# if null then no network encryption
+# you can use --extra-vars to pass the password in command line
+weave_password: EnterPasswordHere
 
 ssl_ca_dirs: |-
   [

@@ -13,6 +13,7 @@ versions. Here are all version vars for each component:
 * etcd_version
 * calico_version
 * calico_cni_version
+* weave_version
 * flannel_version
 
 > **Warning**
@@ -355,7 +356,7 @@ follows:
 * Containerd
 * etcd
 * kubelet and kube-proxy
-* network_plugin (such as Calico)
+* network_plugin (such as Calico or Weave)
 * kube-apiserver, kube-scheduler, and kube-controller-manager
 * Add-ons (such as KubeDNS)
 

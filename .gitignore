@@ -2,3 +2,5 @@
 venv
 .kube
 scheduler-plugins
+kubespray
+*.log
