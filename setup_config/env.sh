@@ -10,6 +10,7 @@ readonly NC='\033[0m' # Sin color
 # Rutas
 export readonly PROJECT_DIR="/local/repository"
 export readonly SETUP_DIR="$PROJECT_DIR/setup_config"
+export readonly MANIFESTS_DIR="$SETUP_DIR/manifests"
 export readonly VENV_DIR="$PROJECT_DIR/venv"
 export readonly KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
 export readonly INVENTORY_FILE="inventory/mycluster/inventory.ini"

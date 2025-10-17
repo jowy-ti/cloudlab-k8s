@@ -1,6 +1,7 @@
 topology:
   nodePools:
     default:
-      gpuProduct: "NVIDIA-A30-24GB"
-      gpuCount: 2
+      gpuProduct: "NVIDIA-A30"
+      gpuCount: 1
       gpuMemory: 24000
+      is-dynamic-mig-enabled: true
