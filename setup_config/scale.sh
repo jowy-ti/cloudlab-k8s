@@ -37,5 +37,6 @@ if [[ $MY_USER == "JoelGJ" ]]; then
     run_command "helm install gpu-operator nvidia/gpu-operator --namespace gpu-operator --create-namespace" "Instalando el operador de GPU de NVIDIA"
 else 
     run_command "helm upgrade -i gpu-operator oci://ghcr.io/run-ai/fake-gpu-operator/fake-gpu-operator -f $MANIFESTS_DIR/fake-gpu-operator-values.yaml --namespace fake-gpu-operator --create-namespace" "Instalando el fake-gpu-operator"
+    run_command "kubectl apply -f $MANIFESTS_DIR/gpu-servicemonitor.yaml -n fake-gpu-operator" "Aplicando service monitor del dcgm exporter"
 fi
 log_success "Se han añadido los nodos worker al cluster correctamente"

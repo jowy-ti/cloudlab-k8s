@@ -20,4 +20,11 @@ helm upgrade gpu-operator oci://ghcr.io/run-ai/fake-gpu-operator/fake-gpu-operat
 
 kubectl delete configmaps -n fake-gpu-operator topology-node2 topology-node3 
 
-kubectl delete pods -n fake-gpu-operator device-plugin-* device-plugin-* status-updater-*
+kubectl delete pods -n fake-gpu-operator -l app=device-plugin
+
+kubectl delete pods -n fake-gpu-operator -l app=status-updater
+
+
+
+
+kubectl delete --all pods -n fake-gpu-operator
