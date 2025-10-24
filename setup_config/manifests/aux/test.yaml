@@ -6,7 +6,7 @@ spec:
   template:
     metadata:
       labels:
-        kubernetes.io/hostname: node1
+        kubernetes.io/hostname: node2
     spec:
       schedulerName: scheduler-plugin
       restartPolicy: OnFailure 

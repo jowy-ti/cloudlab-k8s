@@ -1,13 +1,24 @@
 topology:
   nodePools:
-    default:
+    gpu0:
       gpuProduct: "NVIDIA-A100-SXM4-80GB"
-      gpuCount: 1
+      gpuCount: 0
       gpuMemory: 80000
 
       otherDevices:
         - name: "nvidia.com/gpu0.mig-1g.10gb"
           count: 7
+
+    gpu1:
+      gpuProduct: "NVIDIA-A100-SXM4-40GB"
+      gpuCount: 0
+      gpuMemory: 40000
+
+      otherDevices:
+        - name: "nvidia.com/mig-3g.20gb"
+          count: 1
+        - name: "nvidia.com/mig-4g.20gb"
+          count: 1
 
   nodePoolLabelKey: "run.ai/simulated-gpu-node-pool"
   migStrategy: "mixed"

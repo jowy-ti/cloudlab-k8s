@@ -44,7 +44,7 @@ run_command "python3 -m venv $VENV_DIR" "Creando el entorno virtual de Python"
 log_info "Activando el entorno virtual..."
 # 'source' es un comando de shell, no se puede usar directamente en 'run_command'
 if [[ -f "$VENV_DIR/bin/activate" ]]; then
-    source $VENV_DIR/bin/activate
+    source "$VENV_DIR/bin/activate"
     log_success "Entorno virtual activado."
 else
     log_error "No se encontró el script de activación del entorno virtual."
@@ -52,7 +52,7 @@ fi
 
 # 6. Instalar dependencias de Kubespray
 log_info "Cambiando al directorio 'kubespray'"
-cd $KUBESPRAY_DIR || log_error "No se pudo cambiar al directorio 'kubespray'"
+cd "$KUBESPRAY_DIR" || log_error "No se pudo cambiar al directorio 'kubespray'"
 run_command "pip3 install -U -r requirements.txt" "Instalando dependencias de Python desde requirements.txt"
 
 # 7. Verificar la conexión de Ansible y desplegar el clúster
@@ -64,11 +64,6 @@ log_info "Configurando kubectl..."
 run_command "mkdir -p $HOME/.kube" "Creando direcotrio .kube en $HOME"
 run_command "sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config" "Copiando la configuración de admin de Kubernetes"
 run_command "sudo chown -R $MY_USER:$MY_GROUP $HOME/.kube" "Ajustando los permisos del fichero de configuración"
-
-# 9. Añadir repositorios de Helm
-log_info "Configurando Helm..."
-run_command "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts" "Añadiendo el repositorio de Helm de Prometheus Community"
-run_command "helm repo add nvidia https://helm.ngc.nvidia.com/nvidia" "Añadiendo el repositorio de Helm de NVIDIA"
 
 log_success "¡Script finalizado! El clúster de Kubernetes y los componentes adicionales deberían estar listos."
 log_info "Puedes verificar el estado de los nodos con el comando: kubectl get nodes"

@@ -6,7 +6,6 @@ SSH_DIR="$HOME/.ssh"
 KEY="nodekey"
 SHARED_DIR="/proj/gpu4k8s-PG0/exp/$EXP/tmp"
 WAIT_TIME=5
-FIRST_WORKER="node2"
 KEY_ID=ssh-ed25519
 
 # Ejecución nodo master
@@ -18,7 +17,7 @@ if [[ $NODENUM == "node1" ]]; then
 
     run_command "cp $SSH_DIR/$KEY.pub $SHARED_DIR" "Copiando la clave pública al directorio compartido"
 
-    if ! grep -q $KEY_ID $AUTHORIZED_KEYS; then
+    if ! grep -q $KEY_ID "$AUTHORIZED_KEYS"; then
         run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
     fi
 
@@ -27,7 +26,7 @@ if [[ $NODENUM == "node1" ]]; then
         log_success "El agente SSH está activo."
     else
         log_info "El agente SSH no está funcionando. Iniciándolo..."
-        eval $(ssh-agent -s)
+        eval "$(ssh-agent -s)"
         log_success "Agente SSH iniciado."
     fi
 
@@ -36,7 +35,7 @@ if [[ $NODENUM == "node1" ]]; then
     log_info "Esperando a que hayan copiado todo los nodos workers la clave pública"
 
     # Esperamos a los nodos workers
-    for ((num=2; num <= NUM_WORKERS+1; num++)) do
+    for ((num=2; num <= NUM_WORKERS + 1; num++)) do
         NODE_WAIT="node$num"
         while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
             log_info "Esperando al nodo $NODE_WAIT"
@@ -57,7 +56,7 @@ else
 
     run_command "cp $SHARED_DIR/$KEY.pub $SSH_DIR" "Copiando la clave pública al directorio personal $HOME/.ssh"
 
-    if ! grep -q $KEY_ID $AUTHORIZED_KEYS; then
+    if ! grep -q $KEY_ID "$AUTHORIZED_KEYS"; then
         run_command "cat $SSH_DIR/$KEY.pub >> $AUTHORIZED_KEYS" "Añadiendo la clave pública en authorized keys"
     fi
 
