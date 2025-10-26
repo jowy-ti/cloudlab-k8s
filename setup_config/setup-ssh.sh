@@ -35,7 +35,7 @@ if [[ $NODENUM == "node1" ]]; then
     log_info "Esperando a que hayan copiado todo los nodos workers la clave pública"
 
     # Esperamos a los nodos workers
-    for ((num=2; num <= NUM_WORKERS + 1; num++)) do
+    for ((num=2; num <= NUM_WORKERS + 1; num++)); do
         NODE_WAIT="node$num"
         while [[ ! -f "$SHARED_DIR/$NODE_WAIT" ]]; do
             log_info "Esperando al nodo $NODE_WAIT"

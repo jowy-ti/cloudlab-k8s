@@ -1,12 +1,20 @@
 #!/bin/bash
 
-KWOK_NODES=$2
+KWOK_NODES=35
+declare -a poolnodes=(20 30 35)
+POOL=0
 
-for ((i = 0; KWOK_NODES > i; i++)); do :
+for ((i = 0; KWOK_NODES > i; i++)); do
 
-NAME_NODE="kwok-node-$i"
-GPU_POOL="" # Hacer el módulo para asignar gpu pools
+NODE_NAME="kwok-node-$i"
 
+if [[ i -ge poolnodes[$POOL] ]]; then
+  ((POOL++))
+fi
+
+GPU_POOL="pool$POOL" 
+
+echo "$NODE_NAME    $GPU_POOL"
 
 kubectl apply -f - <<EOF
 apiVersion: v1
@@ -23,8 +31,9 @@ metadata:
     kubernetes.io/os: linux
     kubernetes.io/role: agent
     node-role.kubernetes.io/agent: "" 
+    run.ai/simulated-gpu-node-pool: $GPU_POOL
     type: kwok
-  name: $NAME_NODE
+  name: $NODE_NAME
 spec:
   taints: # Avoid scheduling actual running pods to fake Node
   - effect: NoSchedule

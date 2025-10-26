@@ -1,24 +1,32 @@
 topology:
   nodePools:
-    gpu0:
-      gpuProduct: "NVIDIA-A100-SXM4-80GB"
-      gpuCount: 0
+    pool0:
+      gpuProduct: NVIDIA-A30-24GB
+      gpuMemory: 24000
+      otherDevices:
+        - name: "nvidia.com/mig-1g.6gb"
+          count: 40   # (20 NODOS) * (1 GPU) * (2 INSTANCIAS_MIG)
+        - name: "nvidia.com/mig-2g.12gb"
+          count: 20   # (20 NODOS) * (1 GPU) * (1 INSTANCIAS_MIG)
+
+    pool1:
+      gpuProduct: NVIDIA-A100-80GB
       gpuMemory: 80000
-
       otherDevices:
-        - name: "nvidia.com/gpu0.mig-1g.10gb"
-          count: 7
-
-    gpu1:
-      gpuProduct: "NVIDIA-A100-SXM4-40GB"
-      gpuCount: 0
-      gpuMemory: 40000
-
+        - name: "nvidia.com/mig-2g.20gb"
+          count: 40   # (10 NODOS) * (2 GPU) * (2 INSTANCIAS_MIG)
+        - name: "nvidia.com/mig-3g.40gb"
+          count: 20   # (10 NODOS) * (2 GPU) * (1 INSTANCIAS_MIG)
+          
+    pool2:
+      gpuProduct: NVIDIA-H200-141GB
+      gpuMemory: 141000
       otherDevices:
-        - name: "nvidia.com/mig-3g.20gb"
-          count: 1
-        - name: "nvidia.com/mig-4g.20gb"
-          count: 1
+        - name: "nvidia.com/mig-2g.35gb"
+          count: 20   # (5 NODOS) * (2 GPU) * (2 INSTANCIAS_MIG)
+        - name: "nvidia.com/mig-3g.71gb"
+          count: 10   # (5 NODOS) * (2 GPU) * (1 INSTANCIAS_MIG)
+
 
   nodePoolLabelKey: "run.ai/simulated-gpu-node-pool"
   migStrategy: "mixed"

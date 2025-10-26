@@ -39,7 +39,7 @@ info "Desinstalando componentes de helm..."
 
 helm list --no-headers | while read -r name rest; do
     if [[ $name != " " ]]; then
-        helm uninstall $name
+        helm uninstall "$name"
     fi
 done
 
@@ -66,7 +66,7 @@ info "¡Proceso de reseteo completado con éxito!"
 info "Eliminando el entorno virtual..."
 # Se usa la ruta absoluta en la variable para evitar problemas
 rm -rf "$VENV_DIR"
-
+    
 # Desisntalar python3-venv
 sudo apt purge -y python3-venv
 

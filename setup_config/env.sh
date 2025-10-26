@@ -8,16 +8,16 @@ readonly RED='\033[1;31m'
 readonly NC='\033[0m' # Sin color
 
 # Rutas
-export readonly PROJECT_DIR="/local/repository"
-export readonly SETUP_DIR="$PROJECT_DIR/setup_config"
-export readonly MANIFESTS_DIR="$SETUP_DIR/manifests"
-export readonly VENV_DIR="$PROJECT_DIR/venv"
-export readonly KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
-export readonly INVENTORY_FILE="inventory/mycluster/inventory.ini"
+readonly PROJECT_DIR="/local/repository"
+readonly SETUP_DIR="$PROJECT_DIR/setup_config"
+readonly MANIFESTS_DIR="$SETUP_DIR/manifests"
+readonly VENV_DIR="$PROJECT_DIR/venv"
+readonly KUBESPRAY_DIR="$PROJECT_DIR/kubespray"
+readonly INVENTORY_FILE="inventory/mycluster/inventory.ini"
 
 # Usuario y Grupo
-export readonly MY_USER=$(id -un)
-export readonly MY_GROUP=$(id -gn)
+readonly MY_USER="$(id -un)"
+readonly MY_GROUP="$(id -gn)"
 
 # Función para registrar mensajes de información
 log_info() {
@@ -55,3 +55,12 @@ export -f log_info
 export -f log_success
 export -f log_error
 export -f run_command
+
+export PROJECT_DIR
+export SETUP_DIR
+export MANIFESTS_DIR
+export VENV_DIR
+export KUBESPRAY_DIR
+export INVENTORY_FILE
+export MY_USER
+export MY_GROUP
