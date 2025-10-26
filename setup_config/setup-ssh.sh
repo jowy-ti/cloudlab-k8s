@@ -1,10 +1,11 @@
 #!/bin/bash
 
-EXP=$(ls /proj/gpu4k8s-PG0/exp/)
+PROJ=$(ls /proj/)
+EXP=$(ls /proj/$PROJ/exp/)
 AUTHORIZED_KEYS="$HOME/.ssh/authorized_keys"
 SSH_DIR="$HOME/.ssh"
 KEY="nodekey"
-SHARED_DIR="/proj/gpu4k8s-PG0/exp/$EXP/tmp"
+SHARED_DIR="/proj/$PROJ/exp/$EXP/tmp"
 WAIT_TIME=5
 KEY_ID=ssh-ed25519
 
