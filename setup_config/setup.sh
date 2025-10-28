@@ -61,6 +61,6 @@ else
 fi
 
 # Se añaden los nodos worker
-$SETUP_DIR/scale.sh
+$SETUP_DIR/config.sh
 
 log_success "Proceso de creación y escalado del cluster completado." 

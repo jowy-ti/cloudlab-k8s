@@ -4,16 +4,6 @@ kubectl label node <node-name> run.ai/simulated-gpu-node-pool=default
 
 helm repo update
 
-helm upgrade -i gpu-operator oci://ghcr.io/run-ai/fake-gpu-operator/fake-gpu-operator -f fake-gpu-operator-values.yaml --namespace fake-gpu-operator --create-namespace --version 0.0.63
-
-kubectl edit clusterrole fake-status-updater #Y añadimos "- update" debajo en la sección de nodo
-Esto se podría hacer son sed en el script
-
-kubectl delete configmaps -n gpu-operator topology-node2 topology-node3 
-
-kubectl delete pods -n gpu-operator device-plugin-* device-plugin-* status-updater-*
-
-
 Proceso de upgrade:
 
 helm upgrade gpu-operator oci://ghcr.io/run-ai/fake-gpu-operator/fake-gpu-operator -f fake-gpu-operator-values.yaml --namespace fake-gpu-operator

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-KWOK_NODES=35
-declare -a poolnodes=(20 30 35)
+KWOK_NODES=6
+declare -a poolnodes=(3 5 6)
 POOL=0
 
 for ((i = 0; KWOK_NODES > i; i++)); do

@@ -7,9 +7,9 @@ spec:
   containers:
     - name: cuda-vectoradd
       image: "nvidia/cuda:12.1.0-base-ubuntu22.04"
-      # Este comando simplemente se ejecuta durante 5 minutos para mantener la GPU "ocupada"
+      # Este comando simplemente se ejecuta durante 1 minutos para mantener la GPU "ocupada"
       command: ["/bin/sh", "-c"]
-      args: ["sleep 300"]
+      args: ["sleep 60"]
       resources:
         limits:
           nvidia.com/gpu: 1 # <-- ¡Esto solicita una GPU!

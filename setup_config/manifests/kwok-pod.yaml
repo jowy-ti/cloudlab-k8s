@@ -4,7 +4,7 @@ metadata:
   name: fake-pod
   namespace: default
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
       app: fake-pod
@@ -13,6 +13,7 @@ spec:
       labels:
         app: fake-pod
     spec:
+      schedulerName: scheduler-plugin
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
