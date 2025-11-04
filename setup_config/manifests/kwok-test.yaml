@@ -4,7 +4,7 @@ metadata:
   name: fake-pod
   namespace: default
 spec:
-  replicas: 5
+  replicas: 2
   selector:
     matchLabels:
       app: fake-pod
@@ -23,12 +23,19 @@ spec:
                 operator: In
                 values:
                 - kwok
-      # A taints was added to an automatically created Node.
-      # You can remove taints of Node or add this tolerations.
+
       tolerations:
-      - key: "kwok.x-k8s.io/node"
-        operator: "Exists"
+      - key: "node"
+        operator: "Equal"
+        value: "fake"
         effect: "NoSchedule"
       containers:
       - name: fake-container
         image: fake-image
+        resources:
+          requests:
+            cpu: "10000m"
+            memory: "2Gi"
+          limits:
+            nvidia.com/mig-1g.6gb: 1
+            # nvidia.com/mig-2g.12gb: 0

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-KWOK_NODES=6
-declare -a poolnodes=(3 5 6)
+KWOK_NODES=2
+declare -a poolnodes=(2)  #poolnodes=(3 5 6)
 POOL=0
 
 for ((i = 0; KWOK_NODES > i; i++)); do
@@ -37,16 +37,16 @@ metadata:
 spec:
   taints: # Avoid scheduling actual running pods to fake Node
   - effect: NoSchedule
-    key: kwok.x-k8s.io/node
+    key: node
     value: fake
 status:
   allocatable:
     cpu: 32
-    memory: 256Gi
+    memory: 128Gi
     pods: 110
   capacity:
     cpu: 32
-    memory: 256Gi
+    memory: 128Gi
     pods: 110
   nodeInfo:
     architecture: amd64

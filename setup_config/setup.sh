@@ -5,8 +5,8 @@
 # Se detiene inmediatamente si cualquier comando falla.
 set -e
 
-NODES=""
-export readonly NODENUM=$(echo $HOSTNAME | cut -d . -f 1)
+readonly NODENUM=$(echo $HOSTNAME | cut -d . -f 1)
+export NODENUM
 PWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Comprobación de que el repositorio está en el directrio correcto
@@ -33,11 +33,12 @@ elif [[ ! $2 =~ ^[0-9]+$ ]]; then
     exit 1
 fi
 
-export readonly NUM_WORKERS=$2
+readonly NUM_WORKERS=$2
+export NUM_WORKERS
 
 # Pasos para establecer las claves en los nodos
 if  [[ $MY_USER == "JoelGJ" ]]; then
-    source $SETUP_DIR/setup-ssh.sh
+    source "$SETUP_DIR"/setup-ssh.sh
 fi
 
 # Si el nodo no es el master se detiene la configuración
@@ -48,19 +49,8 @@ fi
 log_info "Validaciones correctas. Iniciando despliegue del cluster..."
 echo
 
-# Se configura e inicialliza el nodo master
-if command -v kubectl &> /dev/null; then
-    NODES=$(kubectl get nodes -o custom-columns=NAME:.metadata.name --no-headers)
-fi
+"$SETUP_DIR"/iniCluster.sh
 
-if [[ -z $NODES ]] || [$NODES != "node1"]; then
-    $SETUP_DIR/iniCluster.sh
-
-else
-    log_info "Ya existía el cluster con el nodo master, se procede a añadir workers"
-fi
-
-# Se añaden los nodos worker
-$SETUP_DIR/config.sh
+"$SETUP_DIR"/config.sh
 
 log_success "Proceso de creación y escalado del cluster completado." 

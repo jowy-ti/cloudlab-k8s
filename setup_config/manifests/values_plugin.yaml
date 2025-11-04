@@ -31,7 +31,7 @@ controller:
 
 plugins:
   enabled: ["MyScheduler"]
-  disabled: [] # only in-tree plugins need to be defined here
+  disabled: ["PodTopologySpread", "InterPodAffinity", "NodeResourcesBalancedAllocation", "ImageLocality", "VolumeBinding", "NodeResourcesFit"] # only in-tree plugins need to be defined here
 
 # Customize the enabled plugins' config.
 # Refer to the "pluginConfig" section of manifests/<plugin>/scheduler-config.yaml.

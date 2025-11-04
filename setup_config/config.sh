@@ -37,11 +37,7 @@ run_command "helm upgrade --install kwok kwok/stage-fast" "Aplicando default sta
 
 # KWOK nodes
 
-run_command "$SETUP_DIR/kwok-nodes.sh" "Creando kwok nodes"
-
-# for ((i = 2, j = 0; i <= $NUM_WORKERS+1; i++, j++)) do
-#     run_command "kubectl label node node${i} run.ai/simulated-gpu-node-pool=gpu${j}" "Etiquetando los nodos para asignar pool de GPU"
-# done
+# run_command "$SETUP_DIR/kwok-nodes.sh" "Creando kwok nodes"
 
 # fi
 log_success "Se han añadido los nodos worker al cluster correctamente"
