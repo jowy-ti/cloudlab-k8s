@@ -34,7 +34,7 @@ spec:
         image: fake-image
         resources:
           requests:
-            cpu: "10000m"
+            cpu: "4000m"
             memory: "2Gi"
           limits:
             nvidia.com/mig-1g.6gb: 1

@@ -42,11 +42,11 @@ spec:
 status:
   allocatable:
     cpu: 32
-    memory: 128Gi
+    memory: 64Gi
     pods: 110
   capacity:
     cpu: 32
-    memory: 128Gi
+    memory: 64Gi
     pods: 110
   nodeInfo:
     architecture: amd64
