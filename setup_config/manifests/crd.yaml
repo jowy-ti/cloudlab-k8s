@@ -26,23 +26,17 @@ spec:
                 items:
                   type: object
                   properties:
-                    gpuName:
-                      type: string
-                    usage:
-                      type: int64
-                    mig-enabled:
-                      type: bool
-
-                    mig-instances:
+                    available:
+                      type: integer
+                      
+                    mig-slices:
                       type: array
                       items:
                         type: object
                         properties:
-                          name:
-                            type: string
                           size:
-                            type: int64
+                            type: integer
                           position:
-                            type: int64
-                          usage:
-                            type: int64
+                            type: integer
+                          available:
+                            type: integer

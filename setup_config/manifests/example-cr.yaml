@@ -4,5 +4,12 @@ metadata:
   name: example
   namespace: default
 spec:
-  color: "blue"
-  size: "L"
+  gpus:
+  - available: 10
+  - mig-slices:
+    - size: 4
+      position: 0
+      available: 10
+    - size: 3
+      position: 4
+      available: 10
