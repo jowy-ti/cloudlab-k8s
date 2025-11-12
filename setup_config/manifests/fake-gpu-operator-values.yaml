@@ -1,31 +1,18 @@
 topology:
   nodePools:
     pool0:
-      gpuProduct: NVIDIA-A30-24GB
-      gpuMemory: 24000
-      otherDevices:
-        - name: "nvidia.com/mig-1g.6gb"
-          count: 2   # (20 NODOS) * (1 GPU) * (2 INSTANCIAS_MIG) = 40 INSTANCIAS
-        - name: "nvidia.com/mig-2g.12gb"
-          count: 1  # (20 NODOS) * (1 GPU) * (1 INSTANCIAS_MIG) = 20 INSTANCIAS
+      gpuProduct: NVIDIA-L4-24GB
+      gpuMemory: 16000
+      gpuCount: 2
 
     pool1:
-      gpuProduct: NVIDIA-A100-80GB
+      gpuProduct: NVIDIA-H100-PCIe-80GB
       gpuMemory: 80000
       otherDevices:
-        - name: "nvidia.com/mig-2g.20gb"
-          count: 2   # (10 NODOS) * (2 GPU) * (2 INSTANCIAS_MIG) = 40 INSTANCIAS
-        - name: "nvidia.com/mig-3g.40gb"
-          count: 1   # (10 NODOS) * (2 GPU) * (1 INSTANCIAS_MIG) = 20 INSTANCIAS
-          
-    pool2:
-      gpuProduct: NVIDIA-H200-141GB
-      gpuMemory: 141000
-      otherDevices:
-        - name: "nvidia.com/mig-2g.35gb"
-          count: 2   # (5 NODOS) * (2 GPU) * (2 INSTANCIAS_MIG) = 20 INSTANCIAS
-        - name: "nvidia.com/mig-3g.71gb"
-          count: 1   # (5 NODOS) * (2 GPU) * (1 INSTANCIAS_MIG) = 10 INSTANCIAS
+        - name: "gpu0-2g.20gb"
+          count: 2
+        - name: "gpu0-3g.40gb"
+          count: 1
 
 
   nodePoolLabelKey: "run.ai/simulated-gpu-node-pool"

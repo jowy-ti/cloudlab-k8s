@@ -27,7 +27,9 @@ spec:
                   type: object
                   properties:
                     available:
-                      type: integer
+                      type: integer # sobre 10
+                    mig-enabled:
+                      type: boolean
                       
                     mig-slices:
                       type: array
@@ -39,4 +41,6 @@ spec:
                           position:
                             type: integer
                           available:
+                            type: integer # sobre 10
+                          mem:
                             type: integer

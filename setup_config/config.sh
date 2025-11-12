@@ -35,6 +35,8 @@ run_command "kubectl label ns fake-gpu-operator pod-security.kubernetes.io/enfor
 run_command "helm upgrade --install kwok kwok/kwok --namespace kube-system" "Instalando kwok helm chart"
 run_command "helm upgrade --install kwok kwok/stage-fast" "Aplicando default stage policy kwok"
 
+run_command "kubectl apply -f $MANIFESTS_DIR/crd.yaml" "Aplicando CRD"
+
 # KWOK nodes
 
 # run_command "$SETUP_DIR/kwok-nodes.sh" "Creando kwok nodes"
