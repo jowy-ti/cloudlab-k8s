@@ -38,8 +38,6 @@ spec:
                         properties:
                           size:
                             type: integer
-                          position:
-                            type: integer
                           available:
                             type: integer # sobre 10
                           mem:

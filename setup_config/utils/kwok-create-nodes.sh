@@ -69,4 +69,4 @@ done
 
 sleep 10
 
-./"$CREATE_CRS"
+$CREATE_CRS

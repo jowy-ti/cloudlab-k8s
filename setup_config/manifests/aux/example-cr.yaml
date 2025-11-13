@@ -5,11 +5,13 @@ metadata:
   namespace: default
 spec:
   gpus:
-  - available: 10
-  - mig-slices:
+  - mig-enabled: false
+    available: 10
+  - mig-enabled: true
+    mig-slices:
     - size: 4
-      position: 0
+      mem: 20
       available: 10
     - size: 3
-      position: 4
+      mem: 15
       available: 10

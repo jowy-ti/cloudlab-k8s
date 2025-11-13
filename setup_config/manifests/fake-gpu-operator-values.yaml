@@ -13,6 +13,8 @@ topology:
           count: 2
         - name: "gpu0-3g.40gb"
           count: 1
+        - name: "gpu1-1g.10gb"
+          count: 7
 
 
   nodePoolLabelKey: "run.ai/simulated-gpu-node-pool"
