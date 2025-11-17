@@ -1,19 +1,26 @@
 #!/bin/bash
 
-CREATE_CRS=/local/repository/setup_config/utils/create-crs.sh
 export KWOK_NODES=2
 declare -a poolnodes=(1 2)  #poolnodes=(3 5 6)
 POOL=0
+MIG_POOL=1
 NUMCPU=0
 MEM=0
+MIG_ENABLED="false"
 
 for ((i = 0; KWOK_NODES > i; i++)); do
 
   NODE_NAME="kwok-node-$i"
 
-  if [[ i -ge poolnodes[$POOL] ]]; then
+  if [[ i -ge $((poolnodes[POOL])) ]]; then
     ((POOL++))
   fi
+  
+  if [[ POOL -ge MIG_POOL && $MIG_ENABLED != "true" ]]; then
+      MIG_ENABLED="true"
+  fi
+
+  echo $MIG_ENABLED
 
   GPU_POOL="pool$POOL" 
 
@@ -34,9 +41,11 @@ for ((i = 0; KWOK_NODES > i; i++)); do
       kubernetes.io/os: linux
       kubernetes.io/role: agent
       node-role.kubernetes.io/agent: "" 
-      run.ai/simulated-gpu-node-pool: $GPU_POOL
+      run.ai/simulated-gpu-node-pool: "$GPU_POOL"
+      mig-enabled: "$MIG_ENABLED"
+      mig-instances: "7"
       type: kwok
-    name: $NODE_NAME
+    name: "$NODE_NAME"
   spec:
     taints: # Avoid scheduling actual running pods to fake Node
     - effect: NoSchedule
@@ -66,7 +75,3 @@ for ((i = 0; KWOK_NODES > i; i++)); do
 EOF
 
 done
-
-sleep 10
-
-$CREATE_CRS
