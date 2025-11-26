@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: testpod
+  annotations: 
+    deadline: "1000"
+  name: heavy-pod
   labels:
     app: fake-pod
-    duration: light
+    duration: heavy
 spec:
   schedulerName: scheduler-plugin
 

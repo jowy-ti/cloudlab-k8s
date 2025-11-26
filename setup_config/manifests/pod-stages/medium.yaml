@@ -19,7 +19,7 @@ spec:
 
   delay:
     durationMilliseconds: 12000
-    # jitterDurationMilliseconds:
+    jitterDurationMilliseconds: 25000
       
   next:
     delete: true

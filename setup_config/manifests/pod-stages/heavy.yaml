@@ -18,8 +18,8 @@ spec:
         - Running
 
   delay:
-    durationMilliseconds: 25000
-    # jitterDurationMilliseconds:
-      
+    durationMilliseconds: 27000
+    jitterDurationMilliseconds: 50000
+    
   next:
     delete: true
