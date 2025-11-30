@@ -54,6 +54,7 @@ fi
 log_info "Cambiando al directorio 'kubespray'"
 cd "$KUBESPRAY_DIR" || log_error "No se pudo cambiar al directorio 'kubespray'"
 run_command "pip3 install -U -r requirements.txt" "Instalando dependencias de Python desde requirements.txt"
+run_command "pip3 install kubernetes" "Instalando librería kubernetes pip3"
 
 # Ejecutar script de configuración de IPs
 run_command "sed -i '/\[kube_node\]/q' $KUBESPRAY_DIR/$INVENTORY_FILE" "Eliminando workers actuales en inventory.ini"

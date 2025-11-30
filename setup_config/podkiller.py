@@ -6,7 +6,7 @@ from kubernetes.client.rest import ApiException
 # La clave de la anotación que contiene el tiempo de finalización (Unix Timestamp en segundos)
 ANNOTATION_KEY_KILL_TIME = "deadline" 
 # Intervalo de tiempo (en segundos) que el script esperará entre revisiones de Pods.
-POLL_INTERVAL_SECONDS = 10
+POLL_INTERVAL_SECONDS = 3
 
 def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """
@@ -79,7 +79,7 @@ def main():
     # Bucle infinito de POLLING
     while True:
         try:
-            print(f"\n--- REVISIÓN PERIÓDICA: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())} ---")
+            # print(f"\n--- REVISIÓN PERIÓDICA: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())} ---")
             
             # 2. Listar todos los Pods (el Polling)
             pods = v1.list_pod_for_all_namespaces(watch=False)
@@ -89,7 +89,7 @@ def main():
                 kill_pod_if_expired(v1, pod)
 
             # 4. Esperar el intervalo de Polling
-            print(f"Revisión completada. Esperando {POLL_INTERVAL_SECONDS} segundos...")
+            # print(f"Revisión completada. Esperando {POLL_INTERVAL_SECONDS} segundos...")
             time.sleep(POLL_INTERVAL_SECONDS)
                 
         except ApiException as e:

@@ -3,12 +3,12 @@ topology:
     pool0:
       gpuProduct: NVIDIA-L4-24GB
       gpuMemory: 16000
-      gpuCount: 3
+      gpuCount: 2
 
     pool1:
       gpuProduct: NVIDIA-H100-PCIe-80GB
       gpuMemory: 80000
-      gpuCount: 2
+      gpuCount: 1
       # otherDevices:
       #   - name: "gpu0-2g.20gb"
       #     count: 2

@@ -1,12 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations: 
-    deadline: "1000"
-  name: heavy-pod
+  name: testpod
   labels:
     app: fake-pod
-    duration: heavy
 spec:
   schedulerName: scheduler-plugin
 
@@ -31,7 +28,8 @@ spec:
     image: fake-image
     resources:
       requests:
-        cpu: "4000m"
-        memory: "2Gi"
+        customresource.com/gpuMemory: 200
+        customresource.com/gpufp32: 5000
       limits:
-        nvidia.com/gpu: 1
+        customresource.com/gpuMemory: 200
+        customresource.com/gpufp32: 5000

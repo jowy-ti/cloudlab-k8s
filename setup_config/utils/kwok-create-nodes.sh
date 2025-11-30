@@ -2,10 +2,10 @@
 
 export KWOK_NODES=2
 declare -a poolnodes=(1 2)  #poolnodes=(3 5 6)
+declare -a fp32=(30000 60000)
+declare -a MIGinstances=(0 7)
 POOL=0
 MIG_POOL=1
-NUMCPU=0
-MEM=0
 MIG_ENABLED="false"
 
 for ((i = 0; KWOK_NODES > i; i++)); do
@@ -43,7 +43,8 @@ for ((i = 0; KWOK_NODES > i; i++)); do
       node-role.kubernetes.io/agent: "" 
       run.ai/simulated-gpu-node-pool: "$GPU_POOL"
       mig-enabled: "$MIG_ENABLED"
-      mig-instances: "7"
+      nvidia.com/gpu.fp32.GFLOPS: "${fp32[POOL]}"
+      mig-instances: "${MIGinstances[POOL]}"
       type: kwok
     name: "$NODE_NAME"
   spec:
