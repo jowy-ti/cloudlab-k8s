@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: testpod
+  name: testpod0
   labels:
     app: fake-pod
 spec:
@@ -28,8 +28,8 @@ spec:
     image: fake-image
     resources:
       requests:
-        customresource.com/gpuMemory: 200
-        customresource.com/gpufp32: 5000
+        customresource.com/gpuMemory: 5000
+        customresource.com/gpufp32: 2000
       limits:
-        customresource.com/gpuMemory: 200
-        customresource.com/gpufp32: 5000
+        customresource.com/gpuMemory: 5000
+        customresource.com/gpufp32: 2000
