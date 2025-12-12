@@ -22,6 +22,7 @@ GpuMemory    = "customresource.com/gpuMemory"
 CreationTime = "customresource.com/creation-time"
 DeletionTime = "customresource.com/deletion-time"
 ScheduledTime = "customresource.com/scheduled-time"
+HardIsolation = "hardIsolation"
 
 ResourceName = "alibabacloud.com/gpu-milli"      # GPU milli, i.e., 1000 == 1 GPU, for pod only, node is 1000 by default
 CountName    = "alibabacloud.com/gpu-count"      # GPU number request (or allocatable), for pod and node
@@ -47,8 +48,8 @@ def generate_pod_yaml(workload_name='paib-pod-10',
     kind: Pod
     metadata:
       name: single-pod
-    labels:
-      app: fake-pod
+      labels:
+        app: fake-pod
     spec:
       schedulerName: scheduler-plugin
       tolerations:
@@ -132,6 +133,11 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
             RatioGpu = float(MilliGpu) / 1000.0
             container_requests[GpuMemory] = int(RatioGpu * V100Mem)
             container_requests[GpuFp32] = int(RatioGpu * V100Fp32)
+
+            if MilliGpu == 1000:
+            	annotations[HardIsolation] = 'true'
+            else:
+                annotations[HardIsolation] = 'false'
 
             if 'gpu_spec' in row:
                 gpu_req_val = [x for x in row['gpu_spec'].split('|') if len(x) > 0]
