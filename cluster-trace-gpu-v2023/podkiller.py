@@ -4,9 +4,11 @@ from kubernetes.client.rest import ApiException
 
 # --- Configuración ---
 # La clave de la anotación que contiene el tiempo de finalización (Unix Timestamp en segundos)
-ANNOTATION_KEY_KILL_TIME = "deadline" 
+ANNOTATION_KEY_KILL_TIME = 'deadline'
 # Intervalo de tiempo (en segundos) que el script esperará entre revisiones de Pods.
 POLL_INTERVAL_SECONDS = 3
+FIELD_SELECTOR = 'status.phase=Running'
+NAMESPACE_TARGET = 'default'
 
 def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """
@@ -82,7 +84,14 @@ def main():
             # print(f"\n--- REVISIÓN PERIÓDICA: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())} ---")
             
             # 2. Listar todos los Pods (el Polling)
-            pods = v1.list_pod_for_all_namespaces(watch=False)
+            pods = v1.list_namespaced_pod(
+                namespace=NAMESPACE_TARGET,
+                field_selector=FIELD_SELECTOR,  # Opcional: para filtrar por estado
+                watch=False
+            )
+
+            # for pod in pods.items:
+            #     print(pod.metadata.name)
             
             # 3. Procesar cada Pod
             for pod in pods.items:

@@ -2,7 +2,7 @@ topology:
   nodePools:
     pool0:
       gpuProduct: NVIDIA-L4-24GB
-      gpuMemory: 16000
+      gpuMemory: 24000
       gpuCount: 2
 
     pool1:

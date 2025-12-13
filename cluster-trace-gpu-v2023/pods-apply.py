@@ -7,8 +7,8 @@ import time
 # --- Configuración ---
 # Cambia 'manifiestos.yaml' por la ruta de tu archivo YAML 
 Initial_time = int(time.time())
-Normalizador = 100000
 YAML_FILE_PATH = "trace/trace.yaml" 
+EXP = 1.0 / 3.0
 # --- Fin Configuración ---
 
 def aplicar_manifest_por_separado(manifesto_yaml):
@@ -19,35 +19,23 @@ def aplicar_manifest_por_separado(manifesto_yaml):
     
     try:
 
+        creationTime = None
         if 'metadata' in manifesto_yaml:
             metadata = manifesto_yaml['metadata']
             if 'annotations' in metadata and metadata['annotations'] is not None:
                 annotations = metadata['annotations']
                 if 'customresource.com/creation-time' in annotations:
-                    creationTime = annotations['customresource.com/creation-time']
+                    creationTime = float(annotations['customresource.com/creation-time'])
                 else:
                     return
 
-                if 'customresource.com/deletion-time' in annotations:
-                    deletionTime = annotations['customresource.com/deletion-time']
-                else:
-                    return
+        if creationTime == None:
+            return
 
-                if 'customresource.com/scheduled-time' in annotations:
-                    scheduledTime = annotations['customresource.com/scheduled-time']
-                    if scheduledTime == 'NaN':
-                        return
-                else:
-                    scheduledTime = -1
-        
-        creationTime = int(int(creationTime) / Normalizador)
-        deletionTime = int(int(deletionTime) / Normalizador)
-        scheduledTime = int(int(scheduledTime) / Normalizador)
-
-        print(f"creationTime: {creationTime}\ndeletionTime: {deletionTime}\nscheduledTime: {scheduledTime}")
-
-        tiempo_restante = (Initial_time + creationTime) - int(time.time())
-        print(f"Tiempo restante: {tiempo_restante}")
+        creationTime = creationTime ** EXP
+        tiempo_restante = int(Initial_time + creationTime) - int(time.time())
+        print(f"creationTime: {creationTime}")
+        print(f"Tiempo de espera del pod: {tiempo_restante}")
 
         if tiempo_restante > 0:
             time.sleep(tiempo_restante)
@@ -103,7 +91,6 @@ def aplicar_yaml_multifichero(file_path):
                 if manifesto and isinstance(manifesto, dict):
                     aplicar_manifest_por_separado(manifesto)
                     recursos_aplicados += 1
-                sys.exit()
 
             if recursos_aplicados == 0:
                  print("\n⚠️ Advertencia: No se encontraron recursos válidos en el archivo YAML.")
