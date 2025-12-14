@@ -1,12 +1,13 @@
 import time
 from kubernetes import client, config
 from kubernetes.client.rest import ApiException
+import sys
 
 # --- Configuración ---
 # La clave de la anotación que contiene el tiempo de finalización (Unix Timestamp en segundos)
 ANNOTATION_KEY_KILL_TIME = 'deadline'
 # Intervalo de tiempo (en segundos) que el script esperará entre revisiones de Pods.
-POLL_INTERVAL_SECONDS = 3
+POLL_INTERVAL_SECONDS = 2
 FIELD_SELECTOR = 'status.phase=Running'
 NAMESPACE_TARGET = 'default'
 
@@ -37,19 +38,19 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
         
     # Lógica de Eliminación: ¿El tiempo de finalización ya pasó?
     if current_time >= kill_timestamp:
-        print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
-        print(f"  Pod: {namespace}/{pod_name}")
-        print(f"  Tiempo actual: {current_time}, Tiempo límite: {kill_timestamp}")
+        # print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
+        # print(f"  Pod: {namespace}/{pod_name}")
+        # print(f"  Tiempo actual: {current_time}, Tiempo límite: {kill_timestamp}")
         
         # Eliminar el Pod
         try:
-            print(f"Intentando eliminar el Pod: {pod_name} en namespace {namespace}...")
+            # print(f"Intentando eliminar el Pod: {pod_name} en namespace {namespace}...")
             v1.delete_namespaced_pod(
                 name=pod_name, 
                 namespace=namespace, 
                 body=client.V1DeleteOptions()
             )
-            print(f"Pod {pod_name} eliminado exitosamente.")
+            # print(f"Pod {pod_name} eliminado exitosamente.")
         except ApiException as e:
             if e.status == 404:
                 print(f"Advertencia: Pod {pod_name} ya no existe.")
@@ -89,9 +90,6 @@ def main():
                 field_selector=FIELD_SELECTOR,  # Opcional: para filtrar por estado
                 watch=False
             )
-
-            # for pod in pods.items:
-            #     print(pod.metadata.name)
             
             # 3. Procesar cada Pod
             for pod in pods.items:
