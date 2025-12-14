@@ -5,7 +5,7 @@ metadata:
     customresource.com/creation-time: '0'
     customresource.com/deletion-time: '12537496'
     customresource.com/scheduled-time: '0'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0000
@@ -93,7 +93,7 @@ metadata:
     customresource.com/creation-time: '1558381'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '1558381'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0002
@@ -181,7 +181,7 @@ metadata:
     customresource.com/creation-time: '2758084'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '2758084'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0004
@@ -225,7 +225,7 @@ metadata:
     customresource.com/creation-time: '3019330'
     customresource.com/deletion-time: '11815163'
     customresource.com/scheduled-time: '3019331'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0005
@@ -269,7 +269,7 @@ metadata:
     customresource.com/creation-time: '3019932'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '3019932'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0006
@@ -313,7 +313,7 @@ metadata:
     customresource.com/creation-time: '4130198'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '4130198'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0007
@@ -357,7 +357,7 @@ metadata:
     customresource.com/creation-time: '4975773'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '4975773'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0008
@@ -401,7 +401,7 @@ metadata:
     customresource.com/creation-time: '5182092'
     customresource.com/deletion-time: '10004145'
     customresource.com/scheduled-time: '5182096'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0009
@@ -489,7 +489,7 @@ metadata:
     customresource.com/creation-time: '6588193'
     customresource.com/deletion-time: '10959245'
     customresource.com/scheduled-time: '6595531'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0011
@@ -533,7 +533,7 @@ metadata:
     customresource.com/creation-time: '6976821'
     customresource.com/deletion-time: '10650110'
     customresource.com/scheduled-time: '6976823'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0012
@@ -577,7 +577,7 @@ metadata:
     customresource.com/creation-time: '8387257'
     customresource.com/deletion-time: '11410890'
     customresource.com/scheduled-time: '8387291'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0013
@@ -621,7 +621,7 @@ metadata:
     customresource.com/creation-time: '8396307'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '8396310'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0014
@@ -665,7 +665,7 @@ metadata:
     customresource.com/creation-time: '9437497'
     customresource.com/deletion-time: '10769854'
     customresource.com/scheduled-time: '9437497'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0015
@@ -929,7 +929,7 @@ metadata:
     customresource.com/creation-time: '9766837'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '9766837'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0021
@@ -973,7 +973,7 @@ metadata:
     customresource.com/creation-time: '9818766'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '9818768'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0022
@@ -1061,7 +1061,7 @@ metadata:
     customresource.com/creation-time: '9924220'
     customresource.com/deletion-time: '9964972'
     customresource.com/scheduled-time: '9924222'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0024
@@ -1149,7 +1149,7 @@ metadata:
     customresource.com/creation-time: '9949982'
     customresource.com/deletion-time: '9978759'
     customresource.com/scheduled-time: '9949984'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0026
@@ -1237,7 +1237,7 @@ metadata:
     customresource.com/creation-time: '9957349'
     customresource.com/deletion-time: '9967333'
     customresource.com/scheduled-time: '9957351'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0028
@@ -1281,7 +1281,7 @@ metadata:
     customresource.com/creation-time: '9961302'
     customresource.com/deletion-time: '9994357'
     customresource.com/scheduled-time: '9961304'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0029
@@ -1369,7 +1369,7 @@ metadata:
     customresource.com/creation-time: '9965463'
     customresource.com/deletion-time: '9965645'
     customresource.com/scheduled-time: '9965463'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0031
@@ -1413,7 +1413,7 @@ metadata:
     customresource.com/creation-time: '9965619'
     customresource.com/deletion-time: '9966774'
     customresource.com/scheduled-time: '9965621'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0032
@@ -1457,7 +1457,7 @@ metadata:
     customresource.com/creation-time: '9967058'
     customresource.com/deletion-time: '9968575'
     customresource.com/scheduled-time: '9967063'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0033
@@ -1501,7 +1501,7 @@ metadata:
     customresource.com/creation-time: '9967204'
     customresource.com/deletion-time: '9967404'
     customresource.com/scheduled-time: '9967204'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0034
@@ -1545,7 +1545,7 @@ metadata:
     customresource.com/creation-time: '9970479'
     customresource.com/deletion-time: '9971583'
     customresource.com/scheduled-time: '9970481'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0035
@@ -1721,7 +1721,7 @@ metadata:
     customresource.com/creation-time: '9976185'
     customresource.com/deletion-time: '9976497'
     customresource.com/scheduled-time: '9976185'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0039
@@ -1765,7 +1765,7 @@ metadata:
     customresource.com/creation-time: '9977555'
     customresource.com/deletion-time: '9977866'
     customresource.com/scheduled-time: '9977555'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0040
@@ -1853,7 +1853,7 @@ metadata:
     customresource.com/creation-time: '9983856'
     customresource.com/deletion-time: '9984198'
     customresource.com/scheduled-time: '9983857'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0042
@@ -1897,7 +1897,7 @@ metadata:
     customresource.com/creation-time: '9985207'
     customresource.com/deletion-time: '9985592'
     customresource.com/scheduled-time: '9985207'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0043
@@ -1941,7 +1941,7 @@ metadata:
     customresource.com/creation-time: '9989432'
     customresource.com/deletion-time: '9989793'
     customresource.com/scheduled-time: '9989432'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0044
@@ -1985,7 +1985,7 @@ metadata:
     customresource.com/creation-time: '9989615'
     customresource.com/deletion-time: '9989817'
     customresource.com/scheduled-time: '9989615'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0045
@@ -2117,7 +2117,7 @@ metadata:
     customresource.com/creation-time: '9993753'
     customresource.com/deletion-time: '10061253'
     customresource.com/scheduled-time: '9993753'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0048
@@ -2161,7 +2161,7 @@ metadata:
     customresource.com/creation-time: '9997763'
     customresource.com/deletion-time: '10001500'
     customresource.com/scheduled-time: '9997763'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0049
@@ -2205,7 +2205,7 @@ metadata:
     customresource.com/creation-time: '9999611'
     customresource.com/deletion-time: '9999877'
     customresource.com/scheduled-time: '9999611'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0050
@@ -2249,7 +2249,7 @@ metadata:
     customresource.com/creation-time: '9999740'
     customresource.com/deletion-time: '9999855'
     customresource.com/scheduled-time: '9999740'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0051
@@ -2293,7 +2293,7 @@ metadata:
     customresource.com/creation-time: '9999867'
     customresource.com/deletion-time: '10000083'
     customresource.com/scheduled-time: '9999867'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0052
@@ -2337,7 +2337,7 @@ metadata:
     customresource.com/creation-time: '10000483'
     customresource.com/deletion-time: '10002335'
     customresource.com/scheduled-time: '10000483'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0053
@@ -2425,7 +2425,7 @@ metadata:
     customresource.com/creation-time: '10001278'
     customresource.com/deletion-time: '10001403'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0055
@@ -2513,7 +2513,7 @@ metadata:
     customresource.com/creation-time: '10001854'
     customresource.com/deletion-time: '10043044'
     customresource.com/scheduled-time: '10002793'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0057
@@ -2557,7 +2557,7 @@ metadata:
     customresource.com/creation-time: '10002519'
     customresource.com/deletion-time: '10003360'
     customresource.com/scheduled-time: '10002522'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0058
@@ -2601,7 +2601,7 @@ metadata:
     customresource.com/creation-time: '10002813'
     customresource.com/deletion-time: '10004193'
     customresource.com/scheduled-time: '10003093'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0059
@@ -2645,7 +2645,7 @@ metadata:
     customresource.com/creation-time: '10003114'
     customresource.com/deletion-time: '10006715'
     customresource.com/scheduled-time: '10004543'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0060
@@ -2733,7 +2733,7 @@ metadata:
     customresource.com/creation-time: '10005625'
     customresource.com/deletion-time: '10005773'
     customresource.com/scheduled-time: '10005625'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0062
@@ -2777,7 +2777,7 @@ metadata:
     customresource.com/creation-time: '10008375'
     customresource.com/deletion-time: '10008605'
     customresource.com/scheduled-time: '10008375'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0063
@@ -2821,7 +2821,7 @@ metadata:
     customresource.com/creation-time: '10009087'
     customresource.com/deletion-time: '10009227'
     customresource.com/scheduled-time: '10009087'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0064
@@ -2865,7 +2865,7 @@ metadata:
     customresource.com/creation-time: '10009222'
     customresource.com/deletion-time: '10009356'
     customresource.com/scheduled-time: '10009256'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0065
@@ -2909,7 +2909,7 @@ metadata:
     customresource.com/creation-time: '10011081'
     customresource.com/deletion-time: '10011118'
     customresource.com/scheduled-time: '10011083'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0066
@@ -2953,7 +2953,7 @@ metadata:
     customresource.com/creation-time: '10011177'
     customresource.com/deletion-time: '10011318'
     customresource.com/scheduled-time: '10011177'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0067
@@ -2997,7 +2997,7 @@ metadata:
     customresource.com/creation-time: '10011398'
     customresource.com/deletion-time: '10019079'
     customresource.com/scheduled-time: '10011400'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0068
@@ -3041,7 +3041,7 @@ metadata:
     customresource.com/creation-time: '10011759'
     customresource.com/deletion-time: '10012978'
     customresource.com/scheduled-time: '10011761'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0069
@@ -3085,7 +3085,7 @@ metadata:
     customresource.com/creation-time: '10013436'
     customresource.com/deletion-time: '10014656'
     customresource.com/scheduled-time: '10013712'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0070
@@ -3129,7 +3129,7 @@ metadata:
     customresource.com/creation-time: '10013677'
     customresource.com/deletion-time: '10013860'
     customresource.com/scheduled-time: '10013677'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0071
@@ -3173,7 +3173,7 @@ metadata:
     customresource.com/creation-time: '10013797'
     customresource.com/deletion-time: '10015126'
     customresource.com/scheduled-time: '10014212'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0072
@@ -3437,7 +3437,7 @@ metadata:
     customresource.com/creation-time: '10015849'
     customresource.com/deletion-time: '10015908'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0078
@@ -3525,7 +3525,7 @@ metadata:
     customresource.com/creation-time: '10017162'
     customresource.com/deletion-time: '10017394'
     customresource.com/scheduled-time: '10017162'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0080
@@ -3569,7 +3569,7 @@ metadata:
     customresource.com/creation-time: '10017643'
     customresource.com/deletion-time: '10019780'
     customresource.com/scheduled-time: '10017677'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0081
@@ -3701,7 +3701,7 @@ metadata:
     customresource.com/creation-time: '10018225'
     customresource.com/deletion-time: '10018268'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0084
@@ -3833,7 +3833,7 @@ metadata:
     customresource.com/creation-time: '10018784'
     customresource.com/deletion-time: '10019004'
     customresource.com/scheduled-time: '10018784'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0087
@@ -3877,7 +3877,7 @@ metadata:
     customresource.com/creation-time: '10019718'
     customresource.com/deletion-time: '10019822'
     customresource.com/scheduled-time: '10019753'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0088
@@ -3965,7 +3965,7 @@ metadata:
     customresource.com/creation-time: '10019975'
     customresource.com/deletion-time: '10020052'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0090
@@ -4097,7 +4097,7 @@ metadata:
     customresource.com/creation-time: '10020698'
     customresource.com/deletion-time: '10020979'
     customresource.com/scheduled-time: '10020698'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0093
@@ -4141,7 +4141,7 @@ metadata:
     customresource.com/creation-time: '10021257'
     customresource.com/deletion-time: '10021325'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0094
@@ -4185,7 +4185,7 @@ metadata:
     customresource.com/creation-time: '10022297'
     customresource.com/deletion-time: '10022402'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0095
@@ -4229,7 +4229,7 @@ metadata:
     customresource.com/creation-time: '10022793'
     customresource.com/deletion-time: '10023874'
     customresource.com/scheduled-time: '10022794'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0096
@@ -4361,7 +4361,7 @@ metadata:
     customresource.com/creation-time: '10024890'
     customresource.com/deletion-time: '10025087'
     customresource.com/scheduled-time: '10024890'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0099
@@ -4405,7 +4405,7 @@ metadata:
     customresource.com/creation-time: '10025123'
     customresource.com/deletion-time: '10025179'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0100
@@ -4449,7 +4449,7 @@ metadata:
     customresource.com/creation-time: '10025364'
     customresource.com/deletion-time: '10025457'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0101
@@ -4493,7 +4493,7 @@ metadata:
     customresource.com/creation-time: '10025530'
     customresource.com/deletion-time: '10025731'
     customresource.com/scheduled-time: '10025530'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0102
@@ -4625,7 +4625,7 @@ metadata:
     customresource.com/creation-time: '10027446'
     customresource.com/deletion-time: '10049201'
     customresource.com/scheduled-time: '10027446'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0105
@@ -4801,7 +4801,7 @@ metadata:
     customresource.com/creation-time: '10028677'
     customresource.com/deletion-time: '10028888'
     customresource.com/scheduled-time: '10028678'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0109
@@ -4845,7 +4845,7 @@ metadata:
     customresource.com/creation-time: '10029041'
     customresource.com/deletion-time: '10029258'
     customresource.com/scheduled-time: '10029041'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0110
@@ -4933,7 +4933,7 @@ metadata:
     customresource.com/creation-time: '10030840'
     customresource.com/deletion-time: '10031610'
     customresource.com/scheduled-time: '10030840'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0112
@@ -5021,7 +5021,7 @@ metadata:
     customresource.com/creation-time: '10032059'
     customresource.com/deletion-time: '10032298'
     customresource.com/scheduled-time: '10032096'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0114
@@ -5065,7 +5065,7 @@ metadata:
     customresource.com/creation-time: '10032623'
     customresource.com/deletion-time: '10032782'
     customresource.com/scheduled-time: '10032623'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0115
@@ -5153,7 +5153,7 @@ metadata:
     customresource.com/creation-time: '10032792'
     customresource.com/deletion-time: '10032933'
     customresource.com/scheduled-time: '10032792'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0117
@@ -5197,7 +5197,7 @@ metadata:
     customresource.com/creation-time: '10033656'
     customresource.com/deletion-time: '10034855'
     customresource.com/scheduled-time: '10033656'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0118
@@ -5329,7 +5329,7 @@ metadata:
     customresource.com/creation-time: '10034479'
     customresource.com/deletion-time: '10034765'
     customresource.com/scheduled-time: '10034479'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0121
@@ -5373,7 +5373,7 @@ metadata:
     customresource.com/creation-time: '10034615'
     customresource.com/deletion-time: '10035454'
     customresource.com/scheduled-time: '10034615'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0122
@@ -5417,7 +5417,7 @@ metadata:
     customresource.com/creation-time: '10035396'
     customresource.com/deletion-time: '10036353'
     customresource.com/scheduled-time: '10035396'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0123
@@ -5461,7 +5461,7 @@ metadata:
     customresource.com/creation-time: '10036115'
     customresource.com/deletion-time: '10036713'
     customresource.com/scheduled-time: '10036115'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0124
@@ -5505,7 +5505,7 @@ metadata:
     customresource.com/creation-time: '10036187'
     customresource.com/deletion-time: '10036330'
     customresource.com/scheduled-time: '10036187'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0125
@@ -5593,7 +5593,7 @@ metadata:
     customresource.com/creation-time: '10036751'
     customresource.com/deletion-time: '10036830'
     customresource.com/scheduled-time: '10036751'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0127
@@ -5681,7 +5681,7 @@ metadata:
     customresource.com/creation-time: '10037662'
     customresource.com/deletion-time: '10037952'
     customresource.com/scheduled-time: '10037729'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0129
@@ -5725,7 +5725,7 @@ metadata:
     customresource.com/creation-time: '10037976'
     customresource.com/deletion-time: '10041389'
     customresource.com/scheduled-time: '10037976'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0130
@@ -5901,7 +5901,7 @@ metadata:
     customresource.com/creation-time: '10039573'
     customresource.com/deletion-time: '10043761'
     customresource.com/scheduled-time: '10039574'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0134
@@ -5945,7 +5945,7 @@ metadata:
     customresource.com/creation-time: '10039634'
     customresource.com/deletion-time: '10039739'
     customresource.com/scheduled-time: '10039637'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0135
@@ -6033,7 +6033,7 @@ metadata:
     customresource.com/creation-time: '10040014'
     customresource.com/deletion-time: '10040099'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0137
@@ -6165,7 +6165,7 @@ metadata:
     customresource.com/creation-time: '10040966'
     customresource.com/deletion-time: '10041013'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0140
@@ -6209,7 +6209,7 @@ metadata:
     customresource.com/creation-time: '10041157'
     customresource.com/deletion-time: '10042958'
     customresource.com/scheduled-time: '10041159'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0141
@@ -6253,7 +6253,7 @@ metadata:
     customresource.com/creation-time: '10041292'
     customresource.com/deletion-time: '10041316'
     customresource.com/scheduled-time: '10041292'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0142
@@ -6297,7 +6297,7 @@ metadata:
     customresource.com/creation-time: '10041344'
     customresource.com/deletion-time: '10041514'
     customresource.com/scheduled-time: '10041344'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0143
@@ -6341,7 +6341,7 @@ metadata:
     customresource.com/creation-time: '10041954'
     customresource.com/deletion-time: '10042152'
     customresource.com/scheduled-time: '10041954'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0144
@@ -6429,7 +6429,7 @@ metadata:
     customresource.com/creation-time: '10043265'
     customresource.com/deletion-time: '10044780'
     customresource.com/scheduled-time: '10043298'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0146
@@ -6473,7 +6473,7 @@ metadata:
     customresource.com/creation-time: '10046254'
     customresource.com/deletion-time: '10056753'
     customresource.com/scheduled-time: '10046254'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0147
@@ -6561,7 +6561,7 @@ metadata:
     customresource.com/creation-time: '10047020'
     customresource.com/deletion-time: '10047140'
     customresource.com/scheduled-time: '10047020'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0149
@@ -6605,7 +6605,7 @@ metadata:
     customresource.com/creation-time: '10047038'
     customresource.com/deletion-time: '10047167'
     customresource.com/scheduled-time: '10047038'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0150
@@ -6649,7 +6649,7 @@ metadata:
     customresource.com/creation-time: '10047603'
     customresource.com/deletion-time: '10047726'
     customresource.com/scheduled-time: '10047603'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0151
@@ -6693,7 +6693,7 @@ metadata:
     customresource.com/creation-time: '10049677'
     customresource.com/deletion-time: '10050216'
     customresource.com/scheduled-time: '10049677'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0152
@@ -6737,7 +6737,7 @@ metadata:
     customresource.com/creation-time: '10050573'
     customresource.com/deletion-time: '10051530'
     customresource.com/scheduled-time: '10050573'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0153
@@ -6781,7 +6781,7 @@ metadata:
     customresource.com/creation-time: '10051156'
     customresource.com/deletion-time: '10051315'
     customresource.com/scheduled-time: '10051156'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0154
@@ -6825,7 +6825,7 @@ metadata:
     customresource.com/creation-time: '10051357'
     customresource.com/deletion-time: '10052739'
     customresource.com/scheduled-time: '10051360'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0155
@@ -6869,7 +6869,7 @@ metadata:
     customresource.com/creation-time: '10052128'
     customresource.com/deletion-time: '10052291'
     customresource.com/scheduled-time: '10052128'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0156
@@ -6913,7 +6913,7 @@ metadata:
     customresource.com/creation-time: '10052438'
     customresource.com/deletion-time: '10053817'
     customresource.com/scheduled-time: '10052441'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0157
@@ -6957,7 +6957,7 @@ metadata:
     customresource.com/creation-time: '10052820'
     customresource.com/deletion-time: '10052911'
     customresource.com/scheduled-time: '10052822'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0158
@@ -7001,7 +7001,7 @@ metadata:
     customresource.com/creation-time: '10053055'
     customresource.com/deletion-time: '10053147'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0159
@@ -7089,7 +7089,7 @@ metadata:
     customresource.com/creation-time: '10053622'
     customresource.com/deletion-time: '10053853'
     customresource.com/scheduled-time: '10053622'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0161
@@ -7133,7 +7133,7 @@ metadata:
     customresource.com/creation-time: '10054239'
     customresource.com/deletion-time: '10055257'
     customresource.com/scheduled-time: '10054241'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0162
@@ -7177,7 +7177,7 @@ metadata:
     customresource.com/creation-time: '10055123'
     customresource.com/deletion-time: '10055357'
     customresource.com/scheduled-time: '10055123'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0163
@@ -7265,7 +7265,7 @@ metadata:
     customresource.com/creation-time: '10057657'
     customresource.com/deletion-time: '10057940'
     customresource.com/scheduled-time: '10057657'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0165
@@ -7309,7 +7309,7 @@ metadata:
     customresource.com/creation-time: '10058979'
     customresource.com/deletion-time: '10059258'
     customresource.com/scheduled-time: '10058979'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0166
@@ -7397,7 +7397,7 @@ metadata:
     customresource.com/creation-time: '10059169'
     customresource.com/deletion-time: '10059383'
     customresource.com/scheduled-time: '10059169'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0168
@@ -7485,7 +7485,7 @@ metadata:
     customresource.com/creation-time: '10059776'
     customresource.com/deletion-time: '10060089'
     customresource.com/scheduled-time: '10059776'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0170
@@ -7529,7 +7529,7 @@ metadata:
     customresource.com/creation-time: '10059888'
     customresource.com/deletion-time: '10060222'
     customresource.com/scheduled-time: '10059888'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0171
@@ -7661,7 +7661,7 @@ metadata:
     customresource.com/creation-time: '10060718'
     customresource.com/deletion-time: '10064437'
     customresource.com/scheduled-time: '10060721'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0174
@@ -7705,7 +7705,7 @@ metadata:
     customresource.com/creation-time: '10061136'
     customresource.com/deletion-time: '10206394'
     customresource.com/scheduled-time: '10061136'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0175
@@ -7793,7 +7793,7 @@ metadata:
     customresource.com/creation-time: '10065188'
     customresource.com/deletion-time: '10065418'
     customresource.com/scheduled-time: '10065192'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0177
@@ -7837,7 +7837,7 @@ metadata:
     customresource.com/creation-time: '10065461'
     customresource.com/deletion-time: '10065832'
     customresource.com/scheduled-time: '10065462'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0178
@@ -7881,7 +7881,7 @@ metadata:
     customresource.com/creation-time: '10066995'
     customresource.com/deletion-time: '10067337'
     customresource.com/scheduled-time: '10066995'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0179
@@ -7925,7 +7925,7 @@ metadata:
     customresource.com/creation-time: '10068089'
     customresource.com/deletion-time: '10068441'
     customresource.com/scheduled-time: '10068089'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0180
@@ -7969,7 +7969,7 @@ metadata:
     customresource.com/creation-time: '10071515'
     customresource.com/deletion-time: '10072359'
     customresource.com/scheduled-time: '10071517'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0181
@@ -8013,7 +8013,7 @@ metadata:
     customresource.com/creation-time: '10072956'
     customresource.com/deletion-time: '10142269'
     customresource.com/scheduled-time: '10072956'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0182
@@ -8057,7 +8057,7 @@ metadata:
     customresource.com/creation-time: '10072977'
     customresource.com/deletion-time: '10072996'
     customresource.com/scheduled-time: '10072978'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0183
@@ -8101,7 +8101,7 @@ metadata:
     customresource.com/creation-time: '10073827'
     customresource.com/deletion-time: '10074020'
     customresource.com/scheduled-time: '10073827'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0184
@@ -8145,7 +8145,7 @@ metadata:
     customresource.com/creation-time: '10075751'
     customresource.com/deletion-time: '10075949'
     customresource.com/scheduled-time: '10075751'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0185
@@ -8189,7 +8189,7 @@ metadata:
     customresource.com/creation-time: '10076540'
     customresource.com/deletion-time: '10076841'
     customresource.com/scheduled-time: '10076540'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0186
@@ -8233,7 +8233,7 @@ metadata:
     customresource.com/creation-time: '10076597'
     customresource.com/deletion-time: '10076904'
     customresource.com/scheduled-time: '10076598'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0187
@@ -8321,7 +8321,7 @@ metadata:
     customresource.com/creation-time: '10077174'
     customresource.com/deletion-time: '10077492'
     customresource.com/scheduled-time: '10077175'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0189
@@ -8365,7 +8365,7 @@ metadata:
     customresource.com/creation-time: '10079174'
     customresource.com/deletion-time: '10079481'
     customresource.com/scheduled-time: '10079174'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0190
@@ -8409,7 +8409,7 @@ metadata:
     customresource.com/creation-time: '10079912'
     customresource.com/deletion-time: '10080134'
     customresource.com/scheduled-time: '10079913'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0191
@@ -8453,7 +8453,7 @@ metadata:
     customresource.com/creation-time: '10081543'
     customresource.com/deletion-time: '10082559'
     customresource.com/scheduled-time: '10081546'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0192
@@ -8497,7 +8497,7 @@ metadata:
     customresource.com/creation-time: '10082034'
     customresource.com/deletion-time: '10082233'
     customresource.com/scheduled-time: '10082034'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0193
@@ -8541,7 +8541,7 @@ metadata:
     customresource.com/creation-time: '10082398'
     customresource.com/deletion-time: '10086587'
     customresource.com/scheduled-time: '10082398'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0194
@@ -8585,7 +8585,7 @@ metadata:
     customresource.com/creation-time: '10084139'
     customresource.com/deletion-time: '10085042'
     customresource.com/scheduled-time: '10084140'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0195
@@ -8629,7 +8629,7 @@ metadata:
     customresource.com/creation-time: '10086450'
     customresource.com/deletion-time: '10086635'
     customresource.com/scheduled-time: '10086450'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0196
@@ -8673,7 +8673,7 @@ metadata:
     customresource.com/creation-time: '10087455'
     customresource.com/deletion-time: '10087648'
     customresource.com/scheduled-time: '10087455'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0197
@@ -8761,7 +8761,7 @@ metadata:
     customresource.com/creation-time: '10087754'
     customresource.com/deletion-time: '10087980'
     customresource.com/scheduled-time: '10087754'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0199
@@ -8805,7 +8805,7 @@ metadata:
     customresource.com/creation-time: '10087849'
     customresource.com/deletion-time: '10088060'
     customresource.com/scheduled-time: '10088024'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0200
@@ -8849,7 +8849,7 @@ metadata:
     customresource.com/creation-time: '10088207'
     customresource.com/deletion-time: '10088264'
     customresource.com/scheduled-time: '10088207'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0201
@@ -8893,7 +8893,7 @@ metadata:
     customresource.com/creation-time: '10088963'
     customresource.com/deletion-time: '10089478'
     customresource.com/scheduled-time: '10088963'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0202
@@ -8937,7 +8937,7 @@ metadata:
     customresource.com/creation-time: '10089624'
     customresource.com/deletion-time: '10089859'
     customresource.com/scheduled-time: '10089625'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0203
@@ -8981,7 +8981,7 @@ metadata:
     customresource.com/creation-time: '10089802'
     customresource.com/deletion-time: '10090873'
     customresource.com/scheduled-time: '10089977'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0204
@@ -9069,7 +9069,7 @@ metadata:
     customresource.com/creation-time: '10090303'
     customresource.com/deletion-time: '10090491'
     customresource.com/scheduled-time: '10090303'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0206
@@ -9201,7 +9201,7 @@ metadata:
     customresource.com/creation-time: '10090801'
     customresource.com/deletion-time: '10091982'
     customresource.com/scheduled-time: '10090942'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0209
@@ -9289,7 +9289,7 @@ metadata:
     customresource.com/creation-time: '10091074'
     customresource.com/deletion-time: '10091286'
     customresource.com/scheduled-time: '10091074'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0211
@@ -9509,7 +9509,7 @@ metadata:
     customresource.com/creation-time: '10093458'
     customresource.com/deletion-time: '10093632'
     customresource.com/scheduled-time: '10093459'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0216
@@ -9553,7 +9553,7 @@ metadata:
     customresource.com/creation-time: '10094677'
     customresource.com/deletion-time: '10095784'
     customresource.com/scheduled-time: '10094683'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0217
@@ -9597,7 +9597,7 @@ metadata:
     customresource.com/creation-time: '10095374'
     customresource.com/deletion-time: '10095540'
     customresource.com/scheduled-time: '10095374'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0218
@@ -9685,7 +9685,7 @@ metadata:
     customresource.com/creation-time: '10096319'
     customresource.com/deletion-time: '10096666'
     customresource.com/scheduled-time: '10096319'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0220
@@ -9773,7 +9773,7 @@ metadata:
     customresource.com/creation-time: '10097319'
     customresource.com/deletion-time: '10098637'
     customresource.com/scheduled-time: '10097321'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0222
@@ -9817,7 +9817,7 @@ metadata:
     customresource.com/creation-time: '10098174'
     customresource.com/deletion-time: '10101797'
     customresource.com/scheduled-time: '10098174'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0223
@@ -9861,7 +9861,7 @@ metadata:
     customresource.com/creation-time: '10099853'
     customresource.com/deletion-time: '10100376'
     customresource.com/scheduled-time: '10099855'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0224
@@ -9949,7 +9949,7 @@ metadata:
     customresource.com/creation-time: '10101508'
     customresource.com/deletion-time: '10101746'
     customresource.com/scheduled-time: '10101508'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0226
@@ -9993,7 +9993,7 @@ metadata:
     customresource.com/creation-time: '10101656'
     customresource.com/deletion-time: '10101808'
     customresource.com/scheduled-time: '10101656'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0227
@@ -10081,7 +10081,7 @@ metadata:
     customresource.com/creation-time: '10102468'
     customresource.com/deletion-time: '10102684'
     customresource.com/scheduled-time: '10102468'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0229
@@ -10125,7 +10125,7 @@ metadata:
     customresource.com/creation-time: '10102699'
     customresource.com/deletion-time: '10102892'
     customresource.com/scheduled-time: '10102699'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0230
@@ -10345,7 +10345,7 @@ metadata:
     customresource.com/creation-time: '10103554'
     customresource.com/deletion-time: '10103831'
     customresource.com/scheduled-time: '10103555'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0235
@@ -10521,7 +10521,7 @@ metadata:
     customresource.com/creation-time: '10104920'
     customresource.com/deletion-time: '10145444'
     customresource.com/scheduled-time: '10104922'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0239
@@ -10609,7 +10609,7 @@ metadata:
     customresource.com/creation-time: '10105616'
     customresource.com/deletion-time: '10105831'
     customresource.com/scheduled-time: '10105616'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0241
@@ -10653,7 +10653,7 @@ metadata:
     customresource.com/creation-time: '10106099'
     customresource.com/deletion-time: '10106277'
     customresource.com/scheduled-time: '10106099'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0242
@@ -10697,7 +10697,7 @@ metadata:
     customresource.com/creation-time: '10106214'
     customresource.com/deletion-time: '10106384'
     customresource.com/scheduled-time: '10106214'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0243
@@ -10741,7 +10741,7 @@ metadata:
     customresource.com/creation-time: '10106404'
     customresource.com/deletion-time: '10106586'
     customresource.com/scheduled-time: '10106405'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0244
@@ -10785,7 +10785,7 @@ metadata:
     customresource.com/creation-time: '10106755'
     customresource.com/deletion-time: '10106930'
     customresource.com/scheduled-time: '10106755'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0245
@@ -10873,7 +10873,7 @@ metadata:
     customresource.com/creation-time: '10107156'
     customresource.com/deletion-time: '10107363'
     customresource.com/scheduled-time: '10107157'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0247
@@ -10961,7 +10961,7 @@ metadata:
     customresource.com/creation-time: '10107678'
     customresource.com/deletion-time: '10107843'
     customresource.com/scheduled-time: '10107678'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0249
@@ -11049,7 +11049,7 @@ metadata:
     customresource.com/creation-time: '10108119'
     customresource.com/deletion-time: '10113400'
     customresource.com/scheduled-time: '10108121'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0251
@@ -11093,7 +11093,7 @@ metadata:
     customresource.com/creation-time: '10108195'
     customresource.com/deletion-time: '10108386'
     customresource.com/scheduled-time: '10108198'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0252
@@ -11137,7 +11137,7 @@ metadata:
     customresource.com/creation-time: '10108262'
     customresource.com/deletion-time: '10108435'
     customresource.com/scheduled-time: '10108262'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0253
@@ -11225,7 +11225,7 @@ metadata:
     customresource.com/creation-time: '10110007'
     customresource.com/deletion-time: '10110189'
     customresource.com/scheduled-time: '10110009'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0255
@@ -11269,7 +11269,7 @@ metadata:
     customresource.com/creation-time: '10110042'
     customresource.com/deletion-time: '10110346'
     customresource.com/scheduled-time: '10110147'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0256
@@ -11357,7 +11357,7 @@ metadata:
     customresource.com/creation-time: '10110515'
     customresource.com/deletion-time: '10114175'
     customresource.com/scheduled-time: '10110516'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0258
@@ -11445,7 +11445,7 @@ metadata:
     customresource.com/creation-time: '10112199'
     customresource.com/deletion-time: '10113580'
     customresource.com/scheduled-time: '10112201'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0260
@@ -11489,7 +11489,7 @@ metadata:
     customresource.com/creation-time: '10112326'
     customresource.com/deletion-time: '10112574'
     customresource.com/scheduled-time: '10112393'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0261
@@ -11709,7 +11709,7 @@ metadata:
     customresource.com/creation-time: '10114274'
     customresource.com/deletion-time: '10114552'
     customresource.com/scheduled-time: '10114343'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0266
@@ -11753,7 +11753,7 @@ metadata:
     customresource.com/creation-time: '10115077'
     customresource.com/deletion-time: '10116461'
     customresource.com/scheduled-time: '10115080'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0267
@@ -11797,7 +11797,7 @@ metadata:
     customresource.com/creation-time: '10117363'
     customresource.com/deletion-time: '10118573'
     customresource.com/scheduled-time: '10117399'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0268
@@ -11885,7 +11885,7 @@ metadata:
     customresource.com/creation-time: '10119177'
     customresource.com/deletion-time: '10119353'
     customresource.com/scheduled-time: '10119180'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0270
@@ -11929,7 +11929,7 @@ metadata:
     customresource.com/creation-time: '10119881'
     customresource.com/deletion-time: '10123308'
     customresource.com/scheduled-time: '10119884'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0271
@@ -12017,7 +12017,7 @@ metadata:
     customresource.com/creation-time: '10121200'
     customresource.com/deletion-time: '10122941'
     customresource.com/scheduled-time: '10121410'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0273
@@ -12325,7 +12325,7 @@ metadata:
     customresource.com/creation-time: '10123064'
     customresource.com/deletion-time: '10123745'
     customresource.com/scheduled-time: '10123133'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0280
@@ -12413,7 +12413,7 @@ metadata:
     customresource.com/creation-time: '10123536'
     customresource.com/deletion-time: '10123749'
     customresource.com/scheduled-time: '10123536'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0282
@@ -12457,7 +12457,7 @@ metadata:
     customresource.com/creation-time: '10123839'
     customresource.com/deletion-time: '10125057'
     customresource.com/scheduled-time: '10123841'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0283
@@ -12501,7 +12501,7 @@ metadata:
     customresource.com/creation-time: '10125159'
     customresource.com/deletion-time: '10126005'
     customresource.com/scheduled-time: '10125195'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0284
@@ -12545,7 +12545,7 @@ metadata:
     customresource.com/creation-time: '10125279'
     customresource.com/deletion-time: '10125430'
     customresource.com/scheduled-time: '10125280'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0285
@@ -12633,7 +12633,7 @@ metadata:
     customresource.com/creation-time: '10127058'
     customresource.com/deletion-time: '10127270'
     customresource.com/scheduled-time: '10127058'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0287
@@ -12677,7 +12677,7 @@ metadata:
     customresource.com/creation-time: '10127814'
     customresource.com/deletion-time: '10127938'
     customresource.com/scheduled-time: '10127815'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0288
@@ -12721,7 +12721,7 @@ metadata:
     customresource.com/creation-time: '10128880'
     customresource.com/deletion-time: '10130142'
     customresource.com/scheduled-time: '10128917'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0289
@@ -12765,7 +12765,7 @@ metadata:
     customresource.com/creation-time: '10129654'
     customresource.com/deletion-time: '10135354'
     customresource.com/scheduled-time: '10129655'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0290
@@ -12809,7 +12809,7 @@ metadata:
     customresource.com/creation-time: '10130831'
     customresource.com/deletion-time: '10130954'
     customresource.com/scheduled-time: '10130831'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0291
@@ -12853,7 +12853,7 @@ metadata:
     customresource.com/creation-time: '10131649'
     customresource.com/deletion-time: '10131776'
     customresource.com/scheduled-time: '10131649'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0292
@@ -12897,7 +12897,7 @@ metadata:
     customresource.com/creation-time: '10131993'
     customresource.com/deletion-time: '10132095'
     customresource.com/scheduled-time: '10131993'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0293
@@ -12941,7 +12941,7 @@ metadata:
     customresource.com/creation-time: '10132682'
     customresource.com/deletion-time: '10132878'
     customresource.com/scheduled-time: '10132682'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0294
@@ -12985,7 +12985,7 @@ metadata:
     customresource.com/creation-time: '10132818'
     customresource.com/deletion-time: '10132935'
     customresource.com/scheduled-time: '10132818'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0295
@@ -13029,7 +13029,7 @@ metadata:
     customresource.com/creation-time: '10133439'
     customresource.com/deletion-time: '10134103'
     customresource.com/scheduled-time: '10133441'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0296
@@ -13073,7 +13073,7 @@ metadata:
     customresource.com/creation-time: '10133558'
     customresource.com/deletion-time: '10138419'
     customresource.com/scheduled-time: '10133560'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0297
@@ -13117,7 +13117,7 @@ metadata:
     customresource.com/creation-time: '10133995'
     customresource.com/deletion-time: '10134203'
     customresource.com/scheduled-time: '10133995'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0298
@@ -13161,7 +13161,7 @@ metadata:
     customresource.com/creation-time: '10134129'
     customresource.com/deletion-time: '10134263'
     customresource.com/scheduled-time: '10134129'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0299
@@ -13205,7 +13205,7 @@ metadata:
     customresource.com/creation-time: '10134157'
     customresource.com/deletion-time: '10202651'
     customresource.com/scheduled-time: '10134157'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0300
@@ -13249,7 +13249,7 @@ metadata:
     customresource.com/creation-time: '10134400'
     customresource.com/deletion-time: '10142741'
     customresource.com/scheduled-time: '10134678'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0301
@@ -13293,7 +13293,7 @@ metadata:
     customresource.com/creation-time: '10134541'
     customresource.com/deletion-time: '10134655'
     customresource.com/scheduled-time: '10134542'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0302
@@ -13337,7 +13337,7 @@ metadata:
     customresource.com/creation-time: '10135536'
     customresource.com/deletion-time: '10150654'
     customresource.com/scheduled-time: '10135536'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0303
@@ -13381,7 +13381,7 @@ metadata:
     customresource.com/creation-time: '10136146'
     customresource.com/deletion-time: '10136354'
     customresource.com/scheduled-time: '10136146'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0304
@@ -13425,7 +13425,7 @@ metadata:
     customresource.com/creation-time: '10136410'
     customresource.com/deletion-time: '10136541'
     customresource.com/scheduled-time: '10136410'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0305
@@ -13557,7 +13557,7 @@ metadata:
     customresource.com/creation-time: '10138838'
     customresource.com/deletion-time: '10140762'
     customresource.com/scheduled-time: '10139184'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0308
@@ -13601,7 +13601,7 @@ metadata:
     customresource.com/creation-time: '10139183'
     customresource.com/deletion-time: '10139367'
     customresource.com/scheduled-time: '10139183'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0309
@@ -13645,7 +13645,7 @@ metadata:
     customresource.com/creation-time: '10139527'
     customresource.com/deletion-time: '10139672'
     customresource.com/scheduled-time: '10139564'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0310
@@ -13689,7 +13689,7 @@ metadata:
     customresource.com/creation-time: '10139540'
     customresource.com/deletion-time: '10139673'
     customresource.com/scheduled-time: '10139574'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0311
@@ -13733,7 +13733,7 @@ metadata:
     customresource.com/creation-time: '10141076'
     customresource.com/deletion-time: '10141304'
     customresource.com/scheduled-time: '10141076'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0312
@@ -13777,7 +13777,7 @@ metadata:
     customresource.com/creation-time: '10142678'
     customresource.com/deletion-time: '10143099'
     customresource.com/scheduled-time: '10142680'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0313
@@ -13865,7 +13865,7 @@ metadata:
     customresource.com/creation-time: '10145120'
     customresource.com/deletion-time: '10145327'
     customresource.com/scheduled-time: '10145120'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0315
@@ -13909,7 +13909,7 @@ metadata:
     customresource.com/creation-time: '10145223'
     customresource.com/deletion-time: '10145515'
     customresource.com/scheduled-time: '10145223'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0316
@@ -13953,7 +13953,7 @@ metadata:
     customresource.com/creation-time: '10145321'
     customresource.com/deletion-time: '10145347'
     customresource.com/scheduled-time: '10145321'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0317
@@ -14041,7 +14041,7 @@ metadata:
     customresource.com/creation-time: '10145872'
     customresource.com/deletion-time: '10146149'
     customresource.com/scheduled-time: '10145873'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0319
@@ -14085,7 +14085,7 @@ metadata:
     customresource.com/creation-time: '10146322'
     customresource.com/deletion-time: '10146642'
     customresource.com/scheduled-time: '10146322'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0320
@@ -14129,7 +14129,7 @@ metadata:
     customresource.com/creation-time: '10150141'
     customresource.com/deletion-time: '10150472'
     customresource.com/scheduled-time: '10150141'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0321
@@ -14217,7 +14217,7 @@ metadata:
     customresource.com/creation-time: '10152278'
     customresource.com/deletion-time: '10155877'
     customresource.com/scheduled-time: '10152280'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0323
@@ -14305,7 +14305,7 @@ metadata:
     customresource.com/creation-time: '10153654'
     customresource.com/deletion-time: '10154854'
     customresource.com/scheduled-time: '10153720'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0325
@@ -14349,7 +14349,7 @@ metadata:
     customresource.com/creation-time: '10157405'
     customresource.com/deletion-time: '10157759'
     customresource.com/scheduled-time: '10157406'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0326
@@ -14393,7 +14393,7 @@ metadata:
     customresource.com/creation-time: '10160855'
     customresource.com/deletion-time: '10161067'
     customresource.com/scheduled-time: '10160855'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0327
@@ -14481,7 +14481,7 @@ metadata:
     customresource.com/creation-time: '10164277'
     customresource.com/deletion-time: '10165218'
     customresource.com/scheduled-time: '10164277'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0329
@@ -14569,7 +14569,7 @@ metadata:
     customresource.com/creation-time: '10164623'
     customresource.com/deletion-time: '10164882'
     customresource.com/scheduled-time: '10164623'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0331
@@ -14657,7 +14657,7 @@ metadata:
     customresource.com/creation-time: '10165064'
     customresource.com/deletion-time: '10165305'
     customresource.com/scheduled-time: '10165064'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0333
@@ -14745,7 +14745,7 @@ metadata:
     customresource.com/creation-time: '10166412'
     customresource.com/deletion-time: '10166622'
     customresource.com/scheduled-time: '10166412'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0335
@@ -14789,7 +14789,7 @@ metadata:
     customresource.com/creation-time: '10166484'
     customresource.com/deletion-time: '10166686'
     customresource.com/scheduled-time: '10166484'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0336
@@ -14921,7 +14921,7 @@ metadata:
     customresource.com/creation-time: '10168347'
     customresource.com/deletion-time: '10168547'
     customresource.com/scheduled-time: '10168347'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0339
@@ -14965,7 +14965,7 @@ metadata:
     customresource.com/creation-time: '10168366'
     customresource.com/deletion-time: '10171992'
     customresource.com/scheduled-time: '10168366'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0340
@@ -15053,7 +15053,7 @@ metadata:
     customresource.com/creation-time: '10169200'
     customresource.com/deletion-time: '10171378'
     customresource.com/scheduled-time: '10169202'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0342
@@ -15097,7 +15097,7 @@ metadata:
     customresource.com/creation-time: '10169375'
     customresource.com/deletion-time: '10169579'
     customresource.com/scheduled-time: '10169376'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0343
@@ -15185,7 +15185,7 @@ metadata:
     customresource.com/creation-time: '10173649'
     customresource.com/deletion-time: '10173859'
     customresource.com/scheduled-time: '10173649'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0345
@@ -15273,7 +15273,7 @@ metadata:
     customresource.com/creation-time: '10174703'
     customresource.com/deletion-time: '10175427'
     customresource.com/scheduled-time: '10174705'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0347
@@ -15405,7 +15405,7 @@ metadata:
     customresource.com/creation-time: '10174996'
     customresource.com/deletion-time: '10179768'
     customresource.com/scheduled-time: '10174996'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0350
@@ -15493,7 +15493,7 @@ metadata:
     customresource.com/creation-time: '10175763'
     customresource.com/deletion-time: '10176581'
     customresource.com/scheduled-time: '10175763'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0352
@@ -15537,7 +15537,7 @@ metadata:
     customresource.com/creation-time: '10176577'
     customresource.com/deletion-time: '10183394'
     customresource.com/scheduled-time: '10176579'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0353
@@ -15581,7 +15581,7 @@ metadata:
     customresource.com/creation-time: '10176964'
     customresource.com/deletion-time: '10213047'
     customresource.com/scheduled-time: '10176964'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0354
@@ -15713,7 +15713,7 @@ metadata:
     customresource.com/creation-time: '10178651'
     customresource.com/deletion-time: '10178702'
     customresource.com/scheduled-time: '10178651'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0357
@@ -15801,7 +15801,7 @@ metadata:
     customresource.com/creation-time: '10178857'
     customresource.com/deletion-time: '10179275'
     customresource.com/scheduled-time: '10178858'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0359
@@ -15845,7 +15845,7 @@ metadata:
     customresource.com/creation-time: '10179719'
     customresource.com/deletion-time: '10179929'
     customresource.com/scheduled-time: '10179719'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0360
@@ -16021,7 +16021,7 @@ metadata:
     customresource.com/creation-time: '10180454'
     customresource.com/deletion-time: '10214515'
     customresource.com/scheduled-time: '10180454'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0364
@@ -16065,7 +16065,7 @@ metadata:
     customresource.com/creation-time: '10180841'
     customresource.com/deletion-time: '10180987'
     customresource.com/scheduled-time: '10180841'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0365
@@ -16197,7 +16197,7 @@ metadata:
     customresource.com/creation-time: '10181710'
     customresource.com/deletion-time: '10181998'
     customresource.com/scheduled-time: '10181711'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0368
@@ -16285,7 +16285,7 @@ metadata:
     customresource.com/creation-time: '10183836'
     customresource.com/deletion-time: '10184041'
     customresource.com/scheduled-time: '10183836'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0370
@@ -16329,7 +16329,7 @@ metadata:
     customresource.com/creation-time: '10185253'
     customresource.com/deletion-time: '10185450'
     customresource.com/scheduled-time: '10185254'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0371
@@ -16373,7 +16373,7 @@ metadata:
     customresource.com/creation-time: '10185984'
     customresource.com/deletion-time: '10186227'
     customresource.com/scheduled-time: '10185984'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0372
@@ -16417,7 +16417,7 @@ metadata:
     customresource.com/creation-time: '10186713'
     customresource.com/deletion-time: '10186953'
     customresource.com/scheduled-time: '10186782'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0373
@@ -16461,7 +16461,7 @@ metadata:
     customresource.com/creation-time: '10187075'
     customresource.com/deletion-time: '10191095'
     customresource.com/scheduled-time: '10187142'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0374
@@ -16505,7 +16505,7 @@ metadata:
     customresource.com/creation-time: '10188200'
     customresource.com/deletion-time: '10188379'
     customresource.com/scheduled-time: '10188200'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0375
@@ -16549,7 +16549,7 @@ metadata:
     customresource.com/creation-time: '10188246'
     customresource.com/deletion-time: '10189678'
     customresource.com/scheduled-time: '10188314'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0376
@@ -16681,7 +16681,7 @@ metadata:
     customresource.com/creation-time: '10191093'
     customresource.com/deletion-time: '10223135'
     customresource.com/scheduled-time: '10191543'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0379
@@ -16901,7 +16901,7 @@ metadata:
     customresource.com/creation-time: '10192477'
     customresource.com/deletion-time: '10192691'
     customresource.com/scheduled-time: '10192478'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0384
@@ -16945,7 +16945,7 @@ metadata:
     customresource.com/creation-time: '10192889'
     customresource.com/deletion-time: '10195371'
     customresource.com/scheduled-time: '10192891'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0385
@@ -17165,7 +17165,7 @@ metadata:
     customresource.com/creation-time: '10193568'
     customresource.com/deletion-time: '10194306'
     customresource.com/scheduled-time: '10194016'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0390
@@ -17209,7 +17209,7 @@ metadata:
     customresource.com/creation-time: '10193962'
     customresource.com/deletion-time: '10194770'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0391
@@ -17253,7 +17253,7 @@ metadata:
     customresource.com/creation-time: '10194497'
     customresource.com/deletion-time: '10198581'
     customresource.com/scheduled-time: '10194497'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0392
@@ -17297,7 +17297,7 @@ metadata:
     customresource.com/creation-time: '10195056'
     customresource.com/deletion-time: '10196256'
     customresource.com/scheduled-time: '10195056'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0393
@@ -17341,7 +17341,7 @@ metadata:
     customresource.com/creation-time: '10195438'
     customresource.com/deletion-time: '10197145'
     customresource.com/scheduled-time: '10195438'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0394
@@ -17385,7 +17385,7 @@ metadata:
     customresource.com/creation-time: '10196373'
     customresource.com/deletion-time: '10204053'
     customresource.com/scheduled-time: '10196373'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0395
@@ -17429,7 +17429,7 @@ metadata:
     customresource.com/creation-time: '10196386'
     customresource.com/deletion-time: '10201239'
     customresource.com/scheduled-time: '10196388'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0396
@@ -17473,7 +17473,7 @@ metadata:
     customresource.com/creation-time: '10196392'
     customresource.com/deletion-time: '10198544'
     customresource.com/scheduled-time: '10196394'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0397
@@ -17517,7 +17517,7 @@ metadata:
     customresource.com/creation-time: '10196397'
     customresource.com/deletion-time: '10209972'
     customresource.com/scheduled-time: '10196399'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0398
@@ -17561,7 +17561,7 @@ metadata:
     customresource.com/creation-time: '10196546'
     customresource.com/deletion-time: '10209859'
     customresource.com/scheduled-time: '10196581'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0399
@@ -17605,7 +17605,7 @@ metadata:
     customresource.com/creation-time: '10196555'
     customresource.com/deletion-time: '10198054'
     customresource.com/scheduled-time: '10196555'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0400
@@ -17649,7 +17649,7 @@ metadata:
     customresource.com/creation-time: '10196738'
     customresource.com/deletion-time: '10197213'
     customresource.com/scheduled-time: '10196739'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0401
@@ -17737,7 +17737,7 @@ metadata:
     customresource.com/creation-time: '10196808'
     customresource.com/deletion-time: '10198061'
     customresource.com/scheduled-time: '10196983'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0403
@@ -17781,7 +17781,7 @@ metadata:
     customresource.com/creation-time: '10197068'
     customresource.com/deletion-time: '10207451'
     customresource.com/scheduled-time: '10197100'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0404
@@ -17825,7 +17825,7 @@ metadata:
     customresource.com/creation-time: '10197077'
     customresource.com/deletion-time: '10197137'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0405
@@ -18001,7 +18001,7 @@ metadata:
     customresource.com/creation-time: '10198508'
     customresource.com/deletion-time: '10204901'
     customresource.com/scheduled-time: '10198508'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0409
@@ -18045,7 +18045,7 @@ metadata:
     customresource.com/creation-time: '10198596'
     customresource.com/deletion-time: '10198794'
     customresource.com/scheduled-time: '10198596'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0410
@@ -18133,7 +18133,7 @@ metadata:
     customresource.com/creation-time: '10198800'
     customresource.com/deletion-time: '10202255'
     customresource.com/scheduled-time: '10198802'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0412
@@ -18221,7 +18221,7 @@ metadata:
     customresource.com/creation-time: '10199241'
     customresource.com/deletion-time: '10199418'
     customresource.com/scheduled-time: '10199241'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0414
@@ -18309,7 +18309,7 @@ metadata:
     customresource.com/creation-time: '10199889'
     customresource.com/deletion-time: '10199906'
     customresource.com/scheduled-time: '10199889'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0416
@@ -18441,7 +18441,7 @@ metadata:
     customresource.com/creation-time: '10200592'
     customresource.com/deletion-time: '10201384'
     customresource.com/scheduled-time: '10200908'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0419
@@ -18573,7 +18573,7 @@ metadata:
     customresource.com/creation-time: '10201063'
     customresource.com/deletion-time: '10201272'
     customresource.com/scheduled-time: '10201063'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0422
@@ -18793,7 +18793,7 @@ metadata:
     customresource.com/creation-time: '10203067'
     customresource.com/deletion-time: '10203180'
     customresource.com/scheduled-time: '10203103'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0427
@@ -19189,7 +19189,7 @@ metadata:
     customresource.com/creation-time: '10204958'
     customresource.com/deletion-time: '10208588'
     customresource.com/scheduled-time: '10204958'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0436
@@ -19365,7 +19365,7 @@ metadata:
     customresource.com/creation-time: '10207027'
     customresource.com/deletion-time: '10209572'
     customresource.com/scheduled-time: '10207200'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0440
@@ -19409,7 +19409,7 @@ metadata:
     customresource.com/creation-time: '10207852'
     customresource.com/deletion-time: '10208051'
     customresource.com/scheduled-time: '10207852'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0441
@@ -19453,7 +19453,7 @@ metadata:
     customresource.com/creation-time: '10208156'
     customresource.com/deletion-time: '10208287'
     customresource.com/scheduled-time: '10208157'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0442
@@ -19717,7 +19717,7 @@ metadata:
     customresource.com/creation-time: '10209881'
     customresource.com/deletion-time: '10212815'
     customresource.com/scheduled-time: '10209884'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0448
@@ -19761,7 +19761,7 @@ metadata:
     customresource.com/creation-time: '10209881'
     customresource.com/deletion-time: '10212825'
     customresource.com/scheduled-time: '10209884'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0449
@@ -19805,7 +19805,7 @@ metadata:
     customresource.com/creation-time: '10209987'
     customresource.com/deletion-time: '10210150'
     customresource.com/scheduled-time: '10209987'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0450
@@ -19849,7 +19849,7 @@ metadata:
     customresource.com/creation-time: '10210514'
     customresource.com/deletion-time: '10210646'
     customresource.com/scheduled-time: '10210515'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0451
@@ -19937,7 +19937,7 @@ metadata:
     customresource.com/creation-time: '10210977'
     customresource.com/deletion-time: '10211090'
     customresource.com/scheduled-time: '10210977'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0453
@@ -19981,7 +19981,7 @@ metadata:
     customresource.com/creation-time: '10211166'
     customresource.com/deletion-time: '10211302'
     customresource.com/scheduled-time: '10211167'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0454
@@ -20113,7 +20113,7 @@ metadata:
     customresource.com/creation-time: '10211861'
     customresource.com/deletion-time: '10212601'
     customresource.com/scheduled-time: '10212036'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0457
@@ -20245,7 +20245,7 @@ metadata:
     customresource.com/creation-time: '10212039'
     customresource.com/deletion-time: '10212189'
     customresource.com/scheduled-time: '10212039'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0460
@@ -20289,7 +20289,7 @@ metadata:
     customresource.com/creation-time: '10212048'
     customresource.com/deletion-time: '10212197'
     customresource.com/scheduled-time: '10212049'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0461
@@ -20377,7 +20377,7 @@ metadata:
     customresource.com/creation-time: '10212372'
     customresource.com/deletion-time: '10212541'
     customresource.com/scheduled-time: '10212372'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0463
@@ -20421,7 +20421,7 @@ metadata:
     customresource.com/creation-time: '10212413'
     customresource.com/deletion-time: '10212552'
     customresource.com/scheduled-time: '10212413'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0464
@@ -20553,7 +20553,7 @@ metadata:
     customresource.com/creation-time: '10212828'
     customresource.com/deletion-time: '10216285'
     customresource.com/scheduled-time: '10212966'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0467
@@ -20641,7 +20641,7 @@ metadata:
     customresource.com/creation-time: '10212954'
     customresource.com/deletion-time: '10213076'
     customresource.com/scheduled-time: '10212955'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0469
@@ -20773,7 +20773,7 @@ metadata:
     customresource.com/creation-time: '10213190'
     customresource.com/deletion-time: '10215658'
     customresource.com/scheduled-time: '10213226'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0472
@@ -20817,7 +20817,7 @@ metadata:
     customresource.com/creation-time: '10213497'
     customresource.com/deletion-time: '10213660'
     customresource.com/scheduled-time: '10213498'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0473
@@ -20905,7 +20905,7 @@ metadata:
     customresource.com/creation-time: '10213708'
     customresource.com/deletion-time: '10213907'
     customresource.com/scheduled-time: '10213708'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0475
@@ -20949,7 +20949,7 @@ metadata:
     customresource.com/creation-time: '10213806'
     customresource.com/deletion-time: '10214045'
     customresource.com/scheduled-time: '10213876'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0476
@@ -21125,7 +21125,7 @@ metadata:
     customresource.com/creation-time: '10214575'
     customresource.com/deletion-time: '10214773'
     customresource.com/scheduled-time: '10214576'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0480
@@ -21213,7 +21213,7 @@ metadata:
     customresource.com/creation-time: '10216472'
     customresource.com/deletion-time: '10218652'
     customresource.com/scheduled-time: '10216507'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0482
@@ -21257,7 +21257,7 @@ metadata:
     customresource.com/creation-time: '10216775'
     customresource.com/deletion-time: '10216904'
     customresource.com/scheduled-time: '10216775'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0483
@@ -21301,7 +21301,7 @@ metadata:
     customresource.com/creation-time: '10217437'
     customresource.com/deletion-time: '10217491'
     customresource.com/scheduled-time: '10217437'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0484
@@ -21345,7 +21345,7 @@ metadata:
     customresource.com/creation-time: '10217925'
     customresource.com/deletion-time: '10219486'
     customresource.com/scheduled-time: '10217928'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0485
@@ -21389,7 +21389,7 @@ metadata:
     customresource.com/creation-time: '10217925'
     customresource.com/deletion-time: '10218147'
     customresource.com/scheduled-time: '10217963'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0486
@@ -21433,7 +21433,7 @@ metadata:
     customresource.com/creation-time: '10217931'
     customresource.com/deletion-time: '10219450'
     customresource.com/scheduled-time: '10217967'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0487
@@ -21477,7 +21477,7 @@ metadata:
     customresource.com/creation-time: '10218024'
     customresource.com/deletion-time: '10218029'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0488
@@ -21521,7 +21521,7 @@ metadata:
     customresource.com/creation-time: '10218490'
     customresource.com/deletion-time: '10218622'
     customresource.com/scheduled-time: '10218490'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0489
@@ -21565,7 +21565,7 @@ metadata:
     customresource.com/creation-time: '10219969'
     customresource.com/deletion-time: '10227250'
     customresource.com/scheduled-time: '10220038'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0490
@@ -21653,7 +21653,7 @@ metadata:
     customresource.com/creation-time: '10221884'
     customresource.com/deletion-time: '10222023'
     customresource.com/scheduled-time: '10221884'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0492
@@ -21697,7 +21697,7 @@ metadata:
     customresource.com/creation-time: '10223133'
     customresource.com/deletion-time: '10224093'
     customresource.com/scheduled-time: '10223202'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0493
@@ -21917,7 +21917,7 @@ metadata:
     customresource.com/creation-time: '10224738'
     customresource.com/deletion-time: '10224904'
     customresource.com/scheduled-time: '10224738'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0498
@@ -22005,7 +22005,7 @@ metadata:
     customresource.com/creation-time: '10232587'
     customresource.com/deletion-time: '10232878'
     customresource.com/scheduled-time: '10232587'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0500
@@ -22137,7 +22137,7 @@ metadata:
     customresource.com/creation-time: '10233819'
     customresource.com/deletion-time: '10234114'
     customresource.com/scheduled-time: '10233819'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0503
@@ -22225,7 +22225,7 @@ metadata:
     customresource.com/creation-time: '10234226'
     customresource.com/deletion-time: '10234757'
     customresource.com/scheduled-time: '10234297'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0505
@@ -22269,7 +22269,7 @@ metadata:
     customresource.com/creation-time: '10234994'
     customresource.com/deletion-time: '10236734'
     customresource.com/scheduled-time: '10234994'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0506
@@ -22313,7 +22313,7 @@ metadata:
     customresource.com/creation-time: '10235081'
     customresource.com/deletion-time: '10240375'
     customresource.com/scheduled-time: '10235083'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0507
@@ -22357,7 +22357,7 @@ metadata:
     customresource.com/creation-time: '10235553'
     customresource.com/deletion-time: '10238253'
     customresource.com/scheduled-time: '10235554'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0508
@@ -22401,7 +22401,7 @@ metadata:
     customresource.com/creation-time: '10236016'
     customresource.com/deletion-time: '10237871'
     customresource.com/scheduled-time: '10236016'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0509
@@ -22445,7 +22445,7 @@ metadata:
     customresource.com/creation-time: '10237589'
     customresource.com/deletion-time: '10241615'
     customresource.com/scheduled-time: '10237589'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0510
@@ -22489,7 +22489,7 @@ metadata:
     customresource.com/creation-time: '10237776'
     customresource.com/deletion-time: '10238556'
     customresource.com/scheduled-time: '10237776'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0511
@@ -22533,7 +22533,7 @@ metadata:
     customresource.com/creation-time: '10237776'
     customresource.com/deletion-time: '10238556'
     customresource.com/scheduled-time: '10237776'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0512
@@ -22577,7 +22577,7 @@ metadata:
     customresource.com/creation-time: '10240480'
     customresource.com/deletion-time: '10246963'
     customresource.com/scheduled-time: '10240483'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0513
@@ -22621,7 +22621,7 @@ metadata:
     customresource.com/creation-time: '10243457'
     customresource.com/deletion-time: '10243782'
     customresource.com/scheduled-time: '10243457'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0514
@@ -22665,7 +22665,7 @@ metadata:
     customresource.com/creation-time: '10243762'
     customresource.com/deletion-time: '10244093'
     customresource.com/scheduled-time: '10243762'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0515
@@ -22797,7 +22797,7 @@ metadata:
     customresource.com/creation-time: '10247114'
     customresource.com/deletion-time: '10247479'
     customresource.com/scheduled-time: '10247114'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0518
@@ -22841,7 +22841,7 @@ metadata:
     customresource.com/creation-time: '10247202'
     customresource.com/deletion-time: '10251358'
     customresource.com/scheduled-time: '10247202'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0519
@@ -22885,7 +22885,7 @@ metadata:
     customresource.com/creation-time: '10247867'
     customresource.com/deletion-time: '10254812'
     customresource.com/scheduled-time: '10247869'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0520
@@ -22973,7 +22973,7 @@ metadata:
     customresource.com/creation-time: '10248939'
     customresource.com/deletion-time: '10249984'
     customresource.com/scheduled-time: '10248942'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0522
@@ -23017,7 +23017,7 @@ metadata:
     customresource.com/creation-time: '10250349'
     customresource.com/deletion-time: '10256295'
     customresource.com/scheduled-time: '10250349'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0523
@@ -23061,7 +23061,7 @@ metadata:
     customresource.com/creation-time: '10250498'
     customresource.com/deletion-time: '10484810'
     customresource.com/scheduled-time: '10250498'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0524
@@ -23105,7 +23105,7 @@ metadata:
     customresource.com/creation-time: '10250736'
     customresource.com/deletion-time: '10254878'
     customresource.com/scheduled-time: '10250737'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0525
@@ -23149,7 +23149,7 @@ metadata:
     customresource.com/creation-time: '10252397'
     customresource.com/deletion-time: '10252642'
     customresource.com/scheduled-time: '10252398'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0526
@@ -23193,7 +23193,7 @@ metadata:
     customresource.com/creation-time: '10253468'
     customresource.com/deletion-time: '10254157'
     customresource.com/scheduled-time: '10253468'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0527
@@ -23237,7 +23237,7 @@ metadata:
     customresource.com/creation-time: '10254758'
     customresource.com/deletion-time: '10254984'
     customresource.com/scheduled-time: '10254758'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0528
@@ -23281,7 +23281,7 @@ metadata:
     customresource.com/creation-time: '10255346'
     customresource.com/deletion-time: '10255575'
     customresource.com/scheduled-time: '10255383'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0529
@@ -23325,7 +23325,7 @@ metadata:
     customresource.com/creation-time: '10255420'
     customresource.com/deletion-time: '10260224'
     customresource.com/scheduled-time: '10255423'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0530
@@ -23369,7 +23369,7 @@ metadata:
     customresource.com/creation-time: '10256013'
     customresource.com/deletion-time: '10256793'
     customresource.com/scheduled-time: '10256014'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0531
@@ -23413,7 +23413,7 @@ metadata:
     customresource.com/creation-time: '10256133'
     customresource.com/deletion-time: '10257932'
     customresource.com/scheduled-time: '10256135'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0532
@@ -23457,7 +23457,7 @@ metadata:
     customresource.com/creation-time: '10256855'
     customresource.com/deletion-time: '10258054'
     customresource.com/scheduled-time: '10256855'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0533
@@ -23501,7 +23501,7 @@ metadata:
     customresource.com/creation-time: '10256862'
     customresource.com/deletion-time: '10258408'
     customresource.com/scheduled-time: '10256866'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0534
@@ -23545,7 +23545,7 @@ metadata:
     customresource.com/creation-time: '10257967'
     customresource.com/deletion-time: '10258138'
     customresource.com/scheduled-time: '10257967'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0535
@@ -23677,7 +23677,7 @@ metadata:
     customresource.com/creation-time: '10259693'
     customresource.com/deletion-time: '10259906'
     customresource.com/scheduled-time: '10259693'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0538
@@ -23721,7 +23721,7 @@ metadata:
     customresource.com/creation-time: '10260103'
     customresource.com/deletion-time: '10260191'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0539
@@ -23765,7 +23765,7 @@ metadata:
     customresource.com/creation-time: '10260104'
     customresource.com/deletion-time: '10260327'
     customresource.com/scheduled-time: '10260105'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0540
@@ -23809,7 +23809,7 @@ metadata:
     customresource.com/creation-time: '10260162'
     customresource.com/deletion-time: '10260246'
     customresource.com/scheduled-time: '10260200'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0541
@@ -24161,7 +24161,7 @@ metadata:
     customresource.com/creation-time: '10260574'
     customresource.com/deletion-time: '10265063'
     customresource.com/scheduled-time: '10260574'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0549
@@ -24249,7 +24249,7 @@ metadata:
     customresource.com/creation-time: '10260845'
     customresource.com/deletion-time: '10261984'
     customresource.com/scheduled-time: '10260848'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0551
@@ -24337,7 +24337,7 @@ metadata:
     customresource.com/creation-time: '10261103'
     customresource.com/deletion-time: '10261888'
     customresource.com/scheduled-time: '10261314'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0553
@@ -24425,7 +24425,7 @@ metadata:
     customresource.com/creation-time: '10261187'
     customresource.com/deletion-time: '10261960'
     customresource.com/scheduled-time: '10261469'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0555
@@ -24557,7 +24557,7 @@ metadata:
     customresource.com/creation-time: '10261340'
     customresource.com/deletion-time: '10267864'
     customresource.com/scheduled-time: '10261340'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0558
@@ -24601,7 +24601,7 @@ metadata:
     customresource.com/creation-time: '10261372'
     customresource.com/deletion-time: '10267089'
     customresource.com/scheduled-time: '10261372'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0559
@@ -24645,7 +24645,7 @@ metadata:
     customresource.com/creation-time: '10261514'
     customresource.com/deletion-time: '10261770'
     customresource.com/scheduled-time: '10261547'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0560
@@ -24733,7 +24733,7 @@ metadata:
     customresource.com/creation-time: '10261763'
     customresource.com/deletion-time: '10262154'
     customresource.com/scheduled-time: '10261834'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0562
@@ -24909,7 +24909,7 @@ metadata:
     customresource.com/creation-time: '10262527'
     customresource.com/deletion-time: '10270146'
     customresource.com/scheduled-time: '10262528'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0566
@@ -24953,7 +24953,7 @@ metadata:
     customresource.com/creation-time: '10262679'
     customresource.com/deletion-time: '10277559'
     customresource.com/scheduled-time: '10277009'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0567
@@ -24997,7 +24997,7 @@ metadata:
     customresource.com/creation-time: '10263433'
     customresource.com/deletion-time: '10263565'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0568
@@ -25173,7 +25173,7 @@ metadata:
     customresource.com/creation-time: '10263869'
     customresource.com/deletion-time: '10264018'
     customresource.com/scheduled-time: '10263870'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0572
@@ -25217,7 +25217,7 @@ metadata:
     customresource.com/creation-time: '10263993'
     customresource.com/deletion-time: '10264346'
     customresource.com/scheduled-time: '10264132'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0573
@@ -25261,7 +25261,7 @@ metadata:
     customresource.com/creation-time: '10264830'
     customresource.com/deletion-time: '10265038'
     customresource.com/scheduled-time: '10264830'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0574
@@ -25305,7 +25305,7 @@ metadata:
     customresource.com/creation-time: '10265011'
     customresource.com/deletion-time: '10274316'
     customresource.com/scheduled-time: '10265045'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0575
@@ -25349,7 +25349,7 @@ metadata:
     customresource.com/creation-time: '10265140'
     customresource.com/deletion-time: '10266805'
     customresource.com/scheduled-time: '10265595'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0576
@@ -25393,7 +25393,7 @@ metadata:
     customresource.com/creation-time: '10265170'
     customresource.com/deletion-time: '10265188'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0577
@@ -25437,7 +25437,7 @@ metadata:
     customresource.com/creation-time: '10265185'
     customresource.com/deletion-time: '10267425'
     customresource.com/scheduled-time: '10265218'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0578
@@ -25481,7 +25481,7 @@ metadata:
     customresource.com/creation-time: '10265558'
     customresource.com/deletion-time: '10281876'
     customresource.com/scheduled-time: '10265558'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0579
@@ -25701,7 +25701,7 @@ metadata:
     customresource.com/creation-time: '10266690'
     customresource.com/deletion-time: '10269162'
     customresource.com/scheduled-time: '10266725'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0584
@@ -25789,7 +25789,7 @@ metadata:
     customresource.com/creation-time: '10266902'
     customresource.com/deletion-time: '10267249'
     customresource.com/scheduled-time: '10267076'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0586
@@ -25833,7 +25833,7 @@ metadata:
     customresource.com/creation-time: '10267235'
     customresource.com/deletion-time: '10274317'
     customresource.com/scheduled-time: '10267411'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0587
@@ -25921,7 +25921,7 @@ metadata:
     customresource.com/creation-time: '10267882'
     customresource.com/deletion-time: '10274191'
     customresource.com/scheduled-time: '10267916'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0589
@@ -25965,7 +25965,7 @@ metadata:
     customresource.com/creation-time: '10267984'
     customresource.com/deletion-time: '10268136'
     customresource.com/scheduled-time: '10267984'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0590
@@ -26009,7 +26009,7 @@ metadata:
     customresource.com/creation-time: '10268036'
     customresource.com/deletion-time: '10268163'
     customresource.com/scheduled-time: '10268036'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0591
@@ -26053,7 +26053,7 @@ metadata:
     customresource.com/creation-time: '10268198'
     customresource.com/deletion-time: '10291368'
     customresource.com/scheduled-time: '10268201'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0592
@@ -26185,7 +26185,7 @@ metadata:
     customresource.com/creation-time: '10270559'
     customresource.com/deletion-time: '10270760'
     customresource.com/scheduled-time: '10270560'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0595
@@ -26405,7 +26405,7 @@ metadata:
     customresource.com/creation-time: '10273282'
     customresource.com/deletion-time: '10273323'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0600
@@ -26449,7 +26449,7 @@ metadata:
     customresource.com/creation-time: '10274502'
     customresource.com/deletion-time: '10275768'
     customresource.com/scheduled-time: '10274538'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0601
@@ -26537,7 +26537,7 @@ metadata:
     customresource.com/creation-time: '10275406'
     customresource.com/deletion-time: '10275568'
     customresource.com/scheduled-time: '10275406'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0603
@@ -26581,7 +26581,7 @@ metadata:
     customresource.com/creation-time: '10276050'
     customresource.com/deletion-time: '10276334'
     customresource.com/scheduled-time: '10276052'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0604
@@ -26625,7 +26625,7 @@ metadata:
     customresource.com/creation-time: '10276746'
     customresource.com/deletion-time: '10276928'
     customresource.com/scheduled-time: '10276746'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0605
@@ -26801,7 +26801,7 @@ metadata:
     customresource.com/creation-time: '10278261'
     customresource.com/deletion-time: '10278385'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0609
@@ -26845,7 +26845,7 @@ metadata:
     customresource.com/creation-time: '10278278'
     customresource.com/deletion-time: '10278548'
     customresource.com/scheduled-time: '10278347'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0610
@@ -26933,7 +26933,7 @@ metadata:
     customresource.com/creation-time: '10279220'
     customresource.com/deletion-time: '10279455'
     customresource.com/scheduled-time: '10279220'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0612
@@ -27021,7 +27021,7 @@ metadata:
     customresource.com/creation-time: '10279624'
     customresource.com/deletion-time: '10284527'
     customresource.com/scheduled-time: '10279624'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0614
@@ -27065,7 +27065,7 @@ metadata:
     customresource.com/creation-time: '10280004'
     customresource.com/deletion-time: '10280060'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0615
@@ -27109,7 +27109,7 @@ metadata:
     customresource.com/creation-time: '10280071'
     customresource.com/deletion-time: '10280093'
     customresource.com/scheduled-time: '10280072'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0616
@@ -27153,7 +27153,7 @@ metadata:
     customresource.com/creation-time: '10280778'
     customresource.com/deletion-time: '10281005'
     customresource.com/scheduled-time: '10280778'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0617
@@ -27197,7 +27197,7 @@ metadata:
     customresource.com/creation-time: '10280815'
     customresource.com/deletion-time: '10281782'
     customresource.com/scheduled-time: '10280920'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0618
@@ -27241,7 +27241,7 @@ metadata:
     customresource.com/creation-time: '10281084'
     customresource.com/deletion-time: '10281265'
     customresource.com/scheduled-time: '10281084'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0619
@@ -27285,7 +27285,7 @@ metadata:
     customresource.com/creation-time: '10281304'
     customresource.com/deletion-time: '10282262'
     customresource.com/scheduled-time: '10281308'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0620
@@ -27329,7 +27329,7 @@ metadata:
     customresource.com/creation-time: '10281564'
     customresource.com/deletion-time: '10283568'
     customresource.com/scheduled-time: '10281567'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0621
@@ -27373,7 +27373,7 @@ metadata:
     customresource.com/creation-time: '10281591'
     customresource.com/deletion-time: '10281789'
     customresource.com/scheduled-time: '10281591'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0622
@@ -27461,7 +27461,7 @@ metadata:
     customresource.com/creation-time: '10281756'
     customresource.com/deletion-time: '10287185'
     customresource.com/scheduled-time: '10281789'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0624
@@ -27681,7 +27681,7 @@ metadata:
     customresource.com/creation-time: '10282253'
     customresource.com/deletion-time: '10282438'
     customresource.com/scheduled-time: '10282288'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0629
@@ -27813,7 +27813,7 @@ metadata:
     customresource.com/creation-time: '10282361'
     customresource.com/deletion-time: '10283267'
     customresource.com/scheduled-time: '10282397'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0632
@@ -27901,7 +27901,7 @@ metadata:
     customresource.com/creation-time: '10282878'
     customresource.com/deletion-time: '10283515'
     customresource.com/scheduled-time: '10282916'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0634
@@ -27989,7 +27989,7 @@ metadata:
     customresource.com/creation-time: '10283250'
     customresource.com/deletion-time: '10283737'
     customresource.com/scheduled-time: '10283391'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0636
@@ -28033,7 +28033,7 @@ metadata:
     customresource.com/creation-time: '10283282'
     customresource.com/deletion-time: '10286172'
     customresource.com/scheduled-time: '10283285'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0637
@@ -28077,7 +28077,7 @@ metadata:
     customresource.com/creation-time: '10283497'
     customresource.com/deletion-time: '10283705'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0638
@@ -28121,7 +28121,7 @@ metadata:
     customresource.com/creation-time: '10283497'
     customresource.com/deletion-time: '10283705'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0639
@@ -28165,7 +28165,7 @@ metadata:
     customresource.com/creation-time: '10283554'
     customresource.com/deletion-time: '10286460'
     customresource.com/scheduled-time: '10283557'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0640
@@ -28253,7 +28253,7 @@ metadata:
     customresource.com/creation-time: '10283834'
     customresource.com/deletion-time: '10284761'
     customresource.com/scheduled-time: '10283871'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0642
@@ -28297,7 +28297,7 @@ metadata:
     customresource.com/creation-time: '10283917'
     customresource.com/deletion-time: '10284032'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0643
@@ -28341,7 +28341,7 @@ metadata:
     customresource.com/creation-time: '10283952'
     customresource.com/deletion-time: '10284070'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0644
@@ -28473,7 +28473,7 @@ metadata:
     customresource.com/creation-time: '10284055'
     customresource.com/deletion-time: '10284156'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0647
@@ -28561,7 +28561,7 @@ metadata:
     customresource.com/creation-time: '10284572'
     customresource.com/deletion-time: '10287637'
     customresource.com/scheduled-time: '10284606'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0649
@@ -28605,7 +28605,7 @@ metadata:
     customresource.com/creation-time: '10284612'
     customresource.com/deletion-time: '10288322'
     customresource.com/scheduled-time: '10284752'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0650
@@ -28737,7 +28737,7 @@ metadata:
     customresource.com/creation-time: '10285049'
     customresource.com/deletion-time: '10285211'
     customresource.com/scheduled-time: '10285049'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0653
@@ -28781,7 +28781,7 @@ metadata:
     customresource.com/creation-time: '10285062'
     customresource.com/deletion-time: '10287759'
     customresource.com/scheduled-time: '10285406'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0654
@@ -28825,7 +28825,7 @@ metadata:
     customresource.com/creation-time: '10285584'
     customresource.com/deletion-time: '10529388'
     customresource.com/scheduled-time: '10285585'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0655
@@ -28913,7 +28913,7 @@ metadata:
     customresource.com/creation-time: '10285696'
     customresource.com/deletion-time: '10285888'
     customresource.com/scheduled-time: '10285696'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0657
@@ -29001,7 +29001,7 @@ metadata:
     customresource.com/creation-time: '10286148'
     customresource.com/deletion-time: '10287708'
     customresource.com/scheduled-time: '10286150'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0659
@@ -29089,7 +29089,7 @@ metadata:
     customresource.com/creation-time: '10286458'
     customresource.com/deletion-time: '10286612'
     customresource.com/scheduled-time: '10286458'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0661
@@ -29133,7 +29133,7 @@ metadata:
     customresource.com/creation-time: '10286531'
     customresource.com/deletion-time: '10286924'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0662
@@ -29177,7 +29177,7 @@ metadata:
     customresource.com/creation-time: '10286819'
     customresource.com/deletion-time: '10287067'
     customresource.com/scheduled-time: '10286819'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0663
@@ -29221,7 +29221,7 @@ metadata:
     customresource.com/creation-time: '10287566'
     customresource.com/deletion-time: '10292329'
     customresource.com/scheduled-time: '10287602'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0664
@@ -29265,7 +29265,7 @@ metadata:
     customresource.com/creation-time: '10287821'
     customresource.com/deletion-time: '10292583'
     customresource.com/scheduled-time: '10287823'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0665
@@ -29309,7 +29309,7 @@ metadata:
     customresource.com/creation-time: '10287906'
     customresource.com/deletion-time: '10288781'
     customresource.com/scheduled-time: '10287908'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0666
@@ -29397,7 +29397,7 @@ metadata:
     customresource.com/creation-time: '10288025'
     customresource.com/deletion-time: '10289699'
     customresource.com/scheduled-time: '10288025'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0668
@@ -29485,7 +29485,7 @@ metadata:
     customresource.com/creation-time: '10288251'
     customresource.com/deletion-time: '10288742'
     customresource.com/scheduled-time: '10288323'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0670
@@ -29529,7 +29529,7 @@ metadata:
     customresource.com/creation-time: '10288632'
     customresource.com/deletion-time: '10288843'
     customresource.com/scheduled-time: '10288632'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0671
@@ -29573,7 +29573,7 @@ metadata:
     customresource.com/creation-time: '10289332'
     customresource.com/deletion-time: '10289525'
     customresource.com/scheduled-time: '10289332'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0672
@@ -29617,7 +29617,7 @@ metadata:
     customresource.com/creation-time: '10290217'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '10290286'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0673
@@ -29661,7 +29661,7 @@ metadata:
     customresource.com/creation-time: '10290217'
     customresource.com/deletion-time: '12902960'
     customresource.com/scheduled-time: '10290251'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0674
@@ -29705,7 +29705,7 @@ metadata:
     customresource.com/creation-time: '10290268'
     customresource.com/deletion-time: '10291023'
     customresource.com/scheduled-time: '10290303'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0675
@@ -29749,7 +29749,7 @@ metadata:
     customresource.com/creation-time: '10290997'
     customresource.com/deletion-time: '11242419'
     customresource.com/scheduled-time: '10291307'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0676
@@ -29881,7 +29881,7 @@ metadata:
     customresource.com/creation-time: '10291594'
     customresource.com/deletion-time: '10291728'
     customresource.com/scheduled-time: '10291594'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0679
@@ -29925,7 +29925,7 @@ metadata:
     customresource.com/creation-time: '10291860'
     customresource.com/deletion-time: '10298219'
     customresource.com/scheduled-time: '10291894'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0680
@@ -29969,7 +29969,7 @@ metadata:
     customresource.com/creation-time: '10292589'
     customresource.com/deletion-time: '12634855'
     customresource.com/scheduled-time: '10292622'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0681
@@ -30013,7 +30013,7 @@ metadata:
     customresource.com/creation-time: '10292824'
     customresource.com/deletion-time: '10296859'
     customresource.com/scheduled-time: '10292824'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0682
@@ -30057,7 +30057,7 @@ metadata:
     customresource.com/creation-time: '10292995'
     customresource.com/deletion-time: '10293199'
     customresource.com/scheduled-time: '10292995'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0683
@@ -30101,7 +30101,7 @@ metadata:
     customresource.com/creation-time: '10293013'
     customresource.com/deletion-time: '10294013'
     customresource.com/scheduled-time: '10293049'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0684
@@ -30145,7 +30145,7 @@ metadata:
     customresource.com/creation-time: '10293874'
     customresource.com/deletion-time: '10294414'
     customresource.com/scheduled-time: '10293908'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0685
@@ -30233,7 +30233,7 @@ metadata:
     customresource.com/creation-time: '10294021'
     customresource.com/deletion-time: '10298123'
     customresource.com/scheduled-time: '10294022'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0687
@@ -30277,7 +30277,7 @@ metadata:
     customresource.com/creation-time: '10294984'
     customresource.com/deletion-time: '10298292'
     customresource.com/scheduled-time: '10295021'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0688
@@ -30321,7 +30321,7 @@ metadata:
     customresource.com/creation-time: '10295521'
     customresource.com/deletion-time: '10295636'
     customresource.com/scheduled-time: '10295521'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0689
@@ -30365,7 +30365,7 @@ metadata:
     customresource.com/creation-time: '10295551'
     customresource.com/deletion-time: '10295759'
     customresource.com/scheduled-time: '10295551'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0690
@@ -30409,7 +30409,7 @@ metadata:
     customresource.com/creation-time: '10296005'
     customresource.com/deletion-time: '10296709'
     customresource.com/scheduled-time: '10296007'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0691
@@ -30453,7 +30453,7 @@ metadata:
     customresource.com/creation-time: '10296154'
     customresource.com/deletion-time: '10296267'
     customresource.com/scheduled-time: '10296155'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0692
@@ -30497,7 +30497,7 @@ metadata:
     customresource.com/creation-time: '10296182'
     customresource.com/deletion-time: '10298220'
     customresource.com/scheduled-time: '10296215'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0693
@@ -30585,7 +30585,7 @@ metadata:
     customresource.com/creation-time: '10296641'
     customresource.com/deletion-time: '10296842'
     customresource.com/scheduled-time: '10296641'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0695
@@ -30673,7 +30673,7 @@ metadata:
     customresource.com/creation-time: '10297414'
     customresource.com/deletion-time: '10297489'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0697
@@ -30717,7 +30717,7 @@ metadata:
     customresource.com/creation-time: '10297478'
     customresource.com/deletion-time: '10298373'
     customresource.com/scheduled-time: '10297516'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0698
@@ -30761,7 +30761,7 @@ metadata:
     customresource.com/creation-time: '10297481'
     customresource.com/deletion-time: '10297679'
     customresource.com/scheduled-time: '10297481'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0699
@@ -30805,7 +30805,7 @@ metadata:
     customresource.com/creation-time: '10297562'
     customresource.com/deletion-time: '10297832'
     customresource.com/scheduled-time: '10297564'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0700
@@ -30849,7 +30849,7 @@ metadata:
     customresource.com/creation-time: '10297584'
     customresource.com/deletion-time: '10298393'
     customresource.com/scheduled-time: '10297587'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0701
@@ -30937,7 +30937,7 @@ metadata:
     customresource.com/creation-time: '10297734'
     customresource.com/deletion-time: '10298342'
     customresource.com/scheduled-time: '10297736'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0703
@@ -30981,7 +30981,7 @@ metadata:
     customresource.com/creation-time: '10297773'
     customresource.com/deletion-time: '10297985'
     customresource.com/scheduled-time: '10297773'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0704
@@ -31113,7 +31113,7 @@ metadata:
     customresource.com/creation-time: '10298794'
     customresource.com/deletion-time: '10307855'
     customresource.com/scheduled-time: '10298794'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0707
@@ -31157,7 +31157,7 @@ metadata:
     customresource.com/creation-time: '10298876'
     customresource.com/deletion-time: '10302878'
     customresource.com/scheduled-time: '10298876'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0708
@@ -31245,7 +31245,7 @@ metadata:
     customresource.com/creation-time: '10299397'
     customresource.com/deletion-time: '10299449'
     customresource.com/scheduled-time: '10299397'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0710
@@ -31377,7 +31377,7 @@ metadata:
     customresource.com/creation-time: '10299568'
     customresource.com/deletion-time: '10299656'
     customresource.com/scheduled-time: '10299601'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0713
@@ -31465,7 +31465,7 @@ metadata:
     customresource.com/creation-time: '10300035'
     customresource.com/deletion-time: '10300186'
     customresource.com/scheduled-time: '10300035'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0715
@@ -31509,7 +31509,7 @@ metadata:
     customresource.com/creation-time: '10300246'
     customresource.com/deletion-time: '10302177'
     customresource.com/scheduled-time: '10300249'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0716
@@ -31553,7 +31553,7 @@ metadata:
     customresource.com/creation-time: '10300654'
     customresource.com/deletion-time: '10300853'
     customresource.com/scheduled-time: '10300654'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0717
@@ -31597,7 +31597,7 @@ metadata:
     customresource.com/creation-time: '10301249'
     customresource.com/deletion-time: '10301373'
     customresource.com/scheduled-time: '10301249'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0718
@@ -31641,7 +31641,7 @@ metadata:
     customresource.com/creation-time: '10303030'
     customresource.com/deletion-time: '10303185'
     customresource.com/scheduled-time: '10303030'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0719
@@ -31729,7 +31729,7 @@ metadata:
     customresource.com/creation-time: '10303910'
     customresource.com/deletion-time: '10304562'
     customresource.com/scheduled-time: '10304013'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0721
@@ -31773,7 +31773,7 @@ metadata:
     customresource.com/creation-time: '10303910'
     customresource.com/deletion-time: '10304415'
     customresource.com/scheduled-time: '10303912'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0722
@@ -31817,7 +31817,7 @@ metadata:
     customresource.com/creation-time: '10304054'
     customresource.com/deletion-time: '10304252'
     customresource.com/scheduled-time: '10304054'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0723
@@ -31861,7 +31861,7 @@ metadata:
     customresource.com/creation-time: '10304304'
     customresource.com/deletion-time: '10304503'
     customresource.com/scheduled-time: '10304305'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0724
@@ -31905,7 +31905,7 @@ metadata:
     customresource.com/creation-time: '10304349'
     customresource.com/deletion-time: '10304548'
     customresource.com/scheduled-time: '10304350'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0725
@@ -31949,7 +31949,7 @@ metadata:
     customresource.com/creation-time: '10305348'
     customresource.com/deletion-time: '10305573'
     customresource.com/scheduled-time: '10305348'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0726
@@ -32081,7 +32081,7 @@ metadata:
     customresource.com/creation-time: '10306555'
     customresource.com/deletion-time: '10306690'
     customresource.com/scheduled-time: '10306555'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0729
@@ -32125,7 +32125,7 @@ metadata:
     customresource.com/creation-time: '10306710'
     customresource.com/deletion-time: '10308607'
     customresource.com/scheduled-time: '10306744'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0730
@@ -32169,7 +32169,7 @@ metadata:
     customresource.com/creation-time: '10306993'
     customresource.com/deletion-time: '10308548'
     customresource.com/scheduled-time: '10307028'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0731
@@ -32213,7 +32213,7 @@ metadata:
     customresource.com/creation-time: '10307276'
     customresource.com/deletion-time: '10308510'
     customresource.com/scheduled-time: '10307308'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0732
@@ -32257,7 +32257,7 @@ metadata:
     customresource.com/creation-time: '10307762'
     customresource.com/deletion-time: '10307887'
     customresource.com/scheduled-time: '10307762'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0733
@@ -32301,7 +32301,7 @@ metadata:
     customresource.com/creation-time: '10308033'
     customresource.com/deletion-time: '10328254'
     customresource.com/scheduled-time: '10308033'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0734
@@ -32389,7 +32389,7 @@ metadata:
     customresource.com/creation-time: '10312991'
     customresource.com/deletion-time: '10313193'
     customresource.com/scheduled-time: '10312992'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0736
@@ -32433,7 +32433,7 @@ metadata:
     customresource.com/creation-time: '10314009'
     customresource.com/deletion-time: '10314227'
     customresource.com/scheduled-time: '10314009'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0737
@@ -32477,7 +32477,7 @@ metadata:
     customresource.com/creation-time: '10314591'
     customresource.com/deletion-time: '10314815'
     customresource.com/scheduled-time: '10314591'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0738
@@ -32521,7 +32521,7 @@ metadata:
     customresource.com/creation-time: '10314949'
     customresource.com/deletion-time: '10315169'
     customresource.com/scheduled-time: '10314949'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0739
@@ -32565,7 +32565,7 @@ metadata:
     customresource.com/creation-time: '10315182'
     customresource.com/deletion-time: '10318364'
     customresource.com/scheduled-time: '10315184'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0740
@@ -32609,7 +32609,7 @@ metadata:
     customresource.com/creation-time: '10315828'
     customresource.com/deletion-time: '10316026'
     customresource.com/scheduled-time: '10315829'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0741
@@ -32653,7 +32653,7 @@ metadata:
     customresource.com/creation-time: '10315953'
     customresource.com/deletion-time: '10882774'
     customresource.com/scheduled-time: '10315953'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0742
@@ -32741,7 +32741,7 @@ metadata:
     customresource.com/creation-time: '10317757'
     customresource.com/deletion-time: '10321422'
     customresource.com/scheduled-time: '10317757'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0744
@@ -32917,7 +32917,7 @@ metadata:
     customresource.com/creation-time: '10322676'
     customresource.com/deletion-time: '10322971'
     customresource.com/scheduled-time: '10322676'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0748
@@ -32961,7 +32961,7 @@ metadata:
     customresource.com/creation-time: '10323648'
     customresource.com/deletion-time: '10324363'
     customresource.com/scheduled-time: '10323650'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0749
@@ -33005,7 +33005,7 @@ metadata:
     customresource.com/creation-time: '10325258'
     customresource.com/deletion-time: '10326764'
     customresource.com/scheduled-time: '10325261'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0750
@@ -33049,7 +33049,7 @@ metadata:
     customresource.com/creation-time: '10325800'
     customresource.com/deletion-time: '10329190'
     customresource.com/scheduled-time: '10325803'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0751
@@ -33269,7 +33269,7 @@ metadata:
     customresource.com/creation-time: '10328589'
     customresource.com/deletion-time: '10328886'
     customresource.com/scheduled-time: '10328589'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0756
@@ -33313,7 +33313,7 @@ metadata:
     customresource.com/creation-time: '10329249'
     customresource.com/deletion-time: '10329548'
     customresource.com/scheduled-time: '10329249'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0757
@@ -33357,7 +33357,7 @@ metadata:
     customresource.com/creation-time: '10329323'
     customresource.com/deletion-time: '10329645'
     customresource.com/scheduled-time: '10329324'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0758
@@ -33401,7 +33401,7 @@ metadata:
     customresource.com/creation-time: '10330595'
     customresource.com/deletion-time: '10343616'
     customresource.com/scheduled-time: '10330595'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0759
@@ -33445,7 +33445,7 @@ metadata:
     customresource.com/creation-time: '10332019'
     customresource.com/deletion-time: '10332359'
     customresource.com/scheduled-time: '10332019'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0760
@@ -33577,7 +33577,7 @@ metadata:
     customresource.com/creation-time: '10338528'
     customresource.com/deletion-time: '10338723'
     customresource.com/scheduled-time: '10338528'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0763
@@ -33621,7 +33621,7 @@ metadata:
     customresource.com/creation-time: '10338801'
     customresource.com/deletion-time: '10340168'
     customresource.com/scheduled-time: '10338803'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0764
@@ -33665,7 +33665,7 @@ metadata:
     customresource.com/creation-time: '10340196'
     customresource.com/deletion-time: '10341266'
     customresource.com/scheduled-time: '10340232'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0765
@@ -33797,7 +33797,7 @@ metadata:
     customresource.com/creation-time: '10341435'
     customresource.com/deletion-time: '10341505'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0768
@@ -33841,7 +33841,7 @@ metadata:
     customresource.com/creation-time: '10342138'
     customresource.com/deletion-time: '10342408'
     customresource.com/scheduled-time: '10342140'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0769
@@ -33885,7 +33885,7 @@ metadata:
     customresource.com/creation-time: '10342211'
     customresource.com/deletion-time: '10342402'
     customresource.com/scheduled-time: '10342211'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0770
@@ -33973,7 +33973,7 @@ metadata:
     customresource.com/creation-time: '10343714'
     customresource.com/deletion-time: '10347642'
     customresource.com/scheduled-time: '10343717'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0772
@@ -34017,7 +34017,7 @@ metadata:
     customresource.com/creation-time: '10343715'
     customresource.com/deletion-time: '10348187'
     customresource.com/scheduled-time: '10343748'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0773
@@ -34061,7 +34061,7 @@ metadata:
     customresource.com/creation-time: '10344030'
     customresource.com/deletion-time: '10344221'
     customresource.com/scheduled-time: '10344030'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0774
@@ -34105,7 +34105,7 @@ metadata:
     customresource.com/creation-time: '10344404'
     customresource.com/deletion-time: '10346064'
     customresource.com/scheduled-time: '10344438'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0775
@@ -34149,7 +34149,7 @@ metadata:
     customresource.com/creation-time: '10344444'
     customresource.com/deletion-time: '10348924'
     customresource.com/scheduled-time: '10344447'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0776
@@ -34281,7 +34281,7 @@ metadata:
     customresource.com/creation-time: '10345184'
     customresource.com/deletion-time: '10345345'
     customresource.com/scheduled-time: '10345184'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0779
@@ -34413,7 +34413,7 @@ metadata:
     customresource.com/creation-time: '10345975'
     customresource.com/deletion-time: '10349537'
     customresource.com/scheduled-time: '10346078'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0782
@@ -34457,7 +34457,7 @@ metadata:
     customresource.com/creation-time: '10347405'
     customresource.com/deletion-time: '10349010'
     customresource.com/scheduled-time: '10347410'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0783
@@ -34501,7 +34501,7 @@ metadata:
     customresource.com/creation-time: '10347728'
     customresource.com/deletion-time: '10347944'
     customresource.com/scheduled-time: '10347729'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0784
@@ -34589,7 +34589,7 @@ metadata:
     customresource.com/creation-time: '10348057'
     customresource.com/deletion-time: '10348249'
     customresource.com/scheduled-time: '10348059'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0786
@@ -34633,7 +34633,7 @@ metadata:
     customresource.com/creation-time: '10348094'
     customresource.com/deletion-time: '10348290'
     customresource.com/scheduled-time: '10348094'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0787
@@ -34677,7 +34677,7 @@ metadata:
     customresource.com/creation-time: '10348477'
     customresource.com/deletion-time: '10353094'
     customresource.com/scheduled-time: '10348477'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0788
@@ -34721,7 +34721,7 @@ metadata:
     customresource.com/creation-time: '10348483'
     customresource.com/deletion-time: '10349083'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0789
@@ -34765,7 +34765,7 @@ metadata:
     customresource.com/creation-time: '10348594'
     customresource.com/deletion-time: '10352705'
     customresource.com/scheduled-time: '10348594'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0790
@@ -34809,7 +34809,7 @@ metadata:
     customresource.com/creation-time: '10349004'
     customresource.com/deletion-time: '10349623'
     customresource.com/scheduled-time: '10349007'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0791
@@ -34853,7 +34853,7 @@ metadata:
     customresource.com/creation-time: '10349201'
     customresource.com/deletion-time: '10350761'
     customresource.com/scheduled-time: '10349270'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0792
@@ -34897,7 +34897,7 @@ metadata:
     customresource.com/creation-time: '10349365'
     customresource.com/deletion-time: '10353856'
     customresource.com/scheduled-time: '10349365'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0793
@@ -35029,7 +35029,7 @@ metadata:
     customresource.com/creation-time: '10349561'
     customresource.com/deletion-time: '10351361'
     customresource.com/scheduled-time: '10350184'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0796
@@ -35205,7 +35205,7 @@ metadata:
     customresource.com/creation-time: '10352735'
     customresource.com/deletion-time: '10352785'
     customresource.com/scheduled-time: '10352736'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0800
@@ -35249,7 +35249,7 @@ metadata:
     customresource.com/creation-time: '10353158'
     customresource.com/deletion-time: '10356022'
     customresource.com/scheduled-time: '10353160'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0801
@@ -35469,7 +35469,7 @@ metadata:
     customresource.com/creation-time: '10354524'
     customresource.com/deletion-time: '10354689'
     customresource.com/scheduled-time: '10354525'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0806
@@ -35513,7 +35513,7 @@ metadata:
     customresource.com/creation-time: '10354755'
     customresource.com/deletion-time: '10354991'
     customresource.com/scheduled-time: '10354757'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0807
@@ -35557,7 +35557,7 @@ metadata:
     customresource.com/creation-time: '10354939'
     customresource.com/deletion-time: '10356974'
     customresource.com/scheduled-time: '10354939'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0808
@@ -35645,7 +35645,7 @@ metadata:
     customresource.com/creation-time: '10355046'
     customresource.com/deletion-time: '10355177'
     customresource.com/scheduled-time: '10355046'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0810
@@ -35689,7 +35689,7 @@ metadata:
     customresource.com/creation-time: '10355210'
     customresource.com/deletion-time: '10355351'
     customresource.com/scheduled-time: '10355210'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0811
@@ -35733,7 +35733,7 @@ metadata:
     customresource.com/creation-time: '10356350'
     customresource.com/deletion-time: '10356499'
     customresource.com/scheduled-time: '10356350'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0812
@@ -35777,7 +35777,7 @@ metadata:
     customresource.com/creation-time: '10356972'
     customresource.com/deletion-time: '10357187'
     customresource.com/scheduled-time: '10356972'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0813
@@ -35865,7 +35865,7 @@ metadata:
     customresource.com/creation-time: '10358810'
     customresource.com/deletion-time: '10359010'
     customresource.com/scheduled-time: '10358810'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0815
@@ -35909,7 +35909,7 @@ metadata:
     customresource.com/creation-time: '10359007'
     customresource.com/deletion-time: '10360290'
     customresource.com/scheduled-time: '10359009'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0816
@@ -35997,7 +35997,7 @@ metadata:
     customresource.com/creation-time: '10359296'
     customresource.com/deletion-time: '10359348'
     customresource.com/scheduled-time: '10359298'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0818
@@ -36085,7 +36085,7 @@ metadata:
     customresource.com/creation-time: '10360992'
     customresource.com/deletion-time: '10364087'
     customresource.com/scheduled-time: '10361028'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0820
@@ -36129,7 +36129,7 @@ metadata:
     customresource.com/creation-time: '10361057'
     customresource.com/deletion-time: '10364297'
     customresource.com/scheduled-time: '10361093'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0821
@@ -36173,7 +36173,7 @@ metadata:
     customresource.com/creation-time: '10361087'
     customresource.com/deletion-time: '10361251'
     customresource.com/scheduled-time: '10361087'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0822
@@ -36261,7 +36261,7 @@ metadata:
     customresource.com/creation-time: '10361537'
     customresource.com/deletion-time: '10361646'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0824
@@ -36305,7 +36305,7 @@ metadata:
     customresource.com/creation-time: '10361699'
     customresource.com/deletion-time: '10361799'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0825
@@ -36349,7 +36349,7 @@ metadata:
     customresource.com/creation-time: '10362192'
     customresource.com/deletion-time: '10364297'
     customresource.com/scheduled-time: '10362229'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0826
@@ -36393,7 +36393,7 @@ metadata:
     customresource.com/creation-time: '10362242'
     customresource.com/deletion-time: '10362465'
     customresource.com/scheduled-time: '10362242'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0827
@@ -36437,7 +36437,7 @@ metadata:
     customresource.com/creation-time: '10362464'
     customresource.com/deletion-time: '12005972'
     customresource.com/scheduled-time: '10362465'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0828
@@ -36569,7 +36569,7 @@ metadata:
     customresource.com/creation-time: '10364499'
     customresource.com/deletion-time: '10379589'
     customresource.com/scheduled-time: '10364501'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0831
@@ -36613,7 +36613,7 @@ metadata:
     customresource.com/creation-time: '10365106'
     customresource.com/deletion-time: '10365312'
     customresource.com/scheduled-time: '10365106'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0832
@@ -36657,7 +36657,7 @@ metadata:
     customresource.com/creation-time: '10365188'
     customresource.com/deletion-time: '10365386'
     customresource.com/scheduled-time: '10365189'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0833
@@ -36701,7 +36701,7 @@ metadata:
     customresource.com/creation-time: '10366402'
     customresource.com/deletion-time: '10366598'
     customresource.com/scheduled-time: '10366402'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0834
@@ -36745,7 +36745,7 @@ metadata:
     customresource.com/creation-time: '10366655'
     customresource.com/deletion-time: '10368755'
     customresource.com/scheduled-time: '10366655'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0835
@@ -36789,7 +36789,7 @@ metadata:
     customresource.com/creation-time: '10366655'
     customresource.com/deletion-time: '10370856'
     customresource.com/scheduled-time: '10366655'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0836
@@ -36833,7 +36833,7 @@ metadata:
     customresource.com/creation-time: '10366923'
     customresource.com/deletion-time: '10367136'
     customresource.com/scheduled-time: '10366923'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0837
@@ -36921,7 +36921,7 @@ metadata:
     customresource.com/creation-time: '10368051'
     customresource.com/deletion-time: '10377518'
     customresource.com/scheduled-time: '10368085'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0839
@@ -36965,7 +36965,7 @@ metadata:
     customresource.com/creation-time: '10368448'
     customresource.com/deletion-time: '10368591'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0840
@@ -37009,7 +37009,7 @@ metadata:
     customresource.com/creation-time: '10368509'
     customresource.com/deletion-time: '10368707'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0841
@@ -37053,7 +37053,7 @@ metadata:
     customresource.com/creation-time: '10368935'
     customresource.com/deletion-time: '10369903'
     customresource.com/scheduled-time: '10369111'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0842
@@ -37097,7 +37097,7 @@ metadata:
     customresource.com/creation-time: '10369049'
     customresource.com/deletion-time: '10369245'
     customresource.com/scheduled-time: '10369049'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0843
@@ -37141,7 +37141,7 @@ metadata:
     customresource.com/creation-time: '10369368'
     customresource.com/deletion-time: '10372286'
     customresource.com/scheduled-time: '10369401'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0844
@@ -37185,7 +37185,7 @@ metadata:
     customresource.com/creation-time: '10369381'
     customresource.com/deletion-time: '10369583'
     customresource.com/scheduled-time: '10369381'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0845
@@ -37229,7 +37229,7 @@ metadata:
     customresource.com/creation-time: '10369594'
     customresource.com/deletion-time: '10369789'
     customresource.com/scheduled-time: '10369594'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0846
@@ -37361,7 +37361,7 @@ metadata:
     customresource.com/creation-time: '10369903'
     customresource.com/deletion-time: '10371766'
     customresource.com/scheduled-time: '10370006'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0849
@@ -37713,7 +37713,7 @@ metadata:
     customresource.com/creation-time: '10371165'
     customresource.com/deletion-time: '10372362'
     customresource.com/scheduled-time: '10371202'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0857
@@ -37757,7 +37757,7 @@ metadata:
     customresource.com/creation-time: '10371552'
     customresource.com/deletion-time: '10371572'
     customresource.com/scheduled-time: '10371553'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0858
@@ -37801,7 +37801,7 @@ metadata:
     customresource.com/creation-time: '10372302'
     customresource.com/deletion-time: '10372308'
     customresource.com/scheduled-time: '10372303'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0859
@@ -37845,7 +37845,7 @@ metadata:
     customresource.com/creation-time: '10373128'
     customresource.com/deletion-time: '10377242'
     customresource.com/scheduled-time: '10373128'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0860
@@ -37889,7 +37889,7 @@ metadata:
     customresource.com/creation-time: '10373910'
     customresource.com/deletion-time: '10374112'
     customresource.com/scheduled-time: '10373910'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0861
@@ -37977,7 +37977,7 @@ metadata:
     customresource.com/creation-time: '10374150'
     customresource.com/deletion-time: '10374358'
     customresource.com/scheduled-time: '10374151'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0863
@@ -38065,7 +38065,7 @@ metadata:
     customresource.com/creation-time: '10374475'
     customresource.com/deletion-time: '10374536'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0865
@@ -38153,7 +38153,7 @@ metadata:
     customresource.com/creation-time: '10374738'
     customresource.com/deletion-time: '10376459'
     customresource.com/scheduled-time: '10374774'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0867
@@ -38197,7 +38197,7 @@ metadata:
     customresource.com/creation-time: '10375197'
     customresource.com/deletion-time: '10375314'
     customresource.com/scheduled-time: '10375198'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0868
@@ -38373,7 +38373,7 @@ metadata:
     customresource.com/creation-time: '10376533'
     customresource.com/deletion-time: '10376650'
     customresource.com/scheduled-time: '10376533'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0872
@@ -38505,7 +38505,7 @@ metadata:
     customresource.com/creation-time: '10378015'
     customresource.com/deletion-time: '10394899'
     customresource.com/scheduled-time: '10378016'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0875
@@ -38549,7 +38549,7 @@ metadata:
     customresource.com/creation-time: '10378118'
     customresource.com/deletion-time: '10378323'
     customresource.com/scheduled-time: '10378118'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0876
@@ -38637,7 +38637,7 @@ metadata:
     customresource.com/creation-time: '10379145'
     customresource.com/deletion-time: '10379378'
     customresource.com/scheduled-time: '10379146'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0878
@@ -38681,7 +38681,7 @@ metadata:
     customresource.com/creation-time: '10380337'
     customresource.com/deletion-time: '10384115'
     customresource.com/scheduled-time: '10380337'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0879
@@ -38725,7 +38725,7 @@ metadata:
     customresource.com/creation-time: '10380823'
     customresource.com/deletion-time: '10392815'
     customresource.com/scheduled-time: '10380859'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0880
@@ -38769,7 +38769,7 @@ metadata:
     customresource.com/creation-time: '10381421'
     customresource.com/deletion-time: '10393386'
     customresource.com/scheduled-time: '10381423'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0881
@@ -38813,7 +38813,7 @@ metadata:
     customresource.com/creation-time: '10381988'
     customresource.com/deletion-time: '10385603'
     customresource.com/scheduled-time: '10381988'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0882
@@ -38857,7 +38857,7 @@ metadata:
     customresource.com/creation-time: '10382067'
     customresource.com/deletion-time: '10382201'
     customresource.com/scheduled-time: '10382067'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0883
@@ -39165,7 +39165,7 @@ metadata:
     customresource.com/creation-time: '10384661'
     customresource.com/deletion-time: '10386165'
     customresource.com/scheduled-time: '10384665'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0890
@@ -39209,7 +39209,7 @@ metadata:
     customresource.com/creation-time: '10384668'
     customresource.com/deletion-time: '10386177'
     customresource.com/scheduled-time: '10384670'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0891
@@ -39253,7 +39253,7 @@ metadata:
     customresource.com/creation-time: '10387214'
     customresource.com/deletion-time: '10387265'
     customresource.com/scheduled-time: '10387216'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0892
@@ -39297,7 +39297,7 @@ metadata:
     customresource.com/creation-time: '10387343'
     customresource.com/deletion-time: '10387538'
     customresource.com/scheduled-time: '10387343'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0893
@@ -39341,7 +39341,7 @@ metadata:
     customresource.com/creation-time: '10387422'
     customresource.com/deletion-time: '10399213'
     customresource.com/scheduled-time: '10387425'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0894
@@ -39429,7 +39429,7 @@ metadata:
     customresource.com/creation-time: '10388808'
     customresource.com/deletion-time: '10389003'
     customresource.com/scheduled-time: '10388808'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0896
@@ -39473,7 +39473,7 @@ metadata:
     customresource.com/creation-time: '10389373'
     customresource.com/deletion-time: '10389404'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0897
@@ -39693,7 +39693,7 @@ metadata:
     customresource.com/creation-time: '10390956'
     customresource.com/deletion-time: '10391495'
     customresource.com/scheduled-time: '10390958'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0902
@@ -39781,7 +39781,7 @@ metadata:
     customresource.com/creation-time: '10392044'
     customresource.com/deletion-time: '10395821'
     customresource.com/scheduled-time: '10392078'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0904
@@ -39825,7 +39825,7 @@ metadata:
     customresource.com/creation-time: '10392058'
     customresource.com/deletion-time: '10392120'
     customresource.com/scheduled-time: '10392062'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0905
@@ -39913,7 +39913,7 @@ metadata:
     customresource.com/creation-time: '10392464'
     customresource.com/deletion-time: '10392529'
     customresource.com/scheduled-time: '10392464'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0907
@@ -40001,7 +40001,7 @@ metadata:
     customresource.com/creation-time: '10392972'
     customresource.com/deletion-time: '10393093'
     customresource.com/scheduled-time: '10393043'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0909
@@ -40045,7 +40045,7 @@ metadata:
     customresource.com/creation-time: '10393303'
     customresource.com/deletion-time: '10402962'
     customresource.com/scheduled-time: '10393408'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0910
@@ -40177,7 +40177,7 @@ metadata:
     customresource.com/creation-time: '10394338'
     customresource.com/deletion-time: '10395860'
     customresource.com/scheduled-time: '10394374'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0913
@@ -40221,7 +40221,7 @@ metadata:
     customresource.com/creation-time: '10395111'
     customresource.com/deletion-time: '10403282'
     customresource.com/scheduled-time: '10395111'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0914
@@ -40265,7 +40265,7 @@ metadata:
     customresource.com/creation-time: '10395459'
     customresource.com/deletion-time: '10415615'
     customresource.com/scheduled-time: '10395494'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0915
@@ -40353,7 +40353,7 @@ metadata:
     customresource.com/creation-time: '10395756'
     customresource.com/deletion-time: '10395964'
     customresource.com/scheduled-time: '10395756'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0917
@@ -40397,7 +40397,7 @@ metadata:
     customresource.com/creation-time: '10395792'
     customresource.com/deletion-time: '10397692'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0918
@@ -40573,7 +40573,7 @@ metadata:
     customresource.com/creation-time: '10397822'
     customresource.com/deletion-time: '10397835'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0922
@@ -40617,7 +40617,7 @@ metadata:
     customresource.com/creation-time: '10398305'
     customresource.com/deletion-time: '10398500'
     customresource.com/scheduled-time: '10398306'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0923
@@ -40661,7 +40661,7 @@ metadata:
     customresource.com/creation-time: '10398509'
     customresource.com/deletion-time: '10404560'
     customresource.com/scheduled-time: '10398511'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0924
@@ -40705,7 +40705,7 @@ metadata:
     customresource.com/creation-time: '10398781'
     customresource.com/deletion-time: '10399000'
     customresource.com/scheduled-time: '10398955'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0925
@@ -40749,7 +40749,7 @@ metadata:
     customresource.com/creation-time: '10399394'
     customresource.com/deletion-time: '10399605'
     customresource.com/scheduled-time: '10399395'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0926
@@ -40793,7 +40793,7 @@ metadata:
     customresource.com/creation-time: '10399531'
     customresource.com/deletion-time: '10399731'
     customresource.com/scheduled-time: '10399531'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0927
@@ -40881,7 +40881,7 @@ metadata:
     customresource.com/creation-time: '10399989'
     customresource.com/deletion-time: '10400036'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0929
@@ -40969,7 +40969,7 @@ metadata:
     customresource.com/creation-time: '10401633'
     customresource.com/deletion-time: '10402233'
     customresource.com/scheduled-time: '10401633'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0931
@@ -41101,7 +41101,7 @@ metadata:
     customresource.com/creation-time: '10402526'
     customresource.com/deletion-time: '10402723'
     customresource.com/scheduled-time: '10402526'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0934
@@ -41145,7 +41145,7 @@ metadata:
     customresource.com/creation-time: '10402709'
     customresource.com/deletion-time: '10402902'
     customresource.com/scheduled-time: '10402709'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0935
@@ -41189,7 +41189,7 @@ metadata:
     customresource.com/creation-time: '10402870'
     customresource.com/deletion-time: '10403116'
     customresource.com/scheduled-time: '10402870'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0936
@@ -41233,7 +41233,7 @@ metadata:
     customresource.com/creation-time: '10403370'
     customresource.com/deletion-time: '10407191'
     customresource.com/scheduled-time: '10403371'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0937
@@ -41277,7 +41277,7 @@ metadata:
     customresource.com/creation-time: '10403581'
     customresource.com/deletion-time: '10403870'
     customresource.com/scheduled-time: '10403581'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0938
@@ -41321,7 +41321,7 @@ metadata:
     customresource.com/creation-time: '10403901'
     customresource.com/deletion-time: '10404167'
     customresource.com/scheduled-time: '10403901'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0939
@@ -41453,7 +41453,7 @@ metadata:
     customresource.com/creation-time: '10405820'
     customresource.com/deletion-time: '10409572'
     customresource.com/scheduled-time: '10405823'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0942
@@ -41629,7 +41629,7 @@ metadata:
     customresource.com/creation-time: '10408533'
     customresource.com/deletion-time: '10408747'
     customresource.com/scheduled-time: '10408533'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0946
@@ -41673,7 +41673,7 @@ metadata:
     customresource.com/creation-time: '10408945'
     customresource.com/deletion-time: '10409155'
     customresource.com/scheduled-time: '10408945'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0947
@@ -41717,7 +41717,7 @@ metadata:
     customresource.com/creation-time: '10409135'
     customresource.com/deletion-time: '10424496'
     customresource.com/scheduled-time: '10409135'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0948
@@ -41805,7 +41805,7 @@ metadata:
     customresource.com/creation-time: '10409812'
     customresource.com/deletion-time: '10410119'
     customresource.com/scheduled-time: '10409848'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0950
@@ -41893,7 +41893,7 @@ metadata:
     customresource.com/creation-time: '10410605'
     customresource.com/deletion-time: '10410922'
     customresource.com/scheduled-time: '10410605'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0952
@@ -41937,7 +41937,7 @@ metadata:
     customresource.com/creation-time: '10410767'
     customresource.com/deletion-time: '10417960'
     customresource.com/scheduled-time: '10410769'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0953
@@ -41981,7 +41981,7 @@ metadata:
     customresource.com/creation-time: '10410937'
     customresource.com/deletion-time: '10414373'
     customresource.com/scheduled-time: '10410939'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0954
@@ -42025,7 +42025,7 @@ metadata:
     customresource.com/creation-time: '10412019'
     customresource.com/deletion-time: '10413788'
     customresource.com/scheduled-time: '10412022'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0955
@@ -42069,7 +42069,7 @@ metadata:
     customresource.com/creation-time: '10412233'
     customresource.com/deletion-time: '10412342'
     customresource.com/scheduled-time: '10412233'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0956
@@ -42113,7 +42113,7 @@ metadata:
     customresource.com/creation-time: '10414545'
     customresource.com/deletion-time: '10414833'
     customresource.com/scheduled-time: '10414546'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0957
@@ -42157,7 +42157,7 @@ metadata:
     customresource.com/creation-time: '10416283'
     customresource.com/deletion-time: '10418277'
     customresource.com/scheduled-time: '10416319'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0958
@@ -42201,7 +42201,7 @@ metadata:
     customresource.com/creation-time: '10418049'
     customresource.com/deletion-time: '10420150'
     customresource.com/scheduled-time: '10418085'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0959
@@ -42245,7 +42245,7 @@ metadata:
     customresource.com/creation-time: '10418677'
     customresource.com/deletion-time: '10420371'
     customresource.com/scheduled-time: '10418679'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0960
@@ -42289,7 +42289,7 @@ metadata:
     customresource.com/creation-time: '10419148'
     customresource.com/deletion-time: '10419344'
     customresource.com/scheduled-time: '10419148'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0961
@@ -42333,7 +42333,7 @@ metadata:
     customresource.com/creation-time: '10419916'
     customresource.com/deletion-time: '10423961'
     customresource.com/scheduled-time: '10419916'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0962
@@ -42377,7 +42377,7 @@ metadata:
     customresource.com/creation-time: '10420053'
     customresource.com/deletion-time: '10426054'
     customresource.com/scheduled-time: '10420053'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0963
@@ -42421,7 +42421,7 @@ metadata:
     customresource.com/creation-time: '10421819'
     customresource.com/deletion-time: '10422014'
     customresource.com/scheduled-time: '10421819'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0964
@@ -42509,7 +42509,7 @@ metadata:
     customresource.com/creation-time: '10422609'
     customresource.com/deletion-time: '10424880'
     customresource.com/scheduled-time: '10422646'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0966
@@ -42597,7 +42597,7 @@ metadata:
     customresource.com/creation-time: '10423312'
     customresource.com/deletion-time: '10423527'
     customresource.com/scheduled-time: '10423312'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0968
@@ -42641,7 +42641,7 @@ metadata:
     customresource.com/creation-time: '10424998'
     customresource.com/deletion-time: '10425572'
     customresource.com/scheduled-time: '10424998'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0969
@@ -42685,7 +42685,7 @@ metadata:
     customresource.com/creation-time: '10426697'
     customresource.com/deletion-time: '10432787'
     customresource.com/scheduled-time: '10426697'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0970
@@ -42729,7 +42729,7 @@ metadata:
     customresource.com/creation-time: '10426770'
     customresource.com/deletion-time: '10426980'
     customresource.com/scheduled-time: '10426770'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0971
@@ -42773,7 +42773,7 @@ metadata:
     customresource.com/creation-time: '10429667'
     customresource.com/deletion-time: '10433603'
     customresource.com/scheduled-time: '10429667'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0972
@@ -42861,7 +42861,7 @@ metadata:
     customresource.com/creation-time: '10430148'
     customresource.com/deletion-time: '10430317'
     customresource.com/scheduled-time: '10430149'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0974
@@ -42905,7 +42905,7 @@ metadata:
     customresource.com/creation-time: '10430353'
     customresource.com/deletion-time: '10430517'
     customresource.com/scheduled-time: '10430353'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0975
@@ -42993,7 +42993,7 @@ metadata:
     customresource.com/creation-time: '10430809'
     customresource.com/deletion-time: '10430861'
     customresource.com/scheduled-time: '10430809'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0977
@@ -43037,7 +43037,7 @@ metadata:
     customresource.com/creation-time: '10430841'
     customresource.com/deletion-time: '10435115'
     customresource.com/scheduled-time: '10430842'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0978
@@ -43081,7 +43081,7 @@ metadata:
     customresource.com/creation-time: '10430899'
     customresource.com/deletion-time: '10431094'
     customresource.com/scheduled-time: '10430899'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0979
@@ -43169,7 +43169,7 @@ metadata:
     customresource.com/creation-time: '10432303'
     customresource.com/deletion-time: '10432514'
     customresource.com/scheduled-time: '10432303'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0981
@@ -43213,7 +43213,7 @@ metadata:
     customresource.com/creation-time: '10432317'
     customresource.com/deletion-time: '10432508'
     customresource.com/scheduled-time: '10432317'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0982
@@ -43301,7 +43301,7 @@ metadata:
     customresource.com/creation-time: '10432658'
     customresource.com/deletion-time: '10432694'
     customresource.com/scheduled-time: NaN
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0984
@@ -43433,7 +43433,7 @@ metadata:
     customresource.com/creation-time: '10433225'
     customresource.com/deletion-time: '10433253'
     customresource.com/scheduled-time: '10433226'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0987
@@ -43697,7 +43697,7 @@ metadata:
     customresource.com/creation-time: '10433799'
     customresource.com/deletion-time: '10434129'
     customresource.com/scheduled-time: '10433867'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0993
@@ -43829,7 +43829,7 @@ metadata:
     customresource.com/creation-time: '10434472'
     customresource.com/deletion-time: '10434618'
     customresource.com/scheduled-time: '10434472'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0996
@@ -43873,7 +43873,7 @@ metadata:
     customresource.com/creation-time: '10434545'
     customresource.com/deletion-time: '10434916'
     customresource.com/scheduled-time: '10434547'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0997
@@ -43917,7 +43917,7 @@ metadata:
     customresource.com/creation-time: '10434573'
     customresource.com/deletion-time: '10434765'
     customresource.com/scheduled-time: '10434575'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-0998
@@ -44049,7 +44049,7 @@ metadata:
     customresource.com/creation-time: '10435374'
     customresource.com/deletion-time: '10436893'
     customresource.com/scheduled-time: '10435410'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-1001
@@ -44093,7 +44093,7 @@ metadata:
     customresource.com/creation-time: '10435598'
     customresource.com/deletion-time: '10437160'
     customresource.com/scheduled-time: '10435600'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-1002
@@ -44137,7 +44137,7 @@ metadata:
     customresource.com/creation-time: '10435669'
     customresource.com/deletion-time: '10439431'
     customresource.com/scheduled-time: '10435671'
-    hardIsolation: 'false'
+    hardIsolation: 'true'
   labels:
     app: fake-pod
   name: openb-pod-1003

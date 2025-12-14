@@ -8,7 +8,7 @@ import time
 # Cambia 'manifiestos.yaml' por la ruta de tu archivo YAML 
 Initial_time = int(time.time())
 YAML_FILE_PATH = "trace/trace.yaml" 
-EXP = 1.0 / 3.0
+EXP = 1.0 / 4.0
 # --- Fin Configuración ---
 
 def aplicar_manifest_por_separado(manifesto_yaml):

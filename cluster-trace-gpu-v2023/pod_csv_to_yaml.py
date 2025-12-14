@@ -133,9 +133,9 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
             RatioGpu = float(MilliGpu) / 1000.0
             container_requests[GpuMemory] = int(RatioGpu * V100Mem)
             container_requests[GpuFp32] = int(RatioGpu * V100Fp32)
-
-            if MilliGpu == 1000:
-            	annotations[HardIsolation] = 'true'
+            
+            if int(MilliGpu) == 1000:
+                annotations[HardIsolation] = 'true'
             else:
                 annotations[HardIsolation] = 'false'
 
