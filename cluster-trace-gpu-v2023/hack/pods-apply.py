@@ -6,15 +6,16 @@ import time
 
 # --- Configuración ---
 # Cambia 'manifiestos.yaml' por la ruta de tu archivo YAML 
-Initial_time = int(time.time())
 YAML_FILE_PATH = "trace/trace.yaml" 
-EXP = 1.0 / 4.0
+EXP = 1.0 / 4.5
+CREATION_TIME_PAST = 0
 # --- Fin Configuración ---
 
 def aplicar_manifest_por_separado(manifesto_yaml):
     """
     Guarda un único manifesto YAML a un archivo temporal y lo aplica con kubectl.
     """
+    global CREATION_TIME_PAST
     temp_file_path = "temp_manifest.yaml"
     
     try:
@@ -31,10 +32,22 @@ def aplicar_manifest_por_separado(manifesto_yaml):
 
         if creationTime == None:
             return
+        
+        tiempo_restante = int(creationTime - CREATION_TIME_PAST)
+        tiempo_restante = int(tiempo_restante ** EXP)
+        CREATION_TIME_PAST = creationTime
+        # tempCreationTime = creationTime
 
-        creationTime = creationTime ** EXP
-        tiempo_restante = int(Initial_time + creationTime) - int(time.time())
-        print(f"creationTime: {creationTime}")
+        # if tiempo_restante <= TIME1:
+        #     creationTime = int(creationTime ** EXP1)
+        # elif tiempo_restante <= TIME2:
+        #     creationTime = int(creationTime ** EXP2)
+        # elif tiempo_restante <= TIME3:
+        #     creationTime = int(creationTime ** EXP3)
+
+        # tiempo_restante += creationTime - tempCreationTime
+
+        # print(f"creationTime: {creationTime}")
         print(f"Tiempo de espera del pod: {tiempo_restante}")
 
         if tiempo_restante > 0:

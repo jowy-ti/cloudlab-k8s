@@ -7,16 +7,28 @@ import sys
 # La clave de la anotación que contiene el tiempo de finalización (Unix Timestamp en segundos)
 ANNOTATION_KEY_KILL_TIME = 'deadline'
 # Intervalo de tiempo (en segundos) que el script esperará entre revisiones de Pods.
-POLL_INTERVAL_SECONDS = 2
+POLL_INTERVAL_SECONDS = 1
 FIELD_SELECTOR = 'status.phase=Running'
 NAMESPACE_TARGET = 'default'
+FIRST_POD_NAME = 'openb-pod-0000'
+LAST_POD_NAME = 'openb-pod-0099'
+INITIAL_TIME = 0
+INICIO = True
 
 def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """
     Comprueba las anotaciones del Pod y lo elimina si su tiempo de vida ha expirado.
     """
+    global INITIAL_TIME
+    global INICIO
     pod_name = pod.metadata.name
     namespace = pod.metadata.namespace
+
+    # Miramos si es el primer pod
+    if INICIO and pod_name == FIRST_POD_NAME:
+        INITIAL_TIME = int(time.time())
+        INICIO = False
+        print('El temporizador comienza ahora!')
     
     # Ignorar Pods en fase de terminación
     if pod.metadata.deletion_timestamp:
@@ -38,8 +50,8 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
         
     # Lógica de Eliminación: ¿El tiempo de finalización ya pasó?
     if current_time >= kill_timestamp:
-        # print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
-        # print(f"  Pod: {namespace}/{pod_name}")
+        print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
+        print(f"  Pod: {namespace}/{pod_name}")
         # print(f"  Tiempo actual: {current_time}, Tiempo límite: {kill_timestamp}")
         
         # Eliminar el Pod
@@ -50,6 +62,9 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
                 namespace=namespace, 
                 body=client.V1DeleteOptions()
             )
+            # Miramos si es el último pod
+            if pod_name == LAST_POD_NAME:
+                print(f"Tiempo total: {int(time.time()) - INITIAL_TIME}")
             # print(f"Pod {pod_name} eliminado exitosamente.")
         except ApiException as e:
             if e.status == 404:
@@ -78,6 +93,8 @@ def main():
         return
     
     v1 = client.CoreV1Api()
+
+    INICIO_FIN = True
     
     # Bucle infinito de POLLING
     while True:

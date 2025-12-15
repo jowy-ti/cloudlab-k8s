@@ -24,7 +24,6 @@ def main():
     v1 = client.CoreV1Api()
 
     INICIO_FIN = True
-    INITIAL_TIME = 0
 
     while True:
         try:
@@ -36,16 +35,12 @@ def main():
             )
 
             if pods.items and INICIO_FIN: # Utilizar el nombre del pod para dar el inicio y el final
-                INITIAL_TIME = int(time.time())
                 INICIO_FIN = False
-                print("Inicio")
 
             if not pods.items and not INICIO_FIN: # Utilizar el nombre del pod para dar el inicio y el final
-                TOTAL_TIME = int(time.time()) - INITIAL_TIME
-                print(f"Final: {TOTAL_TIME}s")
                 sys.exit()
             
-            print(f"{len(pods.items)}")
+            # print(f"{len(pods.items)}")
 
             time.sleep(POLL_INTERVAL_SECONDS)
 
