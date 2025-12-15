@@ -6,6 +6,10 @@ import sys
 FIELD_SELECTOR = 'status.phase=Running'
 NAMESPACE_TARGET = 'default'
 POLL_INTERVAL_SECONDS = 5
+FIRST_POD_NAME = 'openb-pod-0025'
+LAST_POD_NAME = 'openb-pod-0030'
+INICIO = True
+LAST_POD = False
 
 def main():
     """
@@ -23,24 +27,39 @@ def main():
     
     v1 = client.CoreV1Api()
 
-    INICIO_FIN = True
+    global INICIO
+    global LAST_POD
+    Utilization = []
 
     while True:
         try:
 
             pods = v1.list_namespaced_pod(
                 namespace=NAMESPACE_TARGET,
-                field_selector=FIELD_SELECTOR,  # Opcional: para filtrar por estado
+                field_selector=FIELD_SELECTOR, 
                 watch=False
             )
+            fin = True
+            for pod in pods.items:
+                
+                pod_name = pod.metadata.name
 
-            if pods.items and INICIO_FIN: # Utilizar el nombre del pod para dar el inicio y el final
-                INICIO_FIN = False
+                if INICIO and pod_name == FIRST_POD_NAME:
+                    INICIO = False
 
-            if not pods.items and not INICIO_FIN: # Utilizar el nombre del pod para dar el inicio y el final
-                sys.exit()
+                if not INICIO and pod_name == LAST_POD_NAME:
+                    LAST_POD = True
             
-            # print(f"{len(pods.items)}")
+                if LAST_POD and pod_name == LAST_POD_NAME:
+                    fin = False
+
+            if LAST_POD and fin:
+                sys.exit()
+
+            if not INICIO:
+                num_pods = len(pods.items)
+                Utilization.append(num_pods)
+                print(f"Running pods: {num_pods}")
 
             time.sleep(POLL_INTERVAL_SECONDS)
 

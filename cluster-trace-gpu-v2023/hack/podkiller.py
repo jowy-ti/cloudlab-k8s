@@ -10,8 +10,8 @@ ANNOTATION_KEY_KILL_TIME = 'deadline'
 POLL_INTERVAL_SECONDS = 1
 FIELD_SELECTOR = 'status.phase=Running'
 NAMESPACE_TARGET = 'default'
-FIRST_POD_NAME = 'openb-pod-0000'
-LAST_POD_NAME = 'openb-pod-0099'
+FIRST_POD_NAME = 'openb-pod-0025'
+LAST_POD_NAME = 'openb-pod-0030'
 INITIAL_TIME = 0
 INICIO = True
 
@@ -65,6 +65,7 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
             # Miramos si es el último pod
             if pod_name == LAST_POD_NAME:
                 print(f"Tiempo total: {int(time.time()) - INITIAL_TIME}")
+                sys.exit()
             # print(f"Pod {pod_name} eliminado exitosamente.")
         except ApiException as e:
             if e.status == 404:
@@ -104,7 +105,7 @@ def main():
             # 2. Listar todos los Pods (el Polling)
             pods = v1.list_namespaced_pod(
                 namespace=NAMESPACE_TARGET,
-                field_selector=FIELD_SELECTOR,  # Opcional: para filtrar por estado
+                field_selector=FIELD_SELECTOR, 
                 watch=False
             )
             

@@ -3,6 +3,7 @@ import yaml
 import pandas as pd
 from pathlib import Path
 import math
+import numpy as np
 
 USAGE_PROMPT="""Usage:
 python3 pod_csv_to_yaml.py data/csv/openb_pod_list_gpuspec10.csv
@@ -23,6 +24,7 @@ CreationTime = "customresource.com/creation-time"
 DeletionTime = "customresource.com/deletion-time"
 ScheduledTime = "customresource.com/scheduled-time"
 HardIsolation = "hardIsolation"
+DesiredTime = 1800 # segundos
 
 ResourceName = "alibabacloud.com/gpu-milli"      # GPU milli, i.e., 1000 == 1 GPU, for pod only, node is 1000 by default
 CountName    = "alibabacloud.com/gpu-count"      # GPU number request (or allocatable), for pod and node
@@ -108,6 +110,19 @@ def generate_pod_yaml(workload_name='paib-pod-10',
 # dfp: Información del csv
 def output_pod(dfp, outfile='pod.yaml', node_select=False):
     num_pod = len(dfp)
+
+    DeletionArray = dfp[DATA_DELETION_TIME].to_numpy()
+    ScheduledArray = dfp[DATA_SCHEDULED_TIME].to_numpy()
+    CreationArray = dfp[DATA_CREATION_TIME].to_numpy()
+
+    TotalTimeCreation = CreationArray[-1] - CreationArray[0]
+    offset = CreationArray[0]
+    F_lineal = DesiredTime / TotalTimeCreation
+
+    DeletionArray = (DeletionArray - offset) * F_lineal
+    ScheduledArray = (ScheduledArray - offset) * F_lineal
+    CreationArray = (CreationArray - offset) * F_lineal
+
     for index, row in dfp.iterrows():
         if 'name' in row: 
             workload_name = row['name']
@@ -158,12 +173,16 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
 
         host_node_ip = row['ip'] if node_select else ""
 
-        annotations[CreationTime] = "%s" % row[DATA_CREATION_TIME] if DATA_CREATION_TIME in row else None
-        annotations[DeletionTime] = "%s" % row[DATA_DELETION_TIME] if DATA_DELETION_TIME in row else None
-        if math.isnan(row[DATA_SCHEDULED_TIME]):
-          annotations[ScheduledTime] = 'NaN'
+        # annotations[CreationTime] = "%s" % row[DATA_CREATION_TIME] if DATA_CREATION_TIME in row else None
+        # annotations[DeletionTime] = "%s" % row[DATA_DELETION_TIME] if DATA_DELETION_TIME in row else None
+
+        annotations[CreationTime] = "%s" % int(CreationArray[index])
+        annotations[DeletionTime] = "%s" % int(DeletionArray[index])
+        if math.isnan(ScheduledArray[index]):
+          annotations[ScheduledTime] = '0'
+          annotations[DeletionTime] = '0'
         else :
-          annotations[ScheduledTime] = "%s" % int(row[DATA_SCHEDULED_TIME]) if DATA_SCHEDULED_TIME in row else None
+          annotations[ScheduledTime] = "%s" % int(ScheduledArray[index])
 
         pod_yaml = generate_pod_yaml(workload_name=workload_name, container_requests=container_requests,
                                      container_limits=container_limits, node_selector_node_ip=host_node_ip,
@@ -176,6 +195,7 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
             with open(outfile, 'a') as file:
                 file.writelines(['\n---\n\n'])
                 yaml.dump(pod_yaml, file)
+
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
