@@ -10,10 +10,10 @@ ANNOTATION_KEY_KILL_TIME = 'deadline'
 POLL_INTERVAL_SECONDS = 1
 FIELD_SELECTOR = 'status.phase=Running'
 NAMESPACE_TARGET = 'default'
-FIRST_POD_NAME = 'openb-pod-0025'
-LAST_POD_NAME = 'openb-pod-0030'
+LAST_POD_NAME = 'openb-pod-0060'
 INITIAL_TIME = 0
 INICIO = True
+LAST_POD = False
 
 def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """
@@ -21,14 +21,18 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """
     global INITIAL_TIME
     global INICIO
+    global LAST_POD
     pod_name = pod.metadata.name
     namespace = pod.metadata.namespace
 
     # Miramos si es el primer pod
-    if INICIO and pod_name == FIRST_POD_NAME:
+    if INICIO:
         INITIAL_TIME = int(time.time())
         INICIO = False
-        print('El temporizador comienza ahora!')
+        print('El cronómetro comienza ahora!')
+
+    if pod_name == LAST_POD_NAME and not INICIO:
+        LAST_POD = True
     
     # Ignorar Pods en fase de terminación
     if pod.metadata.deletion_timestamp:
@@ -62,10 +66,6 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
                 namespace=namespace, 
                 body=client.V1DeleteOptions()
             )
-            # Miramos si es el último pod
-            if pod_name == LAST_POD_NAME:
-                print(f"Tiempo total: {int(time.time()) - INITIAL_TIME}")
-                sys.exit()
             # print(f"Pod {pod_name} eliminado exitosamente.")
         except ApiException as e:
             if e.status == 404:
@@ -108,6 +108,10 @@ def main():
                 field_selector=FIELD_SELECTOR, 
                 watch=False
             )
+
+            if LAST_POD and len(pods.items) == 0:
+                print(f"Tiempo total: {int(time.time()) - INITIAL_TIME}")
+                sys.exit()
             
             # 3. Procesar cada Pod
             for pod in pods.items:

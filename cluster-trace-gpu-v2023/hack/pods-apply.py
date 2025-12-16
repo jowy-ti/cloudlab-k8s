@@ -8,6 +8,7 @@ import time
 # Cambia 'manifiestos.yaml' por la ruta de tu archivo YAML 
 YAML_FILE_PATH = "trace/trace.yaml" 
 CREATION_TIME_PAST = 0
+LAST_POD_NAME = 'openb-pod-0060'
 # --- Fin Configuración ---
 
 def aplicar_manifest_por_separado(manifesto_yaml):
@@ -20,14 +21,14 @@ def aplicar_manifest_por_separado(manifesto_yaml):
     try:
 
         creationTime = None
-        if 'metadata' in manifesto_yaml:
-            metadata = manifesto_yaml['metadata']
-            if 'annotations' in metadata and metadata['annotations'] is not None:
-                annotations = metadata['annotations']
-                if 'customresource.com/creation-time' in annotations:
-                    creationTime = float(annotations['customresource.com/creation-time'])
-                else:
-                    return
+        metadata = manifesto_yaml['metadata']
+
+        if 'annotations' in metadata and metadata['annotations'] is not None:
+            annotations = metadata['annotations']
+            if 'customresource.com/creation-time' in annotations:
+                creationTime = float(annotations['customresource.com/creation-time'])
+            else:
+                return
 
         if creationTime == None:
             return
@@ -57,6 +58,10 @@ def aplicar_manifest_por_separado(manifesto_yaml):
         )
         
         print(f"✅ Éxito:\n{resultado.stdout.strip()}")
+
+        if metadata['name'] == LAST_POD_NAME:
+            print("Fin de la creación de pods")
+            sys.exit()
         
     except FileNotFoundError:
         print(f"❌ Error: El comando 'kubectl' no se encontró. Asegúrate de que está en tu PATH.")

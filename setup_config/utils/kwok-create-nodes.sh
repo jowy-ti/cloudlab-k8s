@@ -1,9 +1,9 @@
 #!/bin/bash
 
 export KWOK_NODES=2
-declare -a poolnodes=(1 2)  #poolnodes=(3 5 6)
-declare -a fp32=(30000 60000)
-declare -a MIGinstances=(0 7)
+declare -a poolnodes=(1 2)  # poolnodes=(3 5 6)
+declare -a fp32=(30000 60000) # fp32 de cada pool
+declare -a MIGinstances=(0 7) # instancias MIG de cada pool
 POOL=0
 # MIG_POOL=1
 # MIG_ENABLED="false"
@@ -22,7 +22,7 @@ for ((i = 0; KWOK_NODES > i; i++)); do
 
   # echo $MIG_ENABLED
 
-  GPU_POOL="pool$POOL" 
+  GPU_POOL="pool$POOL"
 
   echo "$NODE_NAME    $GPU_POOL"
 
