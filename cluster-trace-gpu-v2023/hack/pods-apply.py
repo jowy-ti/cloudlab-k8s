@@ -12,7 +12,6 @@ load_dotenv()
 YAML_FILE_PATH = "trace/trace.yaml" 
 CREATION_TIME_PAST = 0
 LAST_POD_NAME = os.getenv('LAST_POD_NAME')
-print(LAST_POD_NAME)
 # --- Fin Configuración ---
 
 def aplicar_manifest_por_separado(manifesto_yaml):

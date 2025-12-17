@@ -21,7 +21,7 @@ def main():
     """
     print("Iniciando el monitor de Pods en el Control Plane (Modo Polling)...")
     
-    # 1. Carga de la configuración Kube-Config
+    # Carga de la configuración Kube-Config
     try:
         config.load_kube_config()
         print("Configuración Kube-Config local cargada correctamente.")

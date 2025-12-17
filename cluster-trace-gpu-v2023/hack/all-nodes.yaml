@@ -1,0 +1,14 @@
+kwok-node-0:
+- fp32: 30000
+  mem: 24000
+  fp32Used: 0
+  memUsed: 0
+- fp32: 30000
+  mem: 24000
+  fp32Used: 0
+  memUsed: 0
+kwok-node-1:
+- fp32: 60000
+  mem: 80000
+  fp32Used: 0
+  memUsed: 0
