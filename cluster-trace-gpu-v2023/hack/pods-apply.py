@@ -3,12 +3,16 @@ import subprocess
 import sys
 import os
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # --- Configuración ---
 # Cambia 'manifiestos.yaml' por la ruta de tu archivo YAML 
 YAML_FILE_PATH = "trace/trace.yaml" 
 CREATION_TIME_PAST = 0
-LAST_POD_NAME = 'openb-pod-0060'
+LAST_POD_NAME = os.getenv('LAST_POD_NAME')
+print(LAST_POD_NAME)
 # --- Fin Configuración ---
 
 def aplicar_manifest_por_separado(manifesto_yaml):

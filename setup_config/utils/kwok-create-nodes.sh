@@ -5,8 +5,6 @@ declare -a poolnodes=(1 2)  # poolnodes=(3 5 6)
 declare -a fp32=(30000 60000) # fp32 de cada pool
 declare -a MIGinstances=(0 7) # instancias MIG de cada pool
 POOL=0
-# MIG_POOL=1
-# MIG_ENABLED="false"
 
 for ((i = 0; KWOK_NODES > i; i++)); do
 
@@ -15,12 +13,6 @@ for ((i = 0; KWOK_NODES > i; i++)); do
   if [[ i -ge $((poolnodes[POOL])) ]]; then
     ((POOL++))
   fi
-  
-  # if [[ POOL -ge MIG_POOL && $MIG_ENABLED != "true" ]]; then
-  #     MIG_ENABLED="true"
-  # fi
-
-  # echo $MIG_ENABLED
 
   GPU_POOL="pool$POOL"
 

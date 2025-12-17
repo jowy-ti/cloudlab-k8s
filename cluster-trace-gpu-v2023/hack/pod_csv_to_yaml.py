@@ -24,7 +24,7 @@ CreationTime = "customresource.com/creation-time"
 DeletionTime = "customresource.com/deletion-time"
 ScheduledTime = "customresource.com/scheduled-time"
 HardIsolation = "hardIsolation"
-DesiredTime = 1800 # segundos
+DesiredTime = 900 # segundos
 
 ResourceName = "alibabacloud.com/gpu-milli"      # GPU milli, i.e., 1000 == 1 GPU, for pod only, node is 1000 by default
 CountName    = "alibabacloud.com/gpu-count"      # GPU number request (or allocatable), for pod and node

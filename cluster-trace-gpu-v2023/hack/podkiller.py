@@ -2,6 +2,10 @@ import time
 from kubernetes import client, config
 from kubernetes.client.rest import ApiException
 import sys
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # --- Configuración ---
 # La clave de la anotación que contiene el tiempo de finalización (Unix Timestamp en segundos)
@@ -10,7 +14,7 @@ ANNOTATION_KEY_KILL_TIME = 'deadline'
 POLL_INTERVAL_SECONDS = 1
 FIELD_SELECTOR = 'status.phase=Running'
 NAMESPACE_TARGET = 'default'
-LAST_POD_NAME = 'openb-pod-0060'
+LAST_POD_NAME = os.getenv('LAST_POD_NAME')
 INITIAL_TIME = 0
 INICIO = True
 LAST_POD = False
@@ -54,8 +58,8 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
         
     # Lógica de Eliminación: ¿El tiempo de finalización ya pasó?
     if current_time >= kill_timestamp:
-        print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
-        print(f"  Pod: {namespace}/{pod_name}")
+        # print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
+        # print(f"  Pod: {namespace}/{pod_name}")
         # print(f"  Tiempo actual: {current_time}, Tiempo límite: {kill_timestamp}")
         
         # Eliminar el Pod
@@ -112,7 +116,7 @@ def main():
             if LAST_POD and len(pods.items) == 0:
                 print(f"Tiempo total: {int(time.time()) - INITIAL_TIME}")
                 sys.exit()
-            
+
             # 3. Procesar cada Pod
             for pod in pods.items:
                 kill_pod_if_expired(v1, pod)

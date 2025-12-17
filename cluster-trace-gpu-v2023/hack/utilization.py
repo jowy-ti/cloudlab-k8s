@@ -2,12 +2,16 @@ import time
 from kubernetes import client, config
 from kubernetes.client.rest import ApiException
 import sys
+import os
+import matplotlib.pyplot as plt
+from dotenv import load_dotenv
+
+load_dotenv()
 
 FIELD_SELECTOR = 'status.phase=Running'
 NAMESPACE_TARGET = 'default'
 POLL_INTERVAL_SECONDS = 5
-FIRST_POD_NAME = 'openb-pod-0025'
-LAST_POD_NAME = 'openb-pod-0030'
+LAST_POD_NAME = os.getenv('LAST_POD_NAME')
 INICIO = True
 LAST_POD = False
 
@@ -30,6 +34,8 @@ def main():
     global INICIO
     global LAST_POD
     Utilization = []
+    Times = []
+    SumTime = 0
 
     while True:
         try:
@@ -39,30 +45,32 @@ def main():
                 field_selector=FIELD_SELECTOR, 
                 watch=False
             )
-            fin = True
+
+            num_pods = len(pods.items)
+            
+            if LAST_POD and num_pods == 0:
+                print("Guardando gráfico...")
+                fig, ax = plt.subplots()
+                ax.plot(Times, Utilization)
+                plt.savefig("plots/utilization.png")
+                sys.exit()
+
             for pod in pods.items:
                 
                 pod_name = pod.metadata.name
 
-                if INICIO and pod_name == FIRST_POD_NAME:
+                if INICIO:
                     INICIO = False
 
                 if not INICIO and pod_name == LAST_POD_NAME:
-                    LAST_POD = True
-            
-                if LAST_POD and pod_name == LAST_POD_NAME:
-                    fin = False
-
-            if LAST_POD and fin:
-                sys.exit()
+                    LAST_POD = True            
 
             if not INICIO:
-                num_pods = len(pods.items)
                 Utilization.append(num_pods)
-                print(f"Running pods: {num_pods}")
+                Times.append(SumTime)
+                SumTime += POLL_INTERVAL_SECONDS
 
             time.sleep(POLL_INTERVAL_SECONDS)
-
 
         except ApiException as e:
             # Manejar interrupciones o errores de la conexión
