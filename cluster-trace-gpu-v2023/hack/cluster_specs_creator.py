@@ -43,6 +43,8 @@ def main():
                 GPU["mem"] = int(gpusmem)
                 GPU["fp32Used"] = 0
                 GPU["memUsed"] = 0
+                GPU["usage"] = 0
+                GPU["allocated"] = 0
                 NODE.append(GPU)
 
             ALL_NODES[gpuname] = NODE

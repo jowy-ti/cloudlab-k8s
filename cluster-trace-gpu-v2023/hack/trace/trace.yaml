@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   annotations:
-    customresource.com/creation-time: '27'
+    customresource.com/creation-time: '0'
     customresource.com/deletion-time: '34'
-    customresource.com/scheduled-time: '27'
+    customresource.com/scheduled-time: '0'
     hardIsolation: 'false'
   labels:
     app: fake-pod
