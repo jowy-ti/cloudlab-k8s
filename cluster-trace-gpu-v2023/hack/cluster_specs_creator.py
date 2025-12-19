@@ -39,12 +39,12 @@ def main():
             
             for _ in range(int(numgpu)):
                 GPU = {}
-                GPU["fp32"] = int(gpusfp32)
-                GPU["mem"] = int(gpusmem)
+                GPU["fp32Total"] = int(gpusfp32)
+                GPU["memTotal"] = int(gpusmem)
                 GPU["fp32Used"] = 0
                 GPU["memUsed"] = 0
-                GPU["usage"] = 0
-                GPU["allocated"] = 0
+                GPU["fp32Allocated"] = 0
+                GPU["memAllocated"] = 0
                 NODE.append(GPU)
 
             ALL_NODES[gpuname] = NODE
