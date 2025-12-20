@@ -139,11 +139,8 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
                 annotations[DeviceIndex] = row['gpu_index'] if type(row['gpu_index']) == str else ""
             if 'gpu_milli' not in row:
                 MilliGpu = 1000
-                # container_requests[ResourceName]
             else:
                 MilliGpu = "%d" % (int(row['gpu_milli'])) if 0 < row['gpu_milli'] <= 1000 else "1000" if row['gpu_milli'] > 1000 else "0"
-                # container_requests[ResourceName] 
-            # container_requests[CountName] = "%d" % (int(row['num_gpu'])) # De momento se quita porque el scheduler no soporta asignar más de una GPU
 
             RatioGpu = float(MilliGpu) / 1000.0
             container_requests[GpuMemory] = int(RatioGpu * V100Mem)
@@ -159,30 +156,22 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
                 gpu_req_out = "|".join(x for x in gpu_req_val)
                 if len(gpu_req_out) > 0:
                     annotations[ModelName] = gpu_req_out
-        # if 'cpu_milli' in row:
-        #     container_requests['cpu'] = "%dm" % (row['cpu_milli'])
-        # elif 'cpu' in row:
-        #     container_requests['cpu'] = "%dm" % (row['cpu'] * MILLI)
-        # elif 'num_cpu' in row:
-        #     container_requests['num_cpu'] = "%dm" % (row['num_cpu'] * MILLI)
-        # else:
-        #     exit("neither cpu_milli nor cpu in row")
-        # if 'memory_mib' in row:
-        #     container_requests['memory'] = "%dMi" % row['memory_mib']
+
         container_limits = container_requests.copy()
 
         host_node_ip = row['ip'] if node_select else ""
 
-        # annotations[CreationTime] = "%s" % row[DATA_CREATION_TIME] if DATA_CREATION_TIME in row else None
-        # annotations[DeletionTime] = "%s" % row[DATA_DELETION_TIME] if DATA_DELETION_TIME in row else None
-
         annotations[CreationTime] = "%s" % int(CreationArray[index])
-        annotations[DeletionTime] = "%s" % int(DeletionArray[index])
+
         if math.isnan(ScheduledArray[index]):
-          annotations[ScheduledTime] = '0'
-          annotations[DeletionTime] = '0'
+          annotations[ScheduledTime] = annotations[CreationTime]
         else :
           annotations[ScheduledTime] = "%s" % int(ScheduledArray[index])
+
+        if math.isnan(DeletionArray[index]):
+            annotations[DeletionTime] = annotations[ScheduledTime]
+        else:
+            annotations[DeletionTime] = "%s" % int(DeletionArray[index])
 
         pod_yaml = generate_pod_yaml(workload_name=workload_name, container_requests=container_requests,
                                      container_limits=container_limits, node_selector_node_ip=host_node_ip,

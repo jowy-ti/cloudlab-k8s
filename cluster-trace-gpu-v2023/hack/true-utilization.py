@@ -9,12 +9,6 @@ import matplotlib.pyplot as plt
 
 load_dotenv()
 
-data_lock = threading.Lock()
-V100Fp32 = 14000
-V100Mem = 16000
-LAST_POD_NAME = os.getenv('LAST_POD_NAME')
-LAST_POD = False
-
 MIG_INSTANCES_FP32= {
     '1': 1 / 7, 
     '2': 2 / 7,
@@ -82,12 +76,26 @@ def calculate_allocated(nodeName, gpuPos, tipo, podFp32, podMem, isolation, migS
             ALL_NODES[nodeName][gpuPos][FP32_ALLOCATED_NAME] -= podFp32
             ALL_NODES[nodeName][gpuPos][MEM_ALLOCATED_NAME] -= podMem
 
-def k8s_watch_thread(v1):
+def k8s_watch_thread():
     """Hilo encargado de escuchar eventos de Kubernetes"""
 
     global ALL_NODES
     global LAST_POD
+    V100Fp32 = 14000
+    V100Mem = 1600
+    totalGpusFp32Used = 0
+    totalGpusMemUsed = 0
+    podCont = 0
+    amountPods = []
+    realDurationPods = []
+    theoryDurationPods = []
+    realCreationTimeName = 'realCreationTime'
+    realDeletionTimeName = 'realDeletionTime'
+    theoryCreationTimeName = 'customresource.com/creation-time'
+    theoryDeletionTimeName = 'customresource.com/deletion-time'
 
+    config.load_kube_config()
+    v1 = client.CoreV1Api()
     w = watch.Watch()
     print("Iniciando Watcher...")
     while True:
@@ -100,17 +108,16 @@ def k8s_watch_thread(v1):
                     continue
 
                 annotations = pod.metadata.annotations
-                if annotations is None or GPU_POS not in annotations:
+                if annotations is None or GPU_POS_NAME not in annotations:
                     continue
                 
                 podName = pod.metadata.name
                 nodeName = pod.spec.node_name
-                gpuPos = int(pod.metadata.annotations[GPU_POS])
+                gpuPos = int(pod.metadata.annotations[GPU_POS_NAME])
                 podFp32 = request_with_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpufp32"])
                 podMem = request_with_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpuMemory"])
                 isolation = False
-                migSize = ''    
-                allocated = 0
+                migSize = ''
 
                 if MIG_SIZE_NAME in annotations:
                     migSize = pod.metadata.annotations[MIG_SIZE_NAME]
@@ -122,15 +129,36 @@ def k8s_watch_thread(v1):
                     if tipo == 'ADDED': # or tipo == 'MODIFIED':
                         ALL_NODES[nodeName][gpuPos][FP32_USED_NAME] += podFp32
                         ALL_NODES[nodeName][gpuPos][MEM_USED_NAME] += podMem
+                        totalGpusFp32Used += podFp32
+                        totalGpusMemUsed += podMem
 
                     elif tipo == 'DELETED':
                         ALL_NODES[nodeName][gpuPos][FP32_USED_NAME] -= podFp32
                         ALL_NODES[nodeName][gpuPos][MEM_USED_NAME] -= podMem
+                        totalGpusFp32Used -= podFp32
+                        totalGpusMemUsed -= podMem
+
+                        podCont += 1
+                        realCreationTime = int(annotations[realCreationTimeName])
+                        realDeletionTime = int(annotations[realDeletionTimeName])
+                        theoryCreationTime = int(annotations[realCreationTimeName])
+                        theoryDeletionTime = int(annotations[realDeletionTimeName])
+
+                        amountPods.append(podCont)
+                        realDurationPods.append(realDeletionTime - realCreationTime)
+                        theoryDurationPods.append(theoryDeletionTime - theoryCreationTime)
 
                         if podName == LAST_POD_NAME:
                             LAST_POD = True
-                            print("Último pod")
 
+                    if LAST_POD and totalGpusFp32Used == 0 and totalGpusMemUsed == 0:
+                        plt.figure(1)
+                        plt.plot(amountPods, realDurationPods, label='real duration', linestyle='-')
+                        plt.plot(amountPods, theoryDurationPods, label='theory duration', linestyle='--')
+                        plt.xticks(range(min(amountPods), max(amountPods) + 1))
+                        plt.legend()
+                        plt.savefig("plots/duration_pods.png")
+                        
                     # print(f"nodeName: {'kwok-node-1'}, Fp32: {ALL_NODES['kwok-node-1'][gpuPos][FP32_USED_NAME]}, Mem: {ALL_NODES['kwok-node-1'][gpuPos][MEM_USED_NAME]}")
                                             
                     calculate_allocated(nodeName, gpuPos, tipo, podFp32, podMem, isolation, migSize)
@@ -148,6 +176,7 @@ def saver_thread():
     time.sleep(2)
 
     global FIN
+    global LAST_POD
 
     fp32Total, memTotal, gpuTotal = total_memory_fp32_gpu()
     print(f"gpuTotal: {gpuTotal}")
@@ -155,21 +184,15 @@ def saver_thread():
     gpuAllocated = []
     gpuOccupation = []
     timeline = []
+    gpuUtilizationFp32 = []
+    gpuUtilizationMem = []
+    gpuAllocatedFp32 = []
+    gpuAllocatedMem = []
     INIT_TIME = int(time.time())
 
     # print(f"fp32Total: {fp32Total}, memTotal: {memTotal}")
 
-    while True:
-
-        with data_lock:
-            if FIN:
-                plt.plot(timeline, gpuOccupation, label='Ocupación', linestyle='-')
-                plt.plot(timeline, gpuUtilization, label='Asignación', linestyle='--')
-                plt.plot(timeline, gpuAllocated, label='Utilización', linestyle='-.')
-                plt.ylim(0, 100)
-                plt.legend()
-                plt.savefig("plots/utilization.png")
-                sys.exit()
+    while True:   
 
         fp32Used = 0
         memUsed = 0
@@ -185,16 +208,47 @@ def saver_thread():
                     fp32Allocated += gpu[FP32_ALLOCATED_NAME]
                     memAllocated += gpu[MEM_ALLOCATED_NAME]
 
-                    if fp32Used != 0 or memUsed != 0: ## mirar esto
+                    if gpu[FP32_USED_NAME] != 0 or gpu[MEM_USED_NAME] != 0: 
                         numGpuOccuped += 1
+
+            print(f"fp32Used: {fp32Used}, memUsed: {memUsed}, fp32Allocated: {fp32Allocated}, memAllocated: {memAllocated}")
+
+            if LAST_POD and numGpuOccuped == 0:
+                plt.figure(2)
+                plt.plot(timeline, gpuOccupation, label='Ocupación', color='blue', linestyle='-')
+                plt.plot(timeline, gpuUtilization, label='Utilización', color='red', linestyle='--')
+                plt.plot(timeline, gpuAllocated, label='Asignación', color='green', linestyle='-.')
+                plt.ylim(0, 100)
+                plt.legend()
+                plt.savefig("plots/utilization1.png")
+
+                plt.figure(3)
+                plt.plot(timeline, gpuUtilizationFp32, label='Utilización fp32', color='darkred', linestyle=':')
+                plt.plot(timeline, gpuUtilizationMem, label='Utilización mem', color='lightcoral', linestyle='--')
+                plt.plot(timeline, gpuAllocatedFp32, label='Asignación fp32', color='darkgreen', linestyle='-.')
+                plt.plot(timeline, gpuAllocatedMem, label='Asignación mem', color='lightgreen', linestyle='-')
+                plt.ylim(0, 100)
+                plt.legend()
+                plt.savefig("plots/utilization2.png")
+                FIN = True
+                sys.exit()
 
         Occupation = int((numGpuOccuped / gpuTotal)  * 100)
         Utilization = int((((fp32Used / fp32Total) + (memUsed / memTotal)) / 2) * 100)
         Allocated = int((((fp32Allocated / fp32Total) + (memAllocated / memTotal)) / 2) * 100)
+        UtilizationFp32Ratio = int((fp32Used / fp32Total) * 100)
+        UtilizationMemRatio = int((memUsed / memTotal) * 100)
+        AllocatedFp32Ratio = int((fp32Allocated / fp32Total) * 100)
+        AllocatedMemRatio = int((memAllocated / memTotal) * 100)
 
         gpuOccupation.append(Occupation)
         gpuUtilization.append(Utilization)
         gpuAllocated.append(Allocated)
+        gpuUtilizationFp32.append(UtilizationFp32Ratio)
+        gpuUtilizationMem.append(UtilizationMemRatio)
+        gpuAllocatedFp32.append(AllocatedFp32Ratio)
+        gpuAllocatedMem.append(AllocatedMemRatio)
+
         timeline.append(int(time.time() - INIT_TIME))
         # print(f"Utilization: {Utilization}, Allocated: {Allocated}")
         print(f"Occupation: {Occupation}, numGpuOccuped: {numGpuOccuped}")
@@ -203,7 +257,7 @@ def saver_thread():
 
 if __name__ == "__main__":
 
-    GPU_POS = 'gpuPos'
+    GPU_POS_NAME = 'gpuPos'
     FP32_TOTAL_NAME = 'fp32Total'
     MEM_TOTAL_NAME = 'memTotal'
     FP32_USED_NAME = 'fp32Used'
@@ -212,9 +266,11 @@ if __name__ == "__main__":
     MEM_ALLOCATED_NAME = 'memAllocated'
     MIG_SIZE_NAME = 'migSize'
     NAMESPACE_TARGET = 'default'
-    FIELD_SELECTOR = 'status.phase=Running'
-    WAIT_TIME = 3
+    LAST_POD_NAME = os.getenv('LAST_POD_NAME')
+    LAST_POD = False
+    WAIT_TIME = 4
     FIN = False
+    data_lock = threading.Lock()
 
     try:
         with open("all-nodes.yaml", "r") as archivo:
@@ -224,12 +280,9 @@ if __name__ == "__main__":
     except yaml.YAMLError as e:
         print(f"Error al leer el archivo YAML: {e}")
 
-    config.load_kube_config()
-    v1 = client.CoreV1Api()
-
     # Creamos los dos hilos
-    hilo_escucha = threading.Thread(target=k8s_watch_thread, daemon=True, args=(v1,))
-    hilo_guardado = threading.Thread(target=saver_thread, daemon=False)
+    hilo_escucha = threading.Thread(target=k8s_watch_thread, daemon=True)
+    hilo_guardado = threading.Thread(target=saver_thread, daemon=True)
     
     # Los iniciamos
     hilo_escucha.start()
@@ -237,21 +290,11 @@ if __name__ == "__main__":
     
     # Mantenemos el programa principal vivo
     try:
-        config.load_kube_config()
-        v1 = client.CoreV1Api()
         while True:
             with data_lock:
-                if LAST_POD:
-                    pods = v1.list_namespaced_pod(
-                        namespace=NAMESPACE_TARGET,
-                        field_selector=FIELD_SELECTOR, 
-                        watch=False
-                    )
+                if FIN:
+                    sys.exit()
 
-                    if len(pods.items) == 0:
-                        print("Finalizando...")
-                        FIN = True
-                        sys.exit()
             time.sleep(WAIT_TIME)
     except KeyboardInterrupt:
         print("Deteniendo monitor...")

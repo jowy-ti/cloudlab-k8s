@@ -9,7 +9,7 @@ load_dotenv()
 
 # --- Configuración ---
 # La clave de la anotación que contiene el tiempo de finalización (Unix Timestamp en segundos)
-ANNOTATION_KEY_KILL_TIME = 'deadline'
+ANNOTATION_KEY_KILL_TIME = 'realDeletionTime'
 # Intervalo de tiempo (en segundos) que el script esperará entre revisiones de Pods.
 POLL_INTERVAL_SECONDS = 1
 FIELD_SELECTOR = 'status.phase=Running'

@@ -47,8 +47,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '1'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '2'
+    customresource.com/scheduled-time: '1'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -1059,8 +1059,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '60'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '60'
+    customresource.com/scheduled-time: '60'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -1323,8 +1323,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '69'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '69'
+    customresource.com/scheduled-time: '69'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -1587,8 +1587,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '76'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '77'
+    customresource.com/scheduled-time: '76'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -1631,8 +1631,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '76'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '76'
+    customresource.com/scheduled-time: '76'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -1763,8 +1763,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '81'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '82'
+    customresource.com/scheduled-time: '81'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -1807,8 +1807,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '86'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '86'
+    customresource.com/scheduled-time: '86'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -1895,8 +1895,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '93'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '93'
+    customresource.com/scheduled-time: '93'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -2027,8 +2027,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '97'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '97'
+    customresource.com/scheduled-time: '97'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -2071,8 +2071,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '98'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '98'
+    customresource.com/scheduled-time: '98'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -2599,8 +2599,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '123'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '124'
+    customresource.com/scheduled-time: '123'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -2731,8 +2731,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '127'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '128'
+    customresource.com/scheduled-time: '127'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -3655,8 +3655,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '157'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '157'
+    customresource.com/scheduled-time: '157'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -3787,8 +3787,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '160'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '161'
+    customresource.com/scheduled-time: '160'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -4623,8 +4623,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '209'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '209'
+    customresource.com/scheduled-time: '209'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -6779,8 +6779,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '359'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '360'
+    customresource.com/scheduled-time: '359'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -7043,8 +7043,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '367'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '372'
+    customresource.com/scheduled-time: '367'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -7527,8 +7527,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '399'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '400'
+    customresource.com/scheduled-time: '399'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -8011,8 +8011,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '412'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '412'
+    customresource.com/scheduled-time: '412'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -8935,8 +8935,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '439'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '439'
+    customresource.com/scheduled-time: '439'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -9243,8 +9243,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '451'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '451'
+    customresource.com/scheduled-time: '451'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -11091,8 +11091,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '546'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '547'
+    customresource.com/scheduled-time: '546'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -13599,8 +13599,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '719'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '719'
+    customresource.com/scheduled-time: '719'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -14391,8 +14391,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '766'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '767'
+    customresource.com/scheduled-time: '766'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -14611,8 +14611,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '769'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '770'
+    customresource.com/scheduled-time: '769'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -14831,8 +14831,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '773'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '777'
+    customresource.com/scheduled-time: '773'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -15447,8 +15447,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '786'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '786'
+    customresource.com/scheduled-time: '786'
     hardIsolation: 'true'
   labels:
     app: fake-pod
@@ -17163,8 +17163,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '833'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '835'
+    customresource.com/scheduled-time: '833'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -17251,8 +17251,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '835'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '835'
+    customresource.com/scheduled-time: '835'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -17691,8 +17691,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '845'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '846'
+    customresource.com/scheduled-time: '845'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -17823,8 +17823,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '846'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '847'
+    customresource.com/scheduled-time: '846'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -17955,8 +17955,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '847'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '849'
+    customresource.com/scheduled-time: '847'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -18219,8 +18219,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '849'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '850'
+    customresource.com/scheduled-time: '849'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -18351,8 +18351,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '850'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '850'
+    customresource.com/scheduled-time: '850'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -18791,8 +18791,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '861'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '863'
+    customresource.com/scheduled-time: '861'
     hardIsolation: 'false'
   labels:
     app: fake-pod
@@ -19099,8 +19099,8 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '870'
-    customresource.com/deletion-time: '0'
-    customresource.com/scheduled-time: '0'
+    customresource.com/deletion-time: '870'
+    customresource.com/scheduled-time: '870'
     hardIsolation: 'true'
   labels:
     app: fake-pod

@@ -12,6 +12,7 @@ load_dotenv()
 YAML_FILE_PATH = "trace/trace.yaml" 
 CREATION_TIME_PAST = 0
 LAST_POD_NAME = os.getenv('LAST_POD_NAME')
+REAL_CREATION_TIME = 'realCreationTime'
 # --- Fin Configuración ---
 
 def aplicar_manifest_por_separado(manifesto_yaml):
@@ -44,6 +45,8 @@ def aplicar_manifest_por_separado(manifesto_yaml):
 
         if tiempo_restante > 0:
             time.sleep(tiempo_restante)
+
+        manifesto_yaml['metadata']['annotations'][REAL_CREATION_TIME] = str(int(time.time()))
 
         # 1. Escribir el manifiesto individual a un archivo temporal
         with open(temp_file_path, 'w') as temp_file:
