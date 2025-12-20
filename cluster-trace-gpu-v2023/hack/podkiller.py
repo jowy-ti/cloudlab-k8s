@@ -114,7 +114,7 @@ def main():
             )
 
             if LAST_POD and len(pods.items) == 0:
-                print(f"Tiempo total: {int(time.time()) - INITIAL_TIME}")
+                print(f"Tiempo total del workload: {int(time.time()) - INITIAL_TIME}")
                 sys.exit()
 
             # 3. Procesar cada Pod
