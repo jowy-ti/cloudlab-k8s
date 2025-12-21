@@ -41,7 +41,7 @@ def aplicar_manifest_por_separado(manifesto_yaml):
         CREATION_TIME_PAST = creationTime
 
         # print(f"creationTime: {creationTime}")
-        print(f"Tiempo de espera del pod: {tiempo_restante}")
+        # print(f"Tiempo de espera del pod: {tiempo_restante}")
 
         if tiempo_restante > 0:
             time.sleep(tiempo_restante)
@@ -54,7 +54,7 @@ def aplicar_manifest_por_separado(manifesto_yaml):
             yaml.dump(manifesto_yaml, temp_file, default_flow_style=False)
         
         # 2. Ejecutar el comando kubectl apply
-        print(f"\n🚀 Aplicando recurso: {manifesto_yaml.get('kind', 'Recurso Desconocido')}")
+        # print(f"\n🚀 Aplicando recurso: {manifesto_yaml.get('kind', 'Recurso Desconocido')}")
         
         resultado = subprocess.run(
             ['kubectl', 'apply', '-f', temp_file_path],
@@ -63,7 +63,7 @@ def aplicar_manifest_por_separado(manifesto_yaml):
             text=True
         )
         
-        print(f"✅ Éxito:\n{resultado.stdout.strip()}")
+        # print(f"✅ Éxito:\n{resultado.stdout.strip()}")
 
         if metadata['name'] == LAST_POD_NAME:
             print("Fin de la creación de pods")
@@ -107,7 +107,7 @@ def aplicar_yaml_multifichero(file_path):
             if recursos_aplicados == 0:
                  print("\n⚠️ Advertencia: No se encontraron recursos válidos en el archivo YAML.")
                  
-            print(f"\n✨ Proceso completado. Total de recursos aplicados: {recursos_aplicados}")
+            # print(f"\n✨ Proceso completado. Total de recursos aplicados: {recursos_aplicados}")
 
     except FileNotFoundError:
         print(f"\n❌ Error: El archivo '{file_path}' no se encontró.")

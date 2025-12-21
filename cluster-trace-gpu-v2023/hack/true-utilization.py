@@ -40,7 +40,7 @@ def total_memory_fp32_gpu():
     return fp32Total, memTotal, gpuTotal
 
 
-def request_with_to_int(num):
+def request_to_int(num):
     if 'k' in num:
         number = int(float(num.lower().replace('k', '')) * 1000)
     else:
@@ -49,12 +49,14 @@ def request_with_to_int(num):
 
 def calculate_allocated(nodeName, gpuPos, tipo, podFp32, podMem, isolation, migSize):
 
+    global ALL_NODES
+
     totalFp32 = ALL_NODES[nodeName][gpuPos][FP32_TOTAL_NAME]
     totalMem = ALL_NODES[nodeName][gpuPos][MEM_TOTAL_NAME]
 
-    if tipo == 'ADDED':
+    if tipo == 'MODIFIED':
         if isolation:
-            if migSize != '':
+            if migSize != INVALID_MIGSIZE:
                 ALL_NODES[nodeName][gpuPos][FP32_ALLOCATED_NAME] += MIG_INSTANCES_FP32[migSize] * totalFp32
                 ALL_NODES[nodeName][gpuPos][MEM_ALLOCATED_NAME] += MIG_INSTANCES_MEM[migSize] * totalMem
             else:
@@ -66,7 +68,7 @@ def calculate_allocated(nodeName, gpuPos, tipo, podFp32, podMem, isolation, migS
 
     elif tipo == 'DELETED':
         if isolation:
-            if migSize != '':
+            if migSize != INVALID_MIGSIZE:
                 ALL_NODES[nodeName][gpuPos][FP32_ALLOCATED_NAME] -= MIG_INSTANCES_FP32[migSize] * totalFp32
                 ALL_NODES[nodeName][gpuPos][MEM_ALLOCATED_NAME] -= MIG_INSTANCES_MEM[migSize] * totalMem
             else:
@@ -91,13 +93,13 @@ def k8s_watch_thread():
     amountPods = []
     realDurationPods = []
     theoryDurationPods = []
-    podsAdded = []
+    processedPods = set()
     realCreationTimeName = 'realCreationTime'
     realDeletionTimeName = 'realDeletionTime'
     theoryCreationTimeName = 'customresource.com/creation-time'
     theoryDeletionTimeName = 'customresource.com/deletion-time'
-    contADD = 0
     contDEL = 0
+    contMOD = 0
 
     config.load_kube_config()
     v1 = client.CoreV1Api()
@@ -105,50 +107,52 @@ def k8s_watch_thread():
     print("Iniciando Watcher...")
     while True:
         try:
-            for event in w.stream(v1.list_namespaced_pod, namespace=NAMESPACE_TARGET):
+            for event in w.stream(v1.list_namespaced_pod, namespace=NAMESPACE_TARGET, field_selector="status.phase=Running"):
                 tipo = event['type']
                 pod = event['object']
 
-                annotations = pod.metadata.annotations
-
-                if annotations is None:
-                    continue                    
-                
-                podName = pod.metadata.name
-
                 if tipo == 'ADDED':
-                    podsAdded.append(podName)
+                    continue
 
+                annotations = pod.metadata.annotations
+                podName = pod.metadata.name
                 nodeName = pod.spec.node_name
-                gpuPos = int(pod.metadata.annotations[GPU_POS_NAME])
-                migSize = pod.metadata.annotations[MIG_SIZE_NAME]
-                podFp32 = request_with_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpufp32"])
-                podMem = request_with_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpuMemory"])
-                isolation = False
-                migSize = ''
+                gpuPos = annotations.get(GPU_POS_NAME)
+                migSize = annotations.get(MIG_SIZE_NAME)
 
-                print(f"migSize: {migSize}")
-                print(f" gpuPos: {pod.metadata.annotations[GPU_POS_NAME]}")
+                if annotations is None or nodeName is None or gpuPos is None or migSize is None:
+                    continue      
+                
+                gpuPos = int(gpuPos)
+                podFp32 = request_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpufp32"])
+                podMem = request_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpuMemory"])
+                isolation = False
 
                 if V100Fp32 == podFp32 and V100Mem == podMem:
                     isolation = True
 
                 with data_lock:
-                    if tipo == 'MODIFIED' and podName in podsAdded: # or tipo == 'MODIFIED':
+                    if tipo == 'MODIFIED' and podName not in processedPods: 
                         ALL_NODES[nodeName][gpuPos][FP32_USED_NAME] += podFp32
                         ALL_NODES[nodeName][gpuPos][MEM_USED_NAME] += podMem
                         totalGpusFp32Used += podFp32
                         totalGpusMemUsed += podMem
                         INICIO = True
-                        podsAdded.remove(podName)
-                        contADD += 1
-
-                    elif tipo == 'DELETED':
+                        contMOD += 1
+                        processedPods.add(podName)
+                        calculate_allocated(nodeName, gpuPos, tipo, podFp32, podMem, isolation, migSize)
+                        print(f"tipo: {tipo}, podName: {podName}")
+                        print(f"gpuPos: {gpuPos}, migSize: {migSize}")
+                        
+                    elif tipo == 'DELETED' and podName in processedPods:
                         ALL_NODES[nodeName][gpuPos][FP32_USED_NAME] -= podFp32
                         ALL_NODES[nodeName][gpuPos][MEM_USED_NAME] -= podMem
                         totalGpusFp32Used -= podFp32
                         totalGpusMemUsed -= podMem
                         contDEL += 1
+                        calculate_allocated(nodeName, gpuPos, tipo, podFp32, podMem, isolation, migSize)
+                        print(f"tipo: {tipo}, podName: {podName}")
+                        print(f"gpuPos: {gpuPos}, migSize: {migSize}")
 
                         podCont += 1
                         realCreationTime = int(annotations[realCreationTimeName])
@@ -162,10 +166,10 @@ def k8s_watch_thread():
 
                         if podName == LAST_POD_NAME:
                             LAST_POD = True
-
+                    
                     if LAST_POD:
                         print(f"totalGpusFp32Used: {totalGpusFp32Used}, totalGpusMemUsed: {totalGpusMemUsed}")
-                        print(f"contADD: {contADD}, contDEL: {contDEL}")
+                        print(f"contMOD: {contMOD}, contDEL: {contDEL}")
                     if LAST_POD and totalGpusFp32Used == 0 and totalGpusMemUsed == 0:
                         plt.figure(1)
                         plt.plot(amountPods, realDurationPods, label='real duration', linestyle='-')
@@ -173,8 +177,6 @@ def k8s_watch_thread():
                         plt.xticks(range(min(amountPods), max(amountPods) + 1))
                         plt.legend()
                         plt.savefig("plots/duration_pods.png")
-                                                                    
-                    calculate_allocated(nodeName, gpuPos, tipo, podFp32, podMem, isolation, migSize)
 
         except Exception as e:
             print(f"Error en Watcher: {e}. Reintentando...")
@@ -273,6 +275,7 @@ if __name__ == "__main__":
     MEM_ALLOCATED_NAME = 'memAllocated'
     MIG_SIZE_NAME = 'migSize'
     NAMESPACE_TARGET = 'default'
+    INVALID_MIGSIZE = '-1'
     LAST_POD_NAME = os.getenv('LAST_POD_NAME')
     LAST_POD = False
     WAIT_TIME = 4
