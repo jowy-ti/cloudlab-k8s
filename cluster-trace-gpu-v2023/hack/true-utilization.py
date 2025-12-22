@@ -161,11 +161,12 @@ def k8s_watch_thread():
                 print(f"added pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
 
             for podName in deadPodsName:
-
                 annotations = podsAnnotations[podName]
                 podFp32 = podsResourceFp32[podName]
                 podMem = podsResourceMem[podName]
                 nodeName = podsNode[podName]
+                gpuPos = int(annotations.get(GPU_POS_NAME))
+                migSize = annotations.get(MIG_SIZE_NAME)
                 isolation = False
 
                 if V100Fp32 == podFp32 and V100Mem == podMem:
@@ -188,7 +189,7 @@ def k8s_watch_thread():
                     with data_lock:
                         LAST_POD = True
 
-                print(f"deleted pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
+                # print(f"deleted pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
 
             pastPodsName = runningPodsName
                     
@@ -247,7 +248,7 @@ def saver_thread():
                     if gpu[FP32_USED_NAME] != 0 or gpu[MEM_USED_NAME] != 0: 
                         numGpuOccuped += 1
 
-            print(f"fp32Used: {fp32Used}, memUsed: {memUsed}, numGpuOccuped: {numGpuOccuped}, LAST_POD: {LAST_POD}")
+            # print(f"fp32Used: {fp32Used}, memUsed: {memUsed}, numGpuOccuped: {numGpuOccuped}, LAST_POD: {LAST_POD}")
             if LAST_POD and numGpuOccuped == 0:
                 plt.figure(figsize=(10, 6))
                 plt.plot(timeline, gpuOccupation, label='Ocupación', color='blue', linestyle='-')
