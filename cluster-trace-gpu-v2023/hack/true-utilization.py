@@ -6,6 +6,7 @@ import os
 from kubernetes import client, config, watch
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
+import numpy as np
 
 load_dotenv()
 
@@ -98,13 +99,11 @@ def k8s_watch_thread():
 
     V100Fp32 = 14000
     V100Mem = 16000
-    podCont = 0
-    amountPods = []
     realDurationPods = []
     theoryDurationPods = []
     realCreationTimeName = 'realCreationTime'
     realDeletionTimeName = 'realDeletionTime'
-    theoryCreationTimeName = 'customresource.com/creation-time'
+    theoryScheduledTimeName = 'customresource.com/scheduled-time'
     theoryDeletionTimeName = 'customresource.com/deletion-time'
     podsAnnotations = {}
     podsResourceFp32 = {}
@@ -175,15 +174,13 @@ def k8s_watch_thread():
                 with data_lock:
                     deadpods_calculate_resources(nodeName, gpuPos, podFp32, podMem, isolation, migSize)
 
-                podCont += 1
                 realCreationTime = int(annotations[realCreationTimeName])
                 realDeletionTime = int(annotations[realDeletionTimeName])
-                theoryCreationTime = int(annotations[theoryCreationTimeName])
+                theoryScheduledTime = int(annotations[theoryScheduledTimeName])
                 theoryDeletionTime = int(annotations[theoryDeletionTimeName])
 
-                amountPods.append(podCont)
                 realDurationPods.append(realDeletionTime - realCreationTime)
-                theoryDurationPods.append(theoryDeletionTime - theoryCreationTime)
+                theoryDurationPods.append(theoryDeletionTime - theoryScheduledTime)
 
                 if podName == LAST_POD_NAME:
                     with data_lock:
@@ -194,11 +191,29 @@ def k8s_watch_thread():
             pastPodsName = runningPodsName
                     
             if LAST_POD and len(pods) == 0:
+                theoryDurationPods.sort()
+                realDurationPods.sort()
+
+                y_teorica = np.linspace(0, 1, len(theoryDurationPods))
+                y_real = np.linspace(0, 1, len(realDurationPods))
+
                 plt.figure(figsize=(10, 6))
-                plt.plot(amountPods, realDurationPods, label='real duration', linestyle='-')
-                plt.plot(amountPods, theoryDurationPods, label='theory duration', linestyle='--')
-                plt.xticks(range(min(amountPods), max(amountPods) + 1))
+
+                # Dibujar las líneas de la CDF (usando drawstyle='steps-post' para que sea escalonado)
+                plt.step(theoryDurationPods, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
+                plt.step(realDurationPods, y_real, label='Tiempo Real', where='post', linewidth=2, color='orange', linestyle='--')
+
+                # Personalización estética (Sin líneas que crucen las barras/curvas)
+                plt.title('CDF: Comparativa de Tiempos Teóricos vs Reales', fontsize=14)
+                plt.xlabel('Tiempo de Ejecución (segundos)', fontsize=12)
+                plt.ylabel('Probabilidad Acumulada (F(x))', fontsize=12)
+
+                # Mostrar el 50% (mediana)
+                plt.axhline(0.5, color='gray', linestyle='--', alpha=0.3)
+                plt.text(max(realDurationPods)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
+
                 plt.legend()
+                plt.tight_layout()
                 plt.savefig("plots/duration_pods.png")
                 sys.exit()
 
@@ -260,8 +275,8 @@ def saver_thread():
 
                 plt.figure(figsize=(10, 6))
                 plt.plot(timeline, gpuUtilizationFp32, label='Utilización fp32', color='darkred', linestyle=':')
-                plt.plot(timeline, gpuUtilizationMem, label='Utilización mem', color='lightcoral', linestyle='--')
-                plt.plot(timeline, gpuAllocatedFp32, label='Asignación fp32', color='darkgreen', linestyle='-.')
+                plt.plot(timeline, gpuUtilizationMem, label='Utilización mem', color='darkgreen', linestyle='--')
+                plt.plot(timeline, gpuAllocatedFp32, label='Asignación fp32', color='lightcoral', linestyle='-.')
                 plt.plot(timeline, gpuAllocatedMem, label='Asignación mem', color='lightgreen', linestyle='-')
                 plt.ylim(0, 100)
                 plt.legend()
@@ -308,7 +323,7 @@ if __name__ == "__main__":
     data_lock = threading.Lock()
 
     try:
-        with open("all-nodes.yaml", "r") as archivo:
+        with open("objects/all-nodes.yaml", "r") as archivo:
             ALL_NODES = yaml.safe_load(archivo)
     except FileNotFoundError:
         print("Error: El archivo no existe.")
