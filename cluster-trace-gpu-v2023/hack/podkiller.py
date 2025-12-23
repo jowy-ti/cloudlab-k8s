@@ -4,6 +4,7 @@ from kubernetes.client.rest import ApiException
 import sys
 import os
 from dotenv import load_dotenv
+import yaml
 
 load_dotenv()
 
@@ -18,6 +19,7 @@ LAST_POD_NAME = os.getenv('LAST_POD_NAME')
 INITIAL_TIME = 0
 INICIO = True
 LAST_POD = False
+FINAL_TIME = 1500
 
 def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """
@@ -57,7 +59,7 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
         return
         
     # Lógica de Eliminación: ¿El tiempo de finalización ya pasó?
-    if current_time >= kill_timestamp:
+    if current_time >= kill_timestamp or FINAL_TIME + INITIAL_TIME < current_time:
         # print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
         # print(f"  Pod: {namespace}/{pod_name}")
         # print(f"  Tiempo actual: {current_time}, Tiempo límite: {kill_timestamp}")
@@ -114,7 +116,10 @@ def main():
             )
 
             if LAST_POD and len(pods.items) == 0:
-                print(f"Tiempo total del workload: {int(time.time()) - INITIAL_TIME}")
+                totalTimeWorkload = int(time.time()) - INITIAL_TIME
+                print(f"Tiempo total del workload: {totalTimeWorkload}")
+                with open('objects/total_workload_time.yaml', 'w', encoding='utf-8') as archivo:
+                    yaml.dump(totalTimeWorkload, archivo, allow_unicode=True)
                 sys.exit()
 
             # 3. Procesar cada Pod

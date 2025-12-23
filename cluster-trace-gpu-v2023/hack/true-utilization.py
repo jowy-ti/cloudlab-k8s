@@ -3,12 +3,8 @@ import time
 import yaml
 import sys
 import os
-from kubernetes import client, config, watch
+from kubernetes import client, config
 from dotenv import load_dotenv
-import matplotlib.pyplot as plt
-import numpy as np
-
-load_dotenv()
 
 MIG_INSTANCES_FP32= {
     '1': 1 / 7, 
@@ -99,8 +95,10 @@ def k8s_watch_thread():
 
     V100Fp32 = 14000
     V100Mem = 16000
+    schedulingDurations = []
     realDurationPods = []
     theoryDurationPods = []
+    schedulingDurationName = 'schedulingDuration'
     realCreationTimeName = 'realCreationTime'
     realDeletionTimeName = 'realDeletionTime'
     theoryScheduledTimeName = 'customresource.com/scheduled-time'
@@ -137,10 +135,12 @@ def k8s_watch_thread():
                 nodeName = pod.spec.node_name
                 gpuPos = annotations.get(GPU_POS_NAME)
                 migSize = annotations.get(MIG_SIZE_NAME)
+                podSchedDur = annotations.get(schedulingDurationName)
 
-                if annotations is None or nodeName is None or gpuPos is None or migSize is None:
+                if annotations is None or nodeName is None or gpuPos is None or migSize is None or podSchedDur is None:
                     continue      
                 
+                schedulingDurations.append(int(podSchedDur))
                 gpuPos = int(gpuPos)
                 podFp32 = request_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpufp32"])
                 podMem = request_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpuMemory"])
@@ -157,8 +157,8 @@ def k8s_watch_thread():
                 with data_lock:
                     newpods_calculate_resources(nodeName, gpuPos, podFp32, podMem, isolation, migSize)
 
-                print(f"added pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
-
+                # print(f"added pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
+                print(f"added pod: {podName}")
             for podName in deadPodsName:
                 annotations = podsAnnotations[podName]
                 podFp32 = podsResourceFp32[podName]
@@ -191,30 +191,14 @@ def k8s_watch_thread():
             pastPodsName = runningPodsName
                     
             if LAST_POD and len(pods) == 0:
-                theoryDurationPods.sort()
-                realDurationPods.sort()
+                with open(THEORY_DURATION_PODS_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(theoryDurationPods, archivo, allow_unicode=True)
 
-                y_teorica = np.linspace(0, 1, len(theoryDurationPods))
-                y_real = np.linspace(0, 1, len(realDurationPods))
+                with open(REAL_DURATION_PODS_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(realDurationPods, archivo, allow_unicode=True)
 
-                plt.figure(figsize=(10, 6))
-
-                # Dibujar las líneas de la CDF (usando drawstyle='steps-post' para que sea escalonado)
-                plt.step(theoryDurationPods, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
-                plt.step(realDurationPods, y_real, label='Tiempo Real', where='post', linewidth=2, color='orange', linestyle='--')
-
-                # Personalización estética (Sin líneas que crucen las barras/curvas)
-                plt.title('CDF: Comparativa de Tiempos Teóricos vs Reales', fontsize=14)
-                plt.xlabel('Tiempo de Ejecución (segundos)', fontsize=12)
-                plt.ylabel('Probabilidad Acumulada (F(x))', fontsize=12)
-
-                # Mostrar el 50% (mediana)
-                plt.axhline(0.5, color='gray', linestyle='--', alpha=0.3)
-                plt.text(max(realDurationPods)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
-
-                plt.legend()
-                plt.tight_layout()
-                plt.savefig("plots/duration_pods.png")
+                with open('objects/scheduling_durations.yaml', 'w', encoding='utf-8') as archivo:
+                    yaml.dump(schedulingDurations, archivo, allow_unicode=True)
                 sys.exit()
 
         except Exception as e:
@@ -265,22 +249,30 @@ def saver_thread():
 
             # print(f"fp32Used: {fp32Used}, memUsed: {memUsed}, numGpuOccuped: {numGpuOccuped}, LAST_POD: {LAST_POD}")
             if LAST_POD and numGpuOccuped == 0:
-                plt.figure(figsize=(10, 6))
-                plt.plot(timeline, gpuOccupation, label='Ocupación', color='blue', linestyle='-')
-                plt.plot(timeline, gpuUtilization, label='Utilización', color='red', linestyle='--')
-                plt.plot(timeline, gpuAllocated, label='Asignación', color='green', linestyle='-.')
-                plt.ylim(0, 100)
-                plt.legend()
-                plt.savefig("plots/utilization1.png")
+                with open(GPU_OCCUPATION_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(gpuOccupation, archivo, allow_unicode=True)
 
-                plt.figure(figsize=(10, 6))
-                plt.plot(timeline, gpuUtilizationFp32, label='Utilización fp32', color='darkred', linestyle=':')
-                plt.plot(timeline, gpuUtilizationMem, label='Utilización mem', color='darkgreen', linestyle='--')
-                plt.plot(timeline, gpuAllocatedFp32, label='Asignación fp32', color='lightcoral', linestyle='-.')
-                plt.plot(timeline, gpuAllocatedMem, label='Asignación mem', color='lightgreen', linestyle='-')
-                plt.ylim(0, 100)
-                plt.legend()
-                plt.savefig("plots/utilization2.png")
+                with open(GPU_UTILIZATION_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(gpuUtilization, archivo, allow_unicode=True)
+
+                with open(GPU_ALLOCATED_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(gpuAllocated, archivo, allow_unicode=True)
+
+                with open(GPU_UTILIZATION_FP32_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(gpuUtilizationFp32, archivo, allow_unicode=True)
+
+                with open(GPU_ALLOCATED_FP32_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(gpuAllocatedFp32, archivo, allow_unicode=True)
+                
+                with open(GPU_UTILIZATION_MEM_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(gpuUtilizationMem, archivo, allow_unicode=True)
+
+                with open(GPU_ALLOCATED_MEM_PATH, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(gpuAllocatedMem, archivo, allow_unicode=True)
+
+                with open(TIMELINE, 'w', encoding='utf-8') as archivo:
+                    yaml.dump(timeline, archivo, allow_unicode=True)
+                
                 FIN = True
                 sys.exit()
 
@@ -288,21 +280,34 @@ def saver_thread():
         Utilization = int((((fp32Used / fp32Total) + (memUsed / memTotal)) / 2) * 100)
         Allocated = int((((fp32Allocated / fp32Total) + (memAllocated / memTotal)) / 2) * 100)
         UtilizationFp32Ratio = int((fp32Used / fp32Total) * 100)
-        UtilizationMemRatio = int((memUsed / memTotal) * 100)
         AllocatedFp32Ratio = int((fp32Allocated / fp32Total) * 100)
+        UtilizationMemRatio = int((memUsed / memTotal) * 100)
         AllocatedMemRatio = int((memAllocated / memTotal) * 100)
 
         gpuOccupation.append(Occupation)
         gpuUtilization.append(Utilization)
         gpuAllocated.append(Allocated)
         gpuUtilizationFp32.append(UtilizationFp32Ratio)
-        gpuUtilizationMem.append(UtilizationMemRatio)
         gpuAllocatedFp32.append(AllocatedFp32Ratio)
-        gpuAllocatedMem.append(AllocatedMemRatio)
+        gpuUtilizationMem.append(UtilizationMemRatio)
+        gpuAllocatedMem.append(AllocatedMemRatio)        
 
         timeline.append(int(time.time() - INIT_TIME))
 
 if __name__ == "__main__":
+
+    load_dotenv()
+
+    THEORY_DURATION_PODS_PATH=os.getenv('THEORY_DURATION_PODS_PATH')
+    REAL_DURATION_PODS_PATH=os.getenv('REAL_DURATION_PODS_PATH')
+    GPU_OCCUPATION_PATH=os.getenv('GPU_OCCUPATION_PATH')
+    GPU_UTILIZATION_PATH=os.getenv('GPU_UTILIZATION_PATH')
+    GPU_ALLOCATED_PATH=os.getenv('GPU_ALLOCATED_PATH')
+    GPU_UTILIZATION_FP32_PATH=os.getenv('GPU_UTILIZATION_FP32_PATH')
+    GPU_ALLOCATED_FP32_PATH=os.getenv('GPU_ALLOCATED_FP32_PATH')
+    GPU_UTILIZATION_MEM_PATH=os.getenv('GPU_UTILIZATION_MEM_PATH')
+    GPU_ALLOCATED_MEM_PATH=os.getenv('GPU_ALLOCATED_MEM_PATH')
+    TIMELINE=os.getenv('TIMELINE')
 
     GPU_POS_NAME = 'gpuPos'
     FP32_TOTAL_NAME = 'fp32Total'

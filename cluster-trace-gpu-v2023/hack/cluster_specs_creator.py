@@ -49,7 +49,7 @@ def main():
 
             ALL_NODES[gpuname] = NODE
         
-        with open("all-nodes.yaml", "w") as archivo:
+        with open("objects/all-nodes.yaml", "w") as archivo:
             yaml.dump(ALL_NODES, archivo, default_flow_style=False, sort_keys=False)
 
     except ApiException as e:

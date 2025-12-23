@@ -223,7 +223,7 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '20'
-    customresource.com/deletion-time: '150'
+    customresource.com/deletion-time: '216'
     customresource.com/scheduled-time: '20'
     hardIsolation: 'true'
   labels:
@@ -311,7 +311,7 @@ kind: Pod
 metadata:
   annotations:
     customresource.com/creation-time: '25'
-    customresource.com/deletion-time: '150'
+    customresource.com/deletion-time: '1511'
     customresource.com/scheduled-time: '25'
     hardIsolation: 'false'
   labels:

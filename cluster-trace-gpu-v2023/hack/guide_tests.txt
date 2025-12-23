@@ -1,0 +1,8 @@
+Guía para hacer los tests:
+
+Para cambiar la política hay que modificar el kwok-create-nodes.sh y el manifest de fake-gpu-operator, después ejecutar update-fakegpu-operator.sh
+
+Ejecutar upgrade-plugin.sh para reiniciar la estructura interna de los nodos del scheduler
+
+Una vez se han efectuado los cambios, ejecutar el script cluster_specs_creator.py para actualizar la estructura de los nodos que utilizarán los 
+scripts python para las métricas

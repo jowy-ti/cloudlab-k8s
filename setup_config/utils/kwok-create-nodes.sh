@@ -1,10 +1,14 @@
 #!/bin/bash
 
-export KWOK_NODES=2
-declare -a poolnodes=(1 2)  # poolnodes=(3 5 6)
+declare -a poolnodes=(0 2)  # poolnodes=(3 5 6)
 declare -a fp32=(30000 60000) # fp32 de cada pool
-declare -a MIGinstances=(0 7) # instancias MIG de cada pool
+declare -a MIGinstances=(0 0) # instancias MIG de cada pool
 POOL=0
+KWOK_NODES=0
+
+for i in "${poolnodes[@]}"; do
+  ((KWOK_NODES += i))
+done
 
 for ((i = 0; KWOK_NODES > i; i++)); do
 
