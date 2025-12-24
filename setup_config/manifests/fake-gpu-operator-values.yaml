@@ -8,7 +8,7 @@ topology:
     pool1:
       gpuProduct: NVIDIA-H100-PCIe-80GB
       gpuMemory: 80000
-      gpuCount: 4
+      gpuCount: 2
       # otherDevices:
       #   - name: "gpu0-2g.20gb"
       #     count: 2

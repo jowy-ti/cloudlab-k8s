@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a poolnodes=(0 2)  # poolnodes=(3 5 6)
+declare -a poolnodes=(0 4)  # poolnodes=(3 5 6)
 declare -a fp32=(30000 60000) # fp32 de cada pool
 declare -a MIGinstances=(0 0) # instancias MIG de cada pool
 POOL=0

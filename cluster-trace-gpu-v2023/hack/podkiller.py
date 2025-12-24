@@ -19,7 +19,7 @@ LAST_POD_NAME = os.getenv('LAST_POD_NAME')
 INITIAL_TIME = 0
 INICIO = True
 LAST_POD = False
-FINAL_TIME = 1500
+FINAL_TIME = 1800
 
 def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """

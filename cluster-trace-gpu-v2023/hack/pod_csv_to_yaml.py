@@ -16,7 +16,7 @@ DATA_DELETION_TIME = "deletion_time"
 DATA_SCHEDULED_TIME ="scheduled_time"
 
 # Mis custom resources
-V100Mem      = 16000
+V100Mem      = 32000
 V100Fp32     = 14000
 GpuFp32      = "customresource.com/gpufp32"
 GpuMemory    = "customresource.com/gpuMemory"
@@ -24,7 +24,7 @@ CreationTime = "customresource.com/creation-time"
 DeletionTime = "customresource.com/deletion-time"
 ScheduledTime = "customresource.com/scheduled-time"
 HardIsolation = "hardIsolation"
-DesiredTime = 3600 # segundos
+DesiredTime = 1800 # segundos
 
 ResourceName = "alibabacloud.com/gpu-milli"      # GPU milli, i.e., 1000 == 1 GPU, for pod only, node is 1000 by default
 CountName    = "alibabacloud.com/gpu-count"      # GPU number request (or allocatable), for pod and node
