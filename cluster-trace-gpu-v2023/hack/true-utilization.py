@@ -82,6 +82,8 @@ def deadpods_calculate_resources(nodeName, gpuPos, podFp32, podMem, isolation, m
         else:
             ALL_NODES[nodeName][gpuPos][FP32_ALLOCATED_NAME] = 0
             ALL_NODES[nodeName][gpuPos][MEM_ALLOCATED_NAME] = 0
+            if ALL_NODES[nodeName][gpuPos][FP32_USED_NAME] != 0 or ALL_NODES[nodeName][gpuPos][MEM_USED_NAME] != 0:
+                print(f"Error!: allocated = 0, but fp32used = {ALL_NODES[nodeName][gpuPos][FP32_USED_NAME]}, and memused = {ALL_NODES[nodeName][gpuPos][MEM_USED_NAME]}")
     else:
         ALL_NODES[nodeName][gpuPos][FP32_ALLOCATED_NAME] -= podFp32
         ALL_NODES[nodeName][gpuPos][MEM_ALLOCATED_NAME] -= podMem
@@ -127,6 +129,36 @@ def k8s_watch_thread():
 
             newPods = [p for p in pods if p.metadata.name in newPodsName]
 
+            for podName in deadPodsName:
+                annotations = podsAnnotations[podName]
+                podFp32 = podsResourceFp32[podName]
+                podMem = podsResourceMem[podName]
+                nodeName = podsNode[podName]
+                gpuPos = int(annotations.get(GPU_POS_NAME))
+                migSize = annotations.get(MIG_SIZE_NAME)
+                isolation = False
+
+                if StandardFp32 == podFp32 and StandardMem == podMem:
+                    isolation = True
+                
+                print(f"DELETED podName: {podName}, nodeName: {nodeName}, gpuPos: {gpuPos}, fp32used: {ALL_NODES[nodeName][gpuPos][FP32_USED_NAME]}, memused: {ALL_NODES[nodeName][gpuPos][MEM_USED_NAME]}, fp32allocated: {ALL_NODES[nodeName][gpuPos][FP32_ALLOCATED_NAME]}, memallocated: {ALL_NODES[nodeName][gpuPos][MEM_ALLOCATED_NAME]}")
+                with data_lock:
+                    deadpods_calculate_resources(nodeName, gpuPos, podFp32, podMem, isolation, migSize)
+
+                realCreationTime = int(annotations[realCreationTimeName])
+                realDeletionTime = int(annotations[realDeletionTimeName])
+                theoryScheduledTime = int(annotations[theoryScheduledTimeName])
+                theoryDeletionTime = int(annotations[theoryDeletionTimeName])
+
+                realDurationPods.append(realDeletionTime - realCreationTime)
+                theoryDurationPods.append(theoryDeletionTime - theoryScheduledTime)
+
+                if podName == LAST_POD_NAME:
+                    with data_lock:
+                        LAST_POD = True
+
+                # print(f"deleted pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
+
             for pod in newPods:
                 
                 INICIO = True
@@ -154,39 +186,9 @@ def k8s_watch_thread():
                 if StandardFp32 == podFp32 and StandardMem == podMem:
                     isolation = True
 
+                print(f"ADDED podName: {podName}, nodeName: {nodeName}, gpuPos: {gpuPos}, fp32used: {ALL_NODES[nodeName][gpuPos][FP32_USED_NAME]}, memused: {ALL_NODES[nodeName][gpuPos][MEM_USED_NAME]}, fp32allocated: {ALL_NODES[nodeName][gpuPos][FP32_ALLOCATED_NAME]}, memallocated: {ALL_NODES[nodeName][gpuPos][MEM_ALLOCATED_NAME]}")
                 with data_lock:
                     newpods_calculate_resources(nodeName, gpuPos, podFp32, podMem, isolation, migSize)
-
-                # print(f"added pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
-                print(f"added pod: {podName}")
-            for podName in deadPodsName:
-                annotations = podsAnnotations[podName]
-                podFp32 = podsResourceFp32[podName]
-                podMem = podsResourceMem[podName]
-                nodeName = podsNode[podName]
-                gpuPos = int(annotations.get(GPU_POS_NAME))
-                migSize = annotations.get(MIG_SIZE_NAME)
-                isolation = False
-
-                if StandardFp32 == podFp32 and StandardMem == podMem:
-                    isolation = True
-
-                with data_lock:
-                    deadpods_calculate_resources(nodeName, gpuPos, podFp32, podMem, isolation, migSize)
-
-                realCreationTime = int(annotations[realCreationTimeName])
-                realDeletionTime = int(annotations[realDeletionTimeName])
-                theoryScheduledTime = int(annotations[theoryScheduledTimeName])
-                theoryDeletionTime = int(annotations[theoryDeletionTimeName])
-
-                realDurationPods.append(realDeletionTime - realCreationTime)
-                theoryDurationPods.append(theoryDeletionTime - theoryScheduledTime)
-
-                if podName == LAST_POD_NAME:
-                    with data_lock:
-                        LAST_POD = True
-
-                # print(f"deleted pod: {podName}, podFp32: {podFp32}, podMem: {podMem}")
 
             pastPodsName = runningPodsName
                     
