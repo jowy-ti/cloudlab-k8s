@@ -4,6 +4,10 @@ import pandas as pd
 from pathlib import Path
 import math
 import numpy as np
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 USAGE_PROMPT="""Usage:
 python3 pod_csv_to_yaml.py data/csv/openb_pod_list_gpuspec10.csv
@@ -16,8 +20,8 @@ DATA_DELETION_TIME = "deletion_time"
 DATA_SCHEDULED_TIME ="scheduled_time"
 
 # Mis custom resources
-V100Mem      = 32000
-V100Fp32     = 14000
+StandardMem  = int(os.getenv('STANDARD_MEM'))
+StandardFp32 = int(os.getenv('STANDARD_FP32'))
 GpuFp32      = "customresource.com/gpufp32"
 GpuMemory    = "customresource.com/gpuMemory"
 CreationTime = "customresource.com/creation-time"
@@ -25,6 +29,7 @@ DeletionTime = "customresource.com/deletion-time"
 ScheduledTime = "customresource.com/scheduled-time"
 HardIsolation = "hardIsolation"
 DesiredTime = 1800 # segundos
+F_Deletion = 4
 
 ResourceName = "alibabacloud.com/gpu-milli"      # GPU milli, i.e., 1000 == 1 GPU, for pod only, node is 1000 by default
 CountName    = "alibabacloud.com/gpu-count"      # GPU number request (or allocatable), for pod and node
@@ -119,7 +124,7 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
     offset = CreationArray[0]
     F_lineal = DesiredTime / TotalTimeCreation
 
-    DeletionArray = (DeletionArray - offset) * F_lineal
+    DeletionArray = (DeletionArray - offset) * F_lineal * F_Deletion
     ScheduledArray = (ScheduledArray - offset) * F_lineal
     CreationArray = (CreationArray - offset) * F_lineal
 
@@ -143,8 +148,8 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
                 MilliGpu = "%d" % (int(row['gpu_milli'])) if 0 < row['gpu_milli'] <= 1000 else "1000" if row['gpu_milli'] > 1000 else "0"
 
             RatioGpu = float(MilliGpu) / 1000.0
-            container_requests[GpuMemory] = int(RatioGpu * V100Mem)
-            container_requests[GpuFp32] = int(RatioGpu * V100Fp32)
+            container_requests[GpuMemory] = int(RatioGpu * StandardMem )
+            container_requests[GpuFp32] = int(RatioGpu * StandardFp32)
             
             if int(MilliGpu) == 1000:
                 annotations[HardIsolation] = 'true'

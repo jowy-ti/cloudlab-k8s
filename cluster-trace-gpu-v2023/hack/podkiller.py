@@ -5,6 +5,7 @@ import sys
 import os
 from dotenv import load_dotenv
 import yaml
+import random
 
 load_dotenv()
 
@@ -19,7 +20,7 @@ LAST_POD_NAME = os.getenv('LAST_POD_NAME')
 INITIAL_TIME = 0
 INICIO = True
 LAST_POD = False
-FINAL_TIME = 1800
+FINAL_TIME = int(os.getenv('FINAL_TIME'))
 
 def kill_pod_if_expired(v1: client.CoreV1Api, pod):
     """
@@ -59,7 +60,7 @@ def kill_pod_if_expired(v1: client.CoreV1Api, pod):
         return
         
     # Lógica de Eliminación: ¿El tiempo de finalización ya pasó?
-    if current_time >= kill_timestamp or FINAL_TIME + INITIAL_TIME < current_time:
+    if current_time >= kill_timestamp or (FINAL_TIME + INITIAL_TIME < current_time and random.randint(1, 4) == 1):
         # print(f"!!! TIEMPO EXPIRADO - ACTIVANDO ELIMINACIÓN !!!")
         # print(f"  Pod: {namespace}/{pod_name}")
         # print(f"  Tiempo actual: {current_time}, Tiempo límite: {kill_timestamp}")

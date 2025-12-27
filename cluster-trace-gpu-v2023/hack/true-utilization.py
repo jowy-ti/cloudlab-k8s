@@ -93,8 +93,8 @@ def k8s_watch_thread():
     global LAST_POD
     global INICIO
 
-    V100Fp32 = 14000
-    V100Mem = 16000
+    StandardFp32 = int(os.getenv('STANDARD_FP32'))
+    StandardMem  = int(os.getenv('STANDARD_MEM'))
     schedulingDurations = []
     realDurationPods = []
     theoryDurationPods = []
@@ -151,7 +151,7 @@ def k8s_watch_thread():
                 podsResourceMem[podName] = podMem
                 podsNode[podName] = nodeName
 
-                if V100Fp32 == podFp32 and V100Mem == podMem:
+                if StandardFp32 == podFp32 and StandardMem == podMem:
                     isolation = True
 
                 with data_lock:
@@ -168,7 +168,7 @@ def k8s_watch_thread():
                 migSize = annotations.get(MIG_SIZE_NAME)
                 isolation = False
 
-                if V100Fp32 == podFp32 and V100Mem == podMem:
+                if StandardFp32 == podFp32 and StandardMem == podMem:
                     isolation = True
 
                 with data_lock:
