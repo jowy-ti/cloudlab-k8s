@@ -1,8 +1,8 @@
 #!/bin/bash
 
-declare -a poolnodes=(0 12)  # poolnodes=(3 5 6)
+declare -a poolnodes=(0 40)  # poolnodes=(3 5 6)
 declare -a fp32=(30000 60000) # fp32 de cada pool
-declare -a MIGinstances=(0 0) # instancias MIG de cada pool
+declare -a MIGinstances=(0 7) # instancias MIG de cada pool
 POOL=0
 KWOK_NODES=0
 

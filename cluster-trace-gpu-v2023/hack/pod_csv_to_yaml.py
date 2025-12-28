@@ -28,8 +28,8 @@ CreationTime = "customresource.com/creation-time"
 DeletionTime = "customresource.com/deletion-time"
 ScheduledTime = "customresource.com/scheduled-time"
 HardIsolation = "hardIsolation"
-DesiredTime = 1800 # segundos
-F_Deletion = 4
+DesiredTime = int(os.getenv('DESIRED_TIME')) # segundos que dura el creation time de inicio a fin
+F_Deletion = int(os.getenv('F_DELETION'))
 
 ResourceName = "alibabacloud.com/gpu-milli"      # GPU milli, i.e., 1000 == 1 GPU, for pod only, node is 1000 by default
 CountName    = "alibabacloud.com/gpu-count"      # GPU number request (or allocatable), for pod and node
@@ -124,7 +124,7 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
     offset = CreationArray[0]
     F_lineal = DesiredTime / TotalTimeCreation
 
-    DeletionArray = (DeletionArray - offset) * F_lineal * F_Deletion
+    DeletionArray = ((DeletionArray - offset) * F_lineal * F_Deletion) + 3
     ScheduledArray = (ScheduledArray - offset) * F_lineal
     CreationArray = (CreationArray - offset) * F_lineal
 

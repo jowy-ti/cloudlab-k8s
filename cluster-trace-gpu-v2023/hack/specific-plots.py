@@ -79,14 +79,29 @@ def theory_real_durations():
     theoryDurationPods.sort()
     realDurationPods.sort()
 
-    y_teorica = np.linspace(0, 1, len(theoryDurationPods))
-    y_real = np.linspace(0, 1, len(realDurationPods))
+    theoryDurationPods = np.array(theoryDurationPods)
+    realDurationPods = np.array(realDurationPods)
+
+    q1 = np.percentile(theoryDurationPods, 25)
+    q3 = np.percentile(theoryDurationPods, 99)
+    iqr = q3 - q1
+
+    # Definimos los límites (típicamente 1.5 veces el IQR)
+    limite_superior = q3 + 1.5 * iqr
+
+    # Filtramos: nos quedamos solo con los que NO son outliers
+    mask_limpios = theoryDurationPods <= limite_superior
+    theoryDurationPods_filt = theoryDurationPods[mask_limpios]
+    realDurationPods_filt = realDurationPods[mask_limpios]
+
+    y_teorica = np.linspace(0, 1, len(theoryDurationPods_filt))
+    y_real = np.linspace(0, 1, len(realDurationPods_filt))
     
     plt.figure(figsize=(10, 6))
 
     # Dibujar las líneas de la CDF (usando drawstyle='steps-post' para que sea escalonado)
-    plt.step(theoryDurationPods, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
-    plt.step(realDurationPods, y_real, label='Tiempo Real', where='post', linewidth=2, color='orange', linestyle='--')
+    plt.step(theoryDurationPods_filt, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
+    plt.step(realDurationPods_filt, y_real, label='Tiempo Real', where='post', linewidth=2, color='orange', linestyle='--')
 
     # Personalización estética (Sin líneas que crucen las barras/curvas)
     plt.title('CDF: Comparativa de Tiempos Teóricos vs Reales', fontsize=14)
@@ -95,11 +110,11 @@ def theory_real_durations():
 
     # Mostrar el 50% (mediana)
     plt.axhline(0.5, color='gray', linestyle='--', alpha=0.3)
-    plt.text(max(realDurationPods)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
+    plt.text(max(realDurationPods_filt)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
 
     plt.legend()
     plt.tight_layout()
-    plt.savefig("plots/MPS/duration_pods.png")
+    plt.savefig("plots/MIG/duration_pods.png")
 
 def utilization():
 
@@ -135,7 +150,7 @@ def utilization():
     plt.xlabel('Tiempo transcurrido (segundos)', fontsize=12)
     plt.ylabel('Porcentaje de recursos', fontsize=12)
     plt.legend()
-    plt.savefig("plots/MPS/general_resources.png")
+    plt.savefig("plots/MIG/general_resources.png")
 
 
     plt.figure(figsize=(10, 6))
@@ -149,7 +164,7 @@ def utilization():
     plt.xlabel('Tiempo transcurrido (segundos)', fontsize=12)
     plt.ylabel('Porcentaje de recursos', fontsize=12)
     plt.legend()
-    plt.savefig("plots/MPS/resources_fp32_mem.png")
+    plt.savefig("plots/MIG/resources_fp32_mem.png")
 
     plt.figure(figsize=(10, 6))
     plt.plot(timeline, fp32Fragmented, label='Fragmentación fp32', color='darkred', linestyle=':')
@@ -160,7 +175,7 @@ def utilization():
     plt.xlabel('Tiempo transcurrido (segundos)', fontsize=12)
     plt.ylabel('Porcentaje de fragmentación', fontsize=12)
     plt.legend()
-    plt.savefig("plots/MPS/fragmentation_fp32_mem.png")
+    plt.savefig("plots/MIG/fragmentation_fp32_mem.png")
 
 
 if __name__ == "__main__":
