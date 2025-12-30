@@ -97,10 +97,10 @@ def k8s_watch_thread():
 
     StandardFp32 = int(os.getenv('STANDARD_FP32'))
     StandardMem  = int(os.getenv('STANDARD_MEM'))
-    schedulingDurations = []
+    # schedulingDurations = []
     realDurationPods = []
     theoryDurationPods = []
-    schedulingDurationName = 'schedulingDuration'
+    # schedulingDurationName = 'schedulingDuration'
     realCreationTimeName = 'realCreationTime'
     realDeletionTimeName = 'realDeletionTime'
     theoryScheduledTimeName = 'customresource.com/scheduled-time'
@@ -167,12 +167,12 @@ def k8s_watch_thread():
                 nodeName = pod.spec.node_name
                 gpuPos = annotations.get(GPU_POS_NAME)
                 migSize = annotations.get(MIG_SIZE_NAME)
-                podSchedDur = annotations.get(schedulingDurationName)
+                # podSchedDur = annotations.get(schedulingDurationName)
 
-                if annotations is None or nodeName is None or gpuPos is None or migSize is None or podSchedDur is None:
+                if annotations is None or nodeName is None or gpuPos is None or migSize is None: # or podSchedDur is None:
                     continue      
                 
-                schedulingDurations.append(int(podSchedDur))
+                # schedulingDurations.append(int(podSchedDur))
                 gpuPos = int(gpuPos)
                 podFp32 = request_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpufp32"])
                 podMem = request_to_int(pod.spec.containers[0].resources.requests["customresource.com/gpuMemory"])
@@ -199,8 +199,8 @@ def k8s_watch_thread():
                 with open(REAL_DURATION_PODS_PATH, 'w', encoding='utf-8') as archivo:
                     yaml.dump(realDurationPods, archivo, allow_unicode=True)
 
-                with open('objects/scheduling_durations.yaml', 'w', encoding='utf-8') as archivo:
-                    yaml.dump(schedulingDurations, archivo, allow_unicode=True)
+                # with open('objects/scheduling_durations.yaml', 'w', encoding='utf-8') as archivo:
+                #     yaml.dump(schedulingDurations, archivo, allow_unicode=True)
                 sys.exit()
 
         except Exception as e:

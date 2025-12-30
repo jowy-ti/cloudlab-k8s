@@ -36,9 +36,10 @@ def scrapping():
                     last_pod = True
 
                 res = podSchedulingTime/1000.0
+                print(round(res, 3))
                 podTimes.append(round(res, 3))
 
-            if len(pods.items) == 0 and last_pod:
+            if last_pod:
                 with open(SCHEDULING_TIMES_PATH, 'w', encoding='utf-8') as archivo:
                         yaml.dump(podTimes, archivo, allow_unicode=True)
                 sys.exit()
@@ -54,7 +55,7 @@ if __name__ == "__main__":
     load_dotenv()
 
     LAST_POD_NAME = os.getenv('LAST_POD_NAME')
-    WAIT_TIME = 1
+    WAIT_TIME = 0.5
     NAMESPACE_TARGET = 'default'
     SCHEDULING_TIMES_PATH = 'objects/gpu_scale.yaml'
     ANNOTATION_NAME = 'schedulingDuration'
