@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a poolnodes=(0 125)
+declare -a poolnodes=(0 40)
 declare -a fp32=(30000 60000)
 declare -a MIGinstances=(0 7)
 

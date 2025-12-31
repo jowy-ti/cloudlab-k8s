@@ -151,10 +151,11 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
             container_requests[GpuMemory] = int(RatioGpu * StandardMem )
             container_requests[GpuFp32] = int(RatioGpu * StandardFp32)
             
-            if int(MilliGpu) == 1000:
-                annotations[HardIsolation] = 'true'
-            else:
-                annotations[HardIsolation] = 'false'
+            # if int(MilliGpu) == 1000:
+            #     annotations[HardIsolation] = 'true'
+            # else:
+            #     annotations[HardIsolation] = 'false'
+            annotations[HardIsolation] = 'true'
 
             if 'gpu_spec' in row:
                 gpu_req_val = [x for x in row['gpu_spec'].split('|') if len(x) > 0]

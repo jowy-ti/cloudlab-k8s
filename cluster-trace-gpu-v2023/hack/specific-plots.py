@@ -90,7 +90,7 @@ def theory_real_durations():
 
     with open(THEORY_DURATION_PODS_PATH, "r") as archivo:
             theoryDurationPods = yaml.safe_load(archivo)
-    with open(REAL_DURATION_PODS_PATH_MIG, "r") as archivo:
+    with open(REAL_DURATION_PODS_PATH_MIG_MPS, "r") as archivo:
             realDurationPodsMIG = yaml.safe_load(archivo)
     with open(REAL_DURATION_PODS_PATH_MPS, "r") as archivo:
             realDurationPodsMPS = yaml.safe_load(archivo)
@@ -136,7 +136,7 @@ def theory_real_durations():
 
     plt.legend()
     plt.tight_layout()
-    plt.savefig(DURATION_PODS_MIG)
+    plt.savefig(DURATION_PODS_MIG_MPS)
 
     plt.figure(figsize=(10, 6))
     plt.step(theoryDurationPods_filt, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
@@ -242,11 +242,11 @@ def utilization(gpu_occupation_path,
 
 def comparation_metrics():
 
-    with open(GPU_UTILIZATION_PATH_MIG, "r") as archivo:
+    with open(GPU_UTILIZATION_PATH_MIG_MPS, "r") as archivo:
             gpuUtilizationMIG = np.array(yaml.safe_load(archivo))
     with open(GPU_UTILIZATION_PATH_MPS, "r") as archivo:
             gpuUtilizationMPS = np.array(yaml.safe_load(archivo))
-    with open(GPU_ALLOCATED_PATH_MIG, "r") as archivo:
+    with open(GPU_ALLOCATED_PATH_MIG_MPS, "r") as archivo:
             gpuAllocatedMIG = np.array(yaml.safe_load(archivo))
     with open(GPU_ALLOCATED_PATH_MPS, "r") as archivo:
             gpuAllocatedMPS = np.array(yaml.safe_load(archivo))
@@ -265,7 +265,7 @@ def comparation_metrics():
     plt.xlabel('Tiempo transcurrido (segundos)', fontsize=12)
     plt.ylabel('Porcentaje de recursos', fontsize=12)
     plt.legend()
-    plt.savefig(UTILIZATION_MPS_MIG_COMP)
+    plt.savefig(UTILIZATION_COMP)
 
     plt.figure(figsize=(10, 6))
     plt.plot(timelineMPS, gpuFragmentedMIG, label='Fragmentación MIG+MPS', color='darkred', linestyle=':')
@@ -276,29 +276,29 @@ def comparation_metrics():
     plt.xlabel('Tiempo transcurrido (segundos)', fontsize=12)
     plt.ylabel('Porcentaje de recursos', fontsize=12)
     plt.legend()
-    plt.savefig(FRAGMENTATION_MPS_MIG_COMP)
+    plt.savefig(FRAGMENTATION_COMP)
 
 if __name__ == "__main__":
     load_dotenv()
 
     THEORY_DURATION_PODS_PATH=os.getenv('THEORY_DURATION_PODS_PATH')
     DURATION_PODS_COMP=os.getenv('DURATION_PODS_COMP')
-    UTILIZATION_MPS_MIG_COMP=os.getenv('UTILIZATION_MPS_MIG_COMP')
-    FRAGMENTATION_MPS_MIG_COMP=os.getenv('FRAGMENTATION_MPS_MIG_COMP')
+    UTILIZATION_COMP=os.getenv('UTILIZATION_COMP')
+    FRAGMENTATION_COMP=os.getenv('FRAGMENTATION_COMP')
 
-    REAL_DURATION_PODS_PATH_MIG=os.getenv('REAL_DURATION_PODS_PATH_MIG')
-    DURATION_PODS_MIG=os.getenv('DURATION_PODS_MIG')
-    GPU_OCCUPATION_PATH_MIG=os.getenv('GPU_OCCUPATION_PATH_MIG')
-    GPU_UTILIZATION_PATH_MIG=os.getenv('GPU_UTILIZATION_PATH_MIG')
-    GPU_ALLOCATED_PATH_MIG=os.getenv('GPU_ALLOCATED_PATH_MIG')
-    GPU_UTILIZATION_FP32_PATH_MIG=os.getenv('GPU_UTILIZATION_FP32_PATH_MIG')
-    GPU_ALLOCATED_FP32_PATH_MIG=os.getenv('GPU_ALLOCATED_FP32_PATH_MIG')
-    GPU_UTILIZATION_MEM_PATH_MIG=os.getenv('GPU_UTILIZATION_MEM_PATH_MIG')
-    GPU_ALLOCATED_MEM_PATH_MIG=os.getenv('GPU_ALLOCATED_MEM_PATH_MIG')
-    TIMELINE_MIG=os.getenv('TIMELINE_MIG')
-    GENERAL_RESOURCES_MIG=os.getenv('GENERAL_RESOURCES_MIG')
-    RESOURCES_FP32_MEM_MIG=os.getenv('RESOURCES_FP32_MEM_MIG')
-    FRAGMENTATION_FP32_MEM_MIG=os.getenv('FRAGMENTATION_FP32_MEM_MIG')    
+    REAL_DURATION_PODS_PATH_MIG_MPS=os.getenv('REAL_DURATION_PODS_PATH_MIG_MPS')
+    DURATION_PODS_MIG_MPS=os.getenv('DURATION_PODS_MIG_MPS')
+    GPU_OCCUPATION_PATH_MIG_MPS=os.getenv('GPU_OCCUPATION_PATH_MIG_MPS')
+    GPU_UTILIZATION_PATH_MIG_MPS=os.getenv('GPU_UTILIZATION_PATH_MIG_MPS')
+    GPU_ALLOCATED_PATH_MIG_MPS=os.getenv('GPU_ALLOCATED_PATH_MIG_MPS')
+    GPU_UTILIZATION_FP32_PATH_MIG_MPS=os.getenv('GPU_UTILIZATION_FP32_PATH_MIG_MPS')
+    GPU_ALLOCATED_FP32_PATH_MIG_MPS=os.getenv('GPU_ALLOCATED_FP32_PATH_MIG_MPS')
+    GPU_UTILIZATION_MEM_PATH_MIG_MPS=os.getenv('GPU_UTILIZATION_MEM_PATH_MIG_MPS')
+    GPU_ALLOCATED_MEM_PATH_MIG_MPS=os.getenv('GPU_ALLOCATED_MEM_PATH_MIG_MPS')
+    TIMELINE_MIG_MPS=os.getenv('TIMELINE_MIG_MPS')
+    GENERAL_RESOURCES_MIG_MPS=os.getenv('GENERAL_RESOURCES_MIG_MPS')
+    RESOURCES_FP32_MEM_MIG_MPS=os.getenv('RESOURCES_FP32_MEM_MIG_MPS')
+    FRAGMENTATION_FP32_MEM_MIG_MPS=os.getenv('FRAGMENTATION_FP32_MEM_MIG_MPS')    
 
     REAL_DURATION_PODS_PATH_MPS=os.getenv('REAL_DURATION_PODS_PATH_MPS')
     DURATION_PODS_MPS=os.getenv('DURATION_PODS_MPS')
@@ -317,17 +317,17 @@ if __name__ == "__main__":
     # workload_duration_policies()
     # clusters_sizes()
     theory_real_durations()
-    utilization(GPU_OCCUPATION_PATH_MIG, 
-                GPU_UTILIZATION_PATH_MIG, 
-                GPU_ALLOCATED_PATH_MIG, 
-                GPU_UTILIZATION_FP32_PATH_MIG, 
-                GPU_ALLOCATED_FP32_PATH_MIG,
-                GPU_UTILIZATION_MEM_PATH_MIG,
-                GPU_ALLOCATED_MEM_PATH_MIG,
-                TIMELINE_MIG,
-                GENERAL_RESOURCES_MIG,
-                RESOURCES_FP32_MEM_MIG,
-                FRAGMENTATION_FP32_MEM_MIG)
+    utilization(GPU_OCCUPATION_PATH_MIG_MPS, 
+                GPU_UTILIZATION_PATH_MIG_MPS, 
+                GPU_ALLOCATED_PATH_MIG_MPS, 
+                GPU_UTILIZATION_FP32_PATH_MIG_MPS, 
+                GPU_ALLOCATED_FP32_PATH_MIG_MPS,
+                GPU_UTILIZATION_MEM_PATH_MIG_MPS,
+                GPU_ALLOCATED_MEM_PATH_MIG_MPS,
+                TIMELINE_MIG_MPS,
+                GENERAL_RESOURCES_MIG_MPS,
+                RESOURCES_FP32_MEM_MIG_MPS,
+                FRAGMENTATION_FP32_MEM_MIG_MPS)
     
     utilization(GPU_OCCUPATION_PATH_MPS, 
                 GPU_UTILIZATION_PATH_MPS, 
