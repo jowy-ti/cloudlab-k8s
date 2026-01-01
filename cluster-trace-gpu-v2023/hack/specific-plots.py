@@ -4,36 +4,36 @@ import numpy as np
 from dotenv import load_dotenv
 import os
 
-def workload_duration_policies():
-    # Cambiar valores por los reales
-    times = {
-        'MIG-MPS': 145,
-        'MPS-only': 300
-    }
+# def workload_duration_policies():
+#     # Cambiar valores por los reales
+#     times = {
+#         'MIG-MPS': 145,
+#         'MPS-only': 300
+#     }
 
-    ordered_times = dict(sorted(times.items(), key=lambda item: item[1], reverse=True))
-    names = list(ordered_times.keys())
-    values = list(ordered_times.values())
+#     ordered_times = dict(sorted(times.items(), key=lambda item: item[1], reverse=True))
+#     names = list(ordered_times.keys())
+#     values = list(ordered_times.values())
 
-    plt.figure(figsize=(10, 6))
+#     plt.figure(figsize=(10, 6))
 
-    # Usamos un mapa de colores (Colormap) para dar énfasis
-    colores = plt.cm.viridis([i/len(values) for i in range(len(values))])
+#     # Usamos un mapa de colores (Colormap) para dar énfasis
+#     colores = plt.cm.viridis([i/len(values) for i in range(len(values))])
 
-    bars = plt.bar(names, values, color=colores)
+#     bars = plt.bar(names, values, color=colores)
 
-    plt.title('Tiempo Total de Ejecución del Workload', fontsize=14, fontweight='bold')
-    plt.ylabel('Tiempo (segundos)')
-    plt.xticks(rotation=30, ha='right') # Rotar nombres para que no se solapen
-    plt.grid(axis='y', linestyle='--', alpha=0.6)
+#     plt.title('Tiempo Total de Ejecución del Workload', fontsize=14, fontweight='bold')
+#     plt.ylabel('Tiempo (segundos)')
+#     plt.xticks(rotation=30, ha='right') # Rotar nombres para que no se solapen
+#     plt.grid(axis='y', linestyle='--', alpha=0.6)
 
-    for bar in bars:
-        yval = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2, yval + 5, yval, ha='center', va='bottom')
+#     for bar in bars:
+#         yval = bar.get_height()
+#         plt.text(bar.get_x() + bar.get_width()/2, yval + 5, yval, ha='center', va='bottom')
 
-    plt.grid(False)
-    plt.tight_layout()
-    plt.savefig("plots/total_execution_time.png")
+#     plt.grid(False)
+#     plt.tight_layout()
+#     plt.savefig("plots/total_execution_time.png")
 
 def clusters_sizes():
 
@@ -86,25 +86,21 @@ def clusters_sizes():
     plt.tight_layout()
     plt.savefig("plots/scheduling_times_cluster_sizes.png")
 
-def theory_real_durations():
+def theory_real_durations(realDurationPath, durationPodsPath, policyName):
 
     with open(THEORY_DURATION_PODS_PATH, "r") as archivo:
             theoryDurationPods = yaml.safe_load(archivo)
-    with open(REAL_DURATION_PODS_PATH_MIG_MPS, "r") as archivo:
-            realDurationPodsMIG = yaml.safe_load(archivo)
-    with open(REAL_DURATION_PODS_PATH_MPS, "r") as archivo:
-            realDurationPodsMPS = yaml.safe_load(archivo)
+    with open(realDurationPath, "r") as archivo:
+            realDurationPods = yaml.safe_load(archivo)
 
     theoryDurationPods.sort()
-    realDurationPodsMIG.sort()
-    realDurationPodsMPS.sort()
+    realDurationPods.sort()
 
     theoryDurationPods = np.array(theoryDurationPods)
-    realDurationPodsMIG = np.array(realDurationPodsMIG)
-    realDurationPodsMPS = np.array(realDurationPodsMPS)
+    realDurationPods = np.array(realDurationPods)
 
     q1 = np.percentile(theoryDurationPods, 25)
-    q3 = np.percentile(theoryDurationPods, 99)
+    q3 = np.percentile(theoryDurationPods, 70)
     iqr = q3 - q1
 
     # Definimos los límites (típicamente 1.5 veces el IQR)
@@ -113,61 +109,28 @@ def theory_real_durations():
     # Filtramos: nos quedamos solo con los que NO son outliers
     mask_limpios = theoryDurationPods <= limite_superior
     theoryDurationPods_filt = theoryDurationPods[mask_limpios]
-    realDurationPodsMIG_filt = realDurationPodsMIG[mask_limpios]
-    realDurationPodsMPS_filt = realDurationPodsMPS[mask_limpios]
+    realDurationPods_filt = realDurationPods[mask_limpios]
 
     y_teorica = np.linspace(0, 1, len(theoryDurationPods_filt))
-    # y_realMIG = np.linspace(0, 1, len(realDurationPodsMIG_filt))
-    # y_realMPS = np.linspace(0, 1, len(realDurationPodsMPS_filt))
+    # y_real = np.linspace(0, 1, len(realDurationPods_filt))
     
     plt.figure(figsize=(10, 6))
     # Dibujar las líneas de la CDF (usando drawstyle='steps-post' para que sea escalonado)
     plt.step(theoryDurationPods_filt, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
-    plt.step(realDurationPodsMIG_filt, y_teorica, label='Tiempo Real MIG+MPS', where='post', linewidth=2, color='orange', linestyle='--')
+    plt.step(realDurationPods_filt, y_teorica, label=f"Tiempo Real {policyName}", where='post', linewidth=2, color='orange', linestyle='--')
 
     # Personalización estética (Sin líneas que crucen las barras/curvas)
-    plt.title('CDF: Comparativa de Tiempos Teóricos vs Reales (MIG+MPS)', fontsize=14)
+    plt.title(f"CDF: Comparativa de Tiempos Teóricos vs Reales {policyName}", fontsize=14)
     plt.xlabel('Tiempo de Ejecución (segundos)', fontsize=12)
     plt.ylabel('Probabilidad Acumulada (F(x))', fontsize=12)
 
     # Mostrar el 50% (mediana)
     plt.axhline(0.5, color='gray', linestyle='--', alpha=0.3)
-    plt.text(max(realDurationPodsMIG_filt)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
+    plt.text(max(realDurationPods_filt)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
 
     plt.legend()
     plt.tight_layout()
-    plt.savefig(DURATION_PODS_MIG_MPS)
-
-    plt.figure(figsize=(10, 6))
-    plt.step(theoryDurationPods_filt, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
-    plt.step(realDurationPodsMPS_filt, y_teorica, label='Tiempo Real MPS', where='post', linewidth=2, color='orange', linestyle='--')
-
-    plt.title('CDF: Comparativa de Tiempos Teóricos vs Reales (MPS)', fontsize=14)
-    plt.xlabel('Tiempo de Ejecución (segundos)', fontsize=12)
-    plt.ylabel('Probabilidad Acumulada (F(x))', fontsize=12)
-
-    plt.axhline(0.5, color='gray', linestyle='--', alpha=0.3)
-    plt.text(max(realDurationPodsMPS_filt)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
-
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig(DURATION_PODS_MPS)
-
-    plt.figure(figsize=(10, 6))
-    plt.step(theoryDurationPods_filt, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
-    plt.step(realDurationPodsMPS_filt, y_teorica, label='Tiempo Real MPS', where='post', linewidth=2, color='orange', linestyle='--')
-    plt.step(realDurationPodsMIG_filt, y_teorica, label='Tiempo Real MIG+MPS', where='post', linewidth=2, color='green', linestyle='-.')
-
-    plt.title('CDF: Comparativa de Tiempos Teóricos vs MIG+MPS vs MPS', fontsize=14)
-    plt.xlabel('Tiempo de Ejecución (segundos)', fontsize=12)
-    plt.ylabel('Probabilidad Acumulada (F(x))', fontsize=12)
-
-    plt.axhline(0.5, color='gray', linestyle='--', alpha=0.3)
-    plt.text(max(realDurationPodsMPS_filt)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
-
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig(DURATION_PODS_COMP)
+    plt.savefig(durationPodsPath)
 
 def utilization(gpu_occupation_path, 
                 gpu_utilization_path, 
@@ -243,22 +206,32 @@ def utilization(gpu_occupation_path,
 def comparation_metrics():
 
     with open(GPU_UTILIZATION_PATH_MIG_MPS, "r") as archivo:
-            gpuUtilizationMIG = np.array(yaml.safe_load(archivo))
+        gpuUtilizationMIG_MPS = np.array(yaml.safe_load(archivo))
     with open(GPU_UTILIZATION_PATH_MPS, "r") as archivo:
-            gpuUtilizationMPS = np.array(yaml.safe_load(archivo))
+        gpuUtilizationMPS = np.array(yaml.safe_load(archivo))
+    with open(GPU_UTILIZATION_PATH_MIG, "r") as archivo:
+        gpuUtilizationMIG = np.array(yaml.safe_load(archivo))
     with open(GPU_ALLOCATED_PATH_MIG_MPS, "r") as archivo:
-            gpuAllocatedMIG = np.array(yaml.safe_load(archivo))
+        gpuAllocatedMIG_MPS = np.array(yaml.safe_load(archivo))
     with open(GPU_ALLOCATED_PATH_MPS, "r") as archivo:
-            gpuAllocatedMPS = np.array(yaml.safe_load(archivo))
+        gpuAllocatedMPS = np.array(yaml.safe_load(archivo))
+    with open(GPU_ALLOCATED_PATH_MIG, "r") as archivo:
+        gpuAllocatedMIG = np.array(yaml.safe_load(archivo))
     with open(TIMELINE_MPS, "r") as archivo:
-            timelineMPS = yaml.safe_load(archivo)
+        timelineMPS = yaml.safe_load(archivo)
+    with open(TIMELINE_MIG, "r") as archivo:
+        timelineMIG = yaml.safe_load(archivo)
+    with open(TIMELINE_MIG_MPS, "r") as archivo:
+        timelineMIG_MPS = yaml.safe_load(archivo)
 
+    gpuFragmentedMIG_MPS = gpuAllocatedMIG_MPS - gpuUtilizationMIG_MPS
     gpuFragmentedMIG = gpuAllocatedMIG - gpuUtilizationMIG
     gpuFragmentedMPS = gpuAllocatedMPS - gpuUtilizationMPS
 
     plt.figure(figsize=(10, 6))
-    plt.plot(timelineMPS, gpuUtilizationMIG, label='Utilización MIG+MPS', color='blue', linestyle='-')
+    plt.plot(timelineMIG, gpuUtilizationMIG, label='Utilización MIG', color='blue', linestyle=':')
     plt.plot(timelineMPS, gpuUtilizationMPS, label='Utilización MPS', color='red', linestyle='--')
+    plt.plot(timelineMIG_MPS, gpuUtilizationMIG_MPS, label='Utilización MIG+MPS', color='green', linestyle='-.')
     plt.ylim(0, 100)
 
     plt.title('Utilización de recursos GPU (MPS vs MIG+MPS)', fontsize=14)
@@ -268,15 +241,70 @@ def comparation_metrics():
     plt.savefig(UTILIZATION_COMP)
 
     plt.figure(figsize=(10, 6))
-    plt.plot(timelineMPS, gpuFragmentedMIG, label='Fragmentación MIG+MPS', color='darkred', linestyle=':')
-    plt.plot(timelineMPS, gpuFragmentedMPS, label='Fragmentación MPS', color='darkgreen', linestyle='--')
+    plt.plot(timelineMIG, gpuFragmentedMIG, label='Fragmentación MIG', color='blue', linestyle=':')
+    plt.plot(timelineMPS, gpuFragmentedMPS, label='Fragmentación MPS', color='red', linestyle='--')
+    plt.plot(timelineMIG_MPS, gpuFragmentedMIG_MPS, label='Fragmentación MIG+MPS', color='green', linestyle='-.')
     plt.ylim(0, 100)
 
-    plt.title('Fragmentación de recursos GPU (MPS vs MIG+MPS)', fontsize=14)
+    plt.title('Fragmentación de recursos GPU (MIG vs MPS vs MIG+MPS)', fontsize=14)
     plt.xlabel('Tiempo transcurrido (segundos)', fontsize=12)
     plt.ylabel('Porcentaje de recursos', fontsize=12)
     plt.legend()
     plt.savefig(FRAGMENTATION_COMP)
+
+def comparation_duration_pods():
+
+    with open(THEORY_DURATION_PODS_PATH, "r") as archivo:
+        theoryDurationPods = yaml.safe_load(archivo)
+    with open(REAL_DURATION_PODS_PATH_MIG, "r") as archivo:
+        realDurationPodsMIG = yaml.safe_load(archivo)
+    with open(REAL_DURATION_PODS_PATH_MPS, "r") as archivo:
+        realDurationPodsMPS = yaml.safe_load(archivo)
+    with open(REAL_DURATION_PODS_PATH_MIG_MPS, "r") as archivo:
+        realDurationPodsMIG_MPS = yaml.safe_load(archivo)
+
+    theoryDurationPods.sort()
+    realDurationPodsMIG.sort()
+    realDurationPodsMPS.sort()
+    realDurationPodsMIG_MPS.sort()
+
+    theoryDurationPods = np.array(theoryDurationPods)
+    realDurationPodsMIG = np.array(realDurationPodsMIG)
+    realDurationPodsMPS = np.array(realDurationPodsMPS)
+    realDurationPodsMIG_MPS = np.array(realDurationPodsMIG_MPS)
+
+    q1 = np.percentile(theoryDurationPods, 25)
+    q3 = np.percentile(theoryDurationPods, 99)
+    iqr = q3 - q1
+
+    # Definimos los límites (típicamente 1.5 veces el IQR)
+    limite_superior = q3 + 1.5 * iqr
+
+    # Filtramos: nos quedamos solo con los que NO son outliers
+    mask_limpios = theoryDurationPods <= limite_superior
+    theoryDurationPods_filt = theoryDurationPods[mask_limpios]
+    realDurationPodsMIG_filt = realDurationPodsMIG[mask_limpios]
+    realDurationPodsMPS_filt = realDurationPodsMPS[mask_limpios]
+    realDurationPodsMIG_MPS_filt = realDurationPodsMIG_MPS[mask_limpios]
+
+    y_teorica = np.linspace(0, 1, len(theoryDurationPods_filt))
+
+    plt.figure(figsize=(10, 6))
+    plt.step(theoryDurationPods_filt, y_teorica, label='Tiempo Teórico', where='post', linewidth=2, linestyle='-')
+    plt.step(realDurationPodsMIG_filt, y_teorica, label='Tiempo Real MIG', where='post', linewidth=2, color='orange', linestyle='--')
+    plt.step(realDurationPodsMPS_filt, y_teorica, label='Tiempo Real MPS', where='post', linewidth=2, color='green', linestyle='-.')
+    plt.step(realDurationPodsMIG_MPS_filt, y_teorica, label='Tiempo Real MIG+MPS', where='post', linewidth=2, color='red', linestyle=':')
+
+    plt.title('CDF: Comparativa de Tiempos Teóricos vs MIG+MPS vs MPS vs MIG', fontsize=14)
+    plt.xlabel('Tiempo de Ejecución (segundos)', fontsize=12)
+    plt.ylabel('Probabilidad Acumulada (F(x))', fontsize=12)
+
+    plt.axhline(0.5, color='gray', linestyle='--', alpha=0.3)
+    plt.text(max(realDurationPodsMPS_filt)*0.05, 0.52, 'Mediana (50%)', color='gray', fontsize=10)
+
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(DURATION_PODS_COMP)
 
 if __name__ == "__main__":
     load_dotenv()
@@ -313,10 +341,27 @@ if __name__ == "__main__":
     GENERAL_RESOURCES_MPS=os.getenv('GENERAL_RESOURCES_MPS')
     RESOURCES_FP32_MEM_MPS=os.getenv('RESOURCES_FP32_MEM_MPS')
     FRAGMENTATION_FP32_MEM_MPS=os.getenv('FRAGMENTATION_FP32_MEM_MPS')
+
+    REAL_DURATION_PODS_PATH_MIG=os.getenv('REAL_DURATION_PODS_PATH_MIG')
+    DURATION_PODS_MIG=os.getenv('DURATION_PODS_MIG')
+    GPU_OCCUPATION_PATH_MIG=os.getenv('GPU_OCCUPATION_PATH_MIG')
+    GPU_UTILIZATION_PATH_MIG=os.getenv('GPU_UTILIZATION_PATH_MIG')
+    GPU_ALLOCATED_PATH_MIG=os.getenv('GPU_ALLOCATED_PATH_MIG')
+    GPU_UTILIZATION_FP32_PATH_MIG=os.getenv('GPU_UTILIZATION_FP32_PATH_MIG')
+    GPU_ALLOCATED_FP32_PATH_MIG=os.getenv('GPU_ALLOCATED_FP32_PATH_MIG')
+    GPU_UTILIZATION_MEM_PATH_MIG=os.getenv('GPU_UTILIZATION_MEM_PATH_MIG')
+    GPU_ALLOCATED_MEM_PATH_MIG=os.getenv('GPU_ALLOCATED_MEM_PATH_MIG')
+    TIMELINE_MIG=os.getenv('TIMELINE_MIG')
+    GENERAL_RESOURCES_MIG=os.getenv('GENERAL_RESOURCES_MIG')
+    RESOURCES_FP32_MEM_MIG=os.getenv('RESOURCES_FP32_MEM_MIG')
+    FRAGMENTATION_FP32_MEM_MIG=os.getenv('FRAGMENTATION_FP32_MEM_MIG')
     
     # workload_duration_policies()
     # clusters_sizes()
-    theory_real_durations()
+    theory_real_durations(REAL_DURATION_PODS_PATH_MPS, DURATION_PODS_MPS, "MPS")
+    theory_real_durations(REAL_DURATION_PODS_PATH_MIG, DURATION_PODS_MIG, "MIG")
+    theory_real_durations(REAL_DURATION_PODS_PATH_MIG_MPS, DURATION_PODS_MIG_MPS, "(MIG+MPS)")
+
     utilization(GPU_OCCUPATION_PATH_MIG_MPS, 
                 GPU_UTILIZATION_PATH_MIG_MPS, 
                 GPU_ALLOCATED_PATH_MIG_MPS, 
@@ -341,4 +386,17 @@ if __name__ == "__main__":
                 RESOURCES_FP32_MEM_MPS,
                 FRAGMENTATION_FP32_MEM_MPS)
     
+    utilization(GPU_OCCUPATION_PATH_MIG, 
+                GPU_UTILIZATION_PATH_MIG, 
+                GPU_ALLOCATED_PATH_MIG, 
+                GPU_UTILIZATION_FP32_PATH_MIG, 
+                GPU_ALLOCATED_FP32_PATH_MIG,
+                GPU_UTILIZATION_MEM_PATH_MIG,
+                GPU_ALLOCATED_MEM_PATH_MIG,
+                TIMELINE_MIG,
+                GENERAL_RESOURCES_MIG,
+                RESOURCES_FP32_MEM_MIG,
+                FRAGMENTATION_FP32_MEM_MIG)
+    
+    comparation_duration_pods()
     comparation_metrics()

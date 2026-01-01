@@ -193,8 +193,8 @@ def k8s_watch_thread():
             pastPodsName = runningPodsName
                     
             if LAST_POD and len(pods) == 0:
-                with open(THEORY_DURATION_PODS_PATH, 'w', encoding='utf-8') as archivo:
-                    yaml.dump(theoryDurationPods, archivo, allow_unicode=True)
+                # with open(THEORY_DURATION_PODS_PATH, 'w', encoding='utf-8') as archivo:
+                #     yaml.dump(theoryDurationPods, archivo, allow_unicode=True)
 
                 with open(REAL_DURATION_PODS_PATH, 'w', encoding='utf-8') as archivo:
                     yaml.dump(realDurationPods, archivo, allow_unicode=True)

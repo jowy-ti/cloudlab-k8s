@@ -29,7 +29,7 @@ DeletionTime = "customresource.com/deletion-time"
 ScheduledTime = "customresource.com/scheduled-time"
 HardIsolation = "hardIsolation"
 DesiredTime = int(os.getenv('DESIRED_TIME')) # segundos que dura el creation time de inicio a fin
-F_Deletion = int(os.getenv('F_DELETION'))
+F_Deletion = float(os.getenv('F_DELETION'))
 
 ResourceName = "alibabacloud.com/gpu-milli"      # GPU milli, i.e., 1000 == 1 GPU, for pod only, node is 1000 by default
 CountName    = "alibabacloud.com/gpu-count"      # GPU number request (or allocatable), for pod and node
@@ -114,7 +114,6 @@ def generate_pod_yaml(workload_name='paib-pod-10',
 # funció principal
 # dfp: Información del csv
 def output_pod(dfp, outfile='pod.yaml', node_select=False):
-    num_pod = len(dfp)
 
     DeletionArray = dfp[DATA_DELETION_TIME].to_numpy()
     ScheduledArray = dfp[DATA_SCHEDULED_TIME].to_numpy()
@@ -151,11 +150,11 @@ def output_pod(dfp, outfile='pod.yaml', node_select=False):
             container_requests[GpuMemory] = int(RatioGpu * StandardMem )
             container_requests[GpuFp32] = int(RatioGpu * StandardFp32)
             
-            # if int(MilliGpu) == 1000:
-            #     annotations[HardIsolation] = 'true'
-            # else:
-            #     annotations[HardIsolation] = 'false'
-            annotations[HardIsolation] = 'true'
+            if int(MilliGpu) == 1000:
+                annotations[HardIsolation] = 'true'
+            else:
+                annotations[HardIsolation] = 'false'
+            # annotations[HardIsolation] = 'true'
 
             if 'gpu_spec' in row:
                 gpu_req_val = [x for x in row['gpu_spec'].split('|') if len(x) > 0]
