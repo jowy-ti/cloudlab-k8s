@@ -229,9 +229,9 @@ def comparation_metrics():
     gpuFragmentedMPS = gpuAllocatedMPS - gpuUtilizationMPS
 
     plt.figure(figsize=(10, 6))
-    plt.plot(timelineMIG, gpuUtilizationMIG, label='Utilización MIG', color='blue', linestyle=':')
-    plt.plot(timelineMPS, gpuUtilizationMPS, label='Utilización MPS', color='red', linestyle='--')
-    plt.plot(timelineMIG_MPS, gpuUtilizationMIG_MPS, label='Utilización MIG+MPS', color='green', linestyle='-.')
+    plt.plot(timelineMIG, gpuUtilizationMIG, label='Utilización MIG', color='orange', linestyle='--')
+    plt.plot(timelineMPS, gpuUtilizationMPS, label='Utilización MPS', color='green', linestyle='-.')
+    plt.plot(timelineMIG_MPS, gpuUtilizationMIG_MPS, label='Utilización MIG+MPS', color='red', linestyle=':')
     plt.ylim(0, 100)
 
     plt.title('Utilización de recursos GPU (MPS vs MIG+MPS)', fontsize=14)
@@ -241,9 +241,9 @@ def comparation_metrics():
     plt.savefig(UTILIZATION_COMP)
 
     plt.figure(figsize=(10, 6))
-    plt.plot(timelineMIG, gpuFragmentedMIG, label='Fragmentación MIG', color='blue', linestyle=':')
-    plt.plot(timelineMPS, gpuFragmentedMPS, label='Fragmentación MPS', color='red', linestyle='--')
-    plt.plot(timelineMIG_MPS, gpuFragmentedMIG_MPS, label='Fragmentación MIG+MPS', color='green', linestyle='-.')
+    plt.plot(timelineMIG, gpuFragmentedMIG, label='Fragmentación MIG', color='orange', linestyle='--')
+    plt.plot(timelineMPS, gpuFragmentedMPS, label='Fragmentación MPS', color='green', linestyle='-.')
+    plt.plot(timelineMIG_MPS, gpuFragmentedMIG_MPS, label='Fragmentación MIG+MPS', color='red', linestyle=':')
     plt.ylim(0, 100)
 
     plt.title('Fragmentación de recursos GPU (MIG vs MPS vs MIG+MPS)', fontsize=14)
